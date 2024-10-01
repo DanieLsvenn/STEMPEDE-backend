@@ -1,0 +1,6 @@
+@SWP391__StempedeKit_FA24_HostAddress = http://localhost:5244
+
+GET {{SWP391__StempedeKit_FA24_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
