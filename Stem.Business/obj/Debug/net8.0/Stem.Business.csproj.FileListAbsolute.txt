@@ -1,0 +1,17 @@
+D:\Git storage\Project\SWP391\SWP391__StempedeKit_FA24\Stem.Business\bin\Debug\net8.0\Stem.Business.deps.json
+D:\Git storage\Project\SWP391\SWP391__StempedeKit_FA24\Stem.Business\bin\Debug\net8.0\Stem.Business.dll
+D:\Git storage\Project\SWP391\SWP391__StempedeKit_FA24\Stem.Business\bin\Debug\net8.0\Stem.Business.pdb
+D:\Git storage\Project\SWP391\SWP391__StempedeKit_FA24\Stem.Business\bin\Debug\net8.0\Stem.Common.dll
+D:\Git storage\Project\SWP391\SWP391__StempedeKit_FA24\Stem.Business\bin\Debug\net8.0\Stem.Data.dll
+D:\Git storage\Project\SWP391\SWP391__StempedeKit_FA24\Stem.Business\bin\Debug\net8.0\Stem.Common.pdb
+D:\Git storage\Project\SWP391\SWP391__StempedeKit_FA24\Stem.Business\bin\Debug\net8.0\Stem.Data.pdb
+D:\Git storage\Project\SWP391\SWP391__StempedeKit_FA24\Stem.Business\obj\Debug\net8.0\Stem.Business.csproj.AssemblyReference.cache
+D:\Git storage\Project\SWP391\SWP391__StempedeKit_FA24\Stem.Business\obj\Debug\net8.0\Stem.Business.GeneratedMSBuildEditorConfig.editorconfig
+D:\Git storage\Project\SWP391\SWP391__StempedeKit_FA24\Stem.Business\obj\Debug\net8.0\Stem.Business.AssemblyInfoInputs.cache
+D:\Git storage\Project\SWP391\SWP391__StempedeKit_FA24\Stem.Business\obj\Debug\net8.0\Stem.Business.AssemblyInfo.cs
+D:\Git storage\Project\SWP391\SWP391__StempedeKit_FA24\Stem.Business\obj\Debug\net8.0\Stem.Business.csproj.CoreCompileInputs.cache
+D:\Git storage\Project\SWP391\SWP391__StempedeKit_FA24\Stem.Business\obj\Debug\net8.0\Stem.Bus.6C100D22.Up2Date
+D:\Git storage\Project\SWP391\SWP391__StempedeKit_FA24\Stem.Business\obj\Debug\net8.0\Stem.Business.dll
+D:\Git storage\Project\SWP391\SWP391__StempedeKit_FA24\Stem.Business\obj\Debug\net8.0\refint\Stem.Business.dll
+D:\Git storage\Project\SWP391\SWP391__StempedeKit_FA24\Stem.Business\obj\Debug\net8.0\Stem.Business.pdb
+D:\Git storage\Project\SWP391\SWP391__StempedeKit_FA24\Stem.Business\obj\Debug\net8.0\ref\Stem.Business.dll

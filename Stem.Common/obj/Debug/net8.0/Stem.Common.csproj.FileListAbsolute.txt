@@ -1,0 +1,12 @@
+D:\Git storage\Project\SWP391\SWP391__StempedeKit_FA24\Stem.Common\bin\Debug\net8.0\Stem.Common.deps.json
+D:\Git storage\Project\SWP391\SWP391__StempedeKit_FA24\Stem.Common\bin\Debug\net8.0\Stem.Common.dll
+D:\Git storage\Project\SWP391\SWP391__StempedeKit_FA24\Stem.Common\bin\Debug\net8.0\Stem.Common.pdb
+D:\Git storage\Project\SWP391\SWP391__StempedeKit_FA24\Stem.Common\obj\Debug\net8.0\Stem.Common.csproj.AssemblyReference.cache
+D:\Git storage\Project\SWP391\SWP391__StempedeKit_FA24\Stem.Common\obj\Debug\net8.0\Stem.Common.GeneratedMSBuildEditorConfig.editorconfig
+D:\Git storage\Project\SWP391\SWP391__StempedeKit_FA24\Stem.Common\obj\Debug\net8.0\Stem.Common.AssemblyInfoInputs.cache
+D:\Git storage\Project\SWP391\SWP391__StempedeKit_FA24\Stem.Common\obj\Debug\net8.0\Stem.Common.AssemblyInfo.cs
+D:\Git storage\Project\SWP391\SWP391__StempedeKit_FA24\Stem.Common\obj\Debug\net8.0\Stem.Common.csproj.CoreCompileInputs.cache
+D:\Git storage\Project\SWP391\SWP391__StempedeKit_FA24\Stem.Common\obj\Debug\net8.0\Stem.Common.dll
+D:\Git storage\Project\SWP391\SWP391__StempedeKit_FA24\Stem.Common\obj\Debug\net8.0\refint\Stem.Common.dll
+D:\Git storage\Project\SWP391\SWP391__StempedeKit_FA24\Stem.Common\obj\Debug\net8.0\Stem.Common.pdb
+D:\Git storage\Project\SWP391\SWP391__StempedeKit_FA24\Stem.Common\obj\Debug\net8.0\ref\Stem.Common.dll
