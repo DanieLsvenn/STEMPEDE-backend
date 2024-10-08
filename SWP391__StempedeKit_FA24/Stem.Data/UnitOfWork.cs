@@ -29,6 +29,8 @@ namespace Stem.Data
                 return _product ??= new Repository.ProductRepository(_unitOfWorkContext);
             }
         }
+        
+
         ////TO-DO CODE HERE/////////////////
 
         #region Set transaction isolation levels
