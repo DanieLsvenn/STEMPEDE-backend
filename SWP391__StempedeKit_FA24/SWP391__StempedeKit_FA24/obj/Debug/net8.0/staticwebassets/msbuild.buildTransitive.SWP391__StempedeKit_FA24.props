@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\buildMultiTargeting\SWP391__StempedeKit_FA24.props" />
-</Project>
