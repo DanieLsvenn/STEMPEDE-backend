@@ -1,7 +1,9 @@
 ﻿using Microsoft.IdentityModel.Tokens;
+using Stemkit.Models;
 using Stemkit.Utils.Interfaces;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
+using System.Security.Cryptography;
 using System.Text;
 
 namespace Stemkit.Utils.Implementation
@@ -78,6 +80,32 @@ namespace Stemkit.Utils.Implementation
             _logger.LogInformation("JWT token generated successfully for UserID: {UserId}", userId);
 
             return new JwtSecurityTokenHandler().WriteToken(token);
+        }
+
+        public RefreshToken GenerateRefreshToken(int userId, string createdByIp)
+        {
+            var refreshToken = new RefreshToken
+            {
+                Token = GenerateSecureToken(),
+                UserId = userId,
+                Expires = _dateTimeProvider.UtcNow.AddDays(7), // Set desired expiration
+                Created = _dateTimeProvider.UtcNow,
+                CreatedByIp = createdByIp
+            };
+
+            _logger.LogInformation("Refresh token generated successfully for UserID: {UserId}", userId);
+
+            return refreshToken;
+        }
+
+        private string GenerateSecureToken()
+        {
+            var randomNumber = new byte[32];
+            using (var rng = RandomNumberGenerator.Create())
+            {
+                rng.GetBytes(randomNumber);
+                return Convert.ToBase64String(randomNumber);
+            }
         }
     }
 }

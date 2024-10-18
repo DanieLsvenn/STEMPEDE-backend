@@ -19,6 +19,8 @@ public partial class User
 
     public virtual Customer? Customer { get; set; }
 
+    public virtual ICollection<RefreshToken> RefreshTokens { get; set; } = new List<RefreshToken>();
+
     public virtual Staff? Staff { get; set; }
 
     public virtual ICollection<UserPermission> UserPermissionAssignedByNavigations { get; set; } = new List<UserPermission>();

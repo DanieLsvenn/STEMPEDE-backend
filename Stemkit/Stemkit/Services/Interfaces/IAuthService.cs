@@ -6,5 +6,7 @@ namespace Stemkit.Services.Interfaces
     {
         Task<AuthResponse> RegisterAsync(UserRegistrationDto registrationDto);
         Task<AuthResponse> LoginAsync(UserLoginDto loginDto);
+        Task<AuthResponse> RefreshTokenAsync(string refreshToken, string ipAddress);
+        Task<AuthResponse> LogoutAsync(string refreshToken);
     }
 }

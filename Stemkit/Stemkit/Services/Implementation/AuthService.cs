@@ -5,6 +5,8 @@ using Stemkit.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Data.SqlClient;
 using Stemkit.Utils.Interfaces;
+using Stemkit.Utils.Implementation;
+using System.Data;
 
 namespace Stemkit.Services.Implementation
 {
@@ -12,12 +14,18 @@ namespace Stemkit.Services.Implementation
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IJwtTokenGenerator _jwtTokenGenerator;
+        private readonly IDateTimeProvider _dateTimeProvider;
         private readonly ILogger<AuthService> _logger;
 
-        public AuthService(IUnitOfWork unitOfWork, IJwtTokenGenerator jwtTokenGenerator, ILogger<AuthService> logger)
+        public AuthService(
+            IUnitOfWork unitOfWork,
+            IJwtTokenGenerator jwtTokenGenerator,
+            IDateTimeProvider dateTimeProvider,
+            ILogger<AuthService> logger)
         {
             _unitOfWork = unitOfWork;
             _jwtTokenGenerator = jwtTokenGenerator;
+            _dateTimeProvider = dateTimeProvider;
             _logger = logger;
         }
 
@@ -107,14 +115,26 @@ namespace Stemkit.Services.Implementation
                         await _unitOfWork.GetRepository<Staff>().AddAsync(staff);
                     }
 
+                    // Generate JWT Access Token
+                    var accessToken = _jwtTokenGenerator.GenerateJwtToken(user.UserId, new List<string> { "Customer" });
+
+                    // Generate Refresh Token
+                    var refreshToken = _jwtTokenGenerator.GenerateRefreshToken(user.UserId, "127.0.0.1"); // Replace with actual IP
+
                     // Save all changes to the database
+                    await _unitOfWork.RefreshTokens.AddAsync(refreshToken);
                     await _unitOfWork.CompleteAsync();
 
                     // Commit transaction
                     await transaction.CommitAsync();
                     _logger.LogInformation("User registration successful.");
-
-                    return new AuthResponse { Success = true, Message = "Registration successful." };
+                    return new AuthResponse
+                    {
+                        Success = true,
+                        Message = "Registration successful.",
+                        Token = accessToken,
+                        RefreshToken = refreshToken.Token
+                    };
                 }
                 catch (SqlException ex)
                 {
@@ -124,9 +144,9 @@ namespace Stemkit.Services.Implementation
                 }
                 catch (Exception ex)
                 {
-                    _logger.LogError(ex, "An unexpected error occurred.");
+                    _logger.LogError(ex, "An unexpected error occurred during registration.");
                     await transaction.RollbackAsync();
-                    return new AuthResponse { Success = false, Message = "An unexpected error occurred. Please try again later." };
+                    return new AuthResponse { Success = false, Message = "An unexpected error occurred. Please try again." };
                 }
             }
         }
@@ -173,11 +193,20 @@ namespace Stemkit.Services.Implementation
                 var roleNames = roles.Select(r => r.RoleName).ToList();
 
                 // Generate JWT token
-                var token = _jwtTokenGenerator.GenerateJwtToken(user.UserId, roleNames);
+                var accessToken = _jwtTokenGenerator.GenerateJwtToken(user.UserId, roleNames);
+
+                // Generate Refresh Token
+                var refreshToken = _jwtTokenGenerator.GenerateRefreshToken(user.UserId, "127.0.0.1"); // Replace with actual IP
 
                 _logger.LogInformation("User login successful for UserID: {UserId}", user.UserId);
 
-                return new AuthResponse { Success = true, Token = token, Message = "Login successful." };
+                return new AuthResponse
+                {
+                    Success = true,
+                    Token = accessToken,
+                    RefreshToken = refreshToken.Token,
+                    Message = "Login successful."
+                };
             }
             catch (SqlException sqlEx)
             {
@@ -189,6 +218,110 @@ namespace Stemkit.Services.Implementation
                 _logger.LogError(ex, "An error occurred during login.");
                 return new AuthResponse { Success = false, Message = "Login failed. Please try again." };
             }
+        }
+
+        public async Task<AuthResponse> LogoutAsync(string refreshToken)
+        {
+            if (string.IsNullOrEmpty(refreshToken))
+            {
+                _logger.LogWarning("Refresh token is null or empty during logout.");
+                return new AuthResponse { Success = false, Message = "Invalid refresh token." };
+            }
+
+            var existingRefreshToken = await _unitOfWork.RefreshTokens.GetByTokenAsync(refreshToken);
+
+            if (existingRefreshToken == null)
+            {
+                _logger.LogWarning("Refresh token not found during logout: {Token}", refreshToken);
+                return new AuthResponse { Success = false, Message = "Invalid refresh token." };
+            }
+
+            // Remove the Refresh Token
+            _unitOfWork.RefreshTokens.Delete(existingRefreshToken);
+            await _unitOfWork.CompleteAsync();
+
+            _logger.LogInformation("User logged out successfully for UserID: {UserId}", existingRefreshToken.UserId);
+
+            return new AuthResponse { Success = true, Message = "Logout successful." };
+        }
+
+
+        public async Task<AuthResponse> RefreshTokenAsync(string token, string ipAddress)
+        {
+            if (string.IsNullOrEmpty(token))
+            {
+                _logger.LogWarning("Refresh token is null or empty.");
+                return new AuthResponse { Success = false, Message = "Invalid refresh token." };
+            }
+
+            // Retrieve the refresh token from the database
+            var existingRefreshToken = await _unitOfWork.RefreshTokens.GetAsync(
+        rt => rt.Token == token,
+        includeProperties: ""
+    );
+
+            if (existingRefreshToken == null)
+            {
+                _logger.LogWarning("Refresh token not found: {Token}", token);
+                return new AuthResponse { Success = false, Message = "Invalid refresh token." };
+            }
+
+            if (existingRefreshToken.Expires < _dateTimeProvider.UtcNow)
+            {
+                _logger.LogWarning("Refresh token expired: {Token}", token);
+                return new AuthResponse { Success = false, Message = "Expired refresh token." };
+            }
+
+            // Optionally: Check if the token has been revoked or used (for token rotation)
+
+            if (!existingRefreshToken.UserId.HasValue)
+            {
+                _logger.LogWarning("Refresh token does not have a valid UserID.");
+                return new AuthResponse { Success = false, Message = "Invalid refresh token." };
+            }
+
+            var user = await _unitOfWork.GetRepository<User>().GetByIdAsync(existingRefreshToken.UserId.Value);
+            if (user == null)
+            {
+                _logger.LogWarning("User not found for Refresh Token: {Token}", token);
+                return new AuthResponse { Success = false, Message = "Invalid refresh token." };
+            }
+
+            // Retrieve user roles
+            var roles = await GetUserRolesAsync(user.UserId);
+
+            // Generate new Access Token
+            var newAccessToken = _jwtTokenGenerator.GenerateJwtToken(user.UserId, roles);
+
+            // Generate new Refresh Token
+            var newRefreshToken = _jwtTokenGenerator.GenerateRefreshToken(user.UserId, ipAddress);
+
+            // Remove the old Refresh Token (token rotation)
+            _unitOfWork.RefreshTokens.Delete(existingRefreshToken);
+
+            // Add the new Refresh Token
+            await _unitOfWork.RefreshTokens.AddAsync(newRefreshToken);
+
+            // Commit the changes
+            await _unitOfWork.CompleteAsync();
+
+            _logger.LogInformation("Refresh token successfully refreshed for UserID: {UserId}", user.UserId);
+
+            // Return the new tokens
+            return new AuthResponse
+            {
+                Success = true,
+                Message = "Token refreshed successfully.",
+                Token = newAccessToken,
+                RefreshToken = newRefreshToken.Token
+            };
+        }
+
+        private async Task<List<string>> GetUserRolesAsync(int userId)
+        {
+            var userRoles = await _unitOfWork.GetRepository<UserRole>()
+                                         .FindAsync(ur => ur.UserId == userId, includeProperties: "Role");
+            return userRoles.Select(ur => ur.Role.RoleName).ToList();
         }
     }
 }

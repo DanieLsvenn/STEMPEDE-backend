@@ -1,5 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System;
 using Stemkit.Models;
+using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore;
 
 namespace Stemkit.Data;
 
@@ -35,6 +37,8 @@ public partial class AppDbContext : DbContext
     public virtual DbSet<Permission> Permissions { get; set; }
 
     public virtual DbSet<Product> Products { get; set; }
+
+    public virtual DbSet<RefreshToken> RefreshTokens { get; set; }
 
     public virtual DbSet<Refund> Refunds { get; set; }
 
@@ -249,6 +253,22 @@ public partial class AppDbContext : DbContext
             entity.HasOne(d => d.Subcategory).WithMany(p => p.Products)
                 .HasForeignKey(d => d.SubcategoryId)
                 .HasConstraintName("FK__Products__Subcat__5441852A");
+        });
+
+        modelBuilder.Entity<RefreshToken>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__RefreshT__3214EC279905AC3C");
+
+            entity.Property(e => e.Id).HasColumnName("ID");
+            entity.Property(e => e.Created).HasColumnType("datetime");
+            entity.Property(e => e.CreatedByIp).HasMaxLength(45);
+            entity.Property(e => e.Expires).HasColumnType("datetime");
+            entity.Property(e => e.Token).HasMaxLength(255);
+            entity.Property(e => e.UserId).HasColumnName("UserID");
+
+            entity.HasOne(d => d.User).WithMany(p => p.RefreshTokens)
+                .HasForeignKey(d => d.UserId)
+                .HasConstraintName("FK__RefreshTo__UserI__2180FB33");
         });
 
         modelBuilder.Entity<Refund>(entity =>

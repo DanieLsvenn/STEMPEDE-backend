@@ -89,7 +89,7 @@ namespace Stemkit.Controllers
 
         [HttpGet("login-google")]
         public async Task<IActionResult> LoginWithGoogle([FromBody] ExternalAuthDto externalAuth)
-    {
+        {
 
             if (string.IsNullOrEmpty(externalAuth.IdToken))
             {
@@ -107,5 +107,48 @@ namespace Stemkit.Controllers
 
         }
 
+        [HttpPost("logout")]
+        public async Task<IActionResult> Logout([FromBody] RefreshRequestDto logoutRequest)
+        {
+            if (logoutRequest == null || string.IsNullOrEmpty(logoutRequest.RefreshToken))
+            {
+                return BadRequest(new { message = "Invalid refresh token." });
+            }
+
+            var result = await _authService.LogoutAsync(logoutRequest.RefreshToken);
+
+            if (!result.Success)
+            {
+                return BadRequest(new { message = result.Message });
+            }
+
+            return Ok(new { message = result.Message });
+        }
+
+
+        [HttpPost("refresh")]
+        public async Task<IActionResult> Refresh([FromBody] RefreshRequestDto refreshRequest)
+        {
+            if (refreshRequest == null || string.IsNullOrEmpty(refreshRequest.RefreshToken))
+            {
+                return BadRequest(new { message = "Invalid refresh token." });
+            }
+
+            var ipAddress = HttpContext.Connection.RemoteIpAddress?.ToString() ?? "Unknown";
+
+            var result = await _authService.RefreshTokenAsync(refreshRequest.RefreshToken, ipAddress);
+
+            if (!result.Success)
+            {
+                return BadRequest(new { message = result.Message });
+            }
+
+            return Ok(new
+            {
+                accessToken = result.Token,
+                refreshToken = result.RefreshToken,
+                message = result.Message
+            });
+        }
     }
 }

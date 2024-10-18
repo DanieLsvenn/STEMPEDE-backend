@@ -69,7 +69,5 @@ namespace Stemkit.Services.Implementation
                 return new AuthResponse { Success = false, Message = "Login failed. Please try again." };
             }
         }
-
     }
-
 }

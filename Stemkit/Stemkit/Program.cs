@@ -40,7 +40,7 @@ namespace Stemkit
 
             // Retrieve the JWT secret key from User Secrets
             var jwtSecretKey = builder.Configuration["Authentication:Jwt:Secret"];
-            //String jwtSecretKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c";
+            //jwtSecretKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c";
 
             // Add JWT Authentication
             builder.Services.AddAuthentication(options =>
@@ -60,7 +60,12 @@ namespace Stemkit
             });
 
             // Register services
+            // Register Generic Repository
             builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+
+            // Register Specific Repositories
+            builder.Services.AddScoped<IRefreshTokenRepository, RefreshTokenRepository>();
+
             builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
             builder.Services.AddScoped<IAuthService, AuthService>();
             builder.Services.AddScoped<IJwtTokenGenerator, JwtTokenGenerator>();
