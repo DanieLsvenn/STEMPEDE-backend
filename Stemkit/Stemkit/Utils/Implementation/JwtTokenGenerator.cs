@@ -55,10 +55,10 @@ namespace Stemkit.Utils.Implementation
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
             var claims = new List<Claim>
-        {
-            new Claim(JwtRegisteredClaimNames.Sub, userId.ToString()),
-            new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
-        };
+            {
+                new Claim(JwtRegisteredClaimNames.Sub, userId.ToString()),
+                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
+            };
 
             // Add roles as claims
             foreach (var role in roles)
@@ -73,7 +73,7 @@ namespace Stemkit.Utils.Implementation
                 issuer: issuer,
                 audience: audience,
                 claims: claims,
-                expires: _dateTimeProvider.UtcNow.AddHours(1),
+                expires: _dateTimeProvider.UtcNow.AddHours(1), // Token valid for 1 hour
                 signingCredentials: creds
             );
 
@@ -84,13 +84,20 @@ namespace Stemkit.Utils.Implementation
 
         public RefreshToken GenerateRefreshToken(int userId, string createdByIp)
         {
+            if (string.IsNullOrWhiteSpace(createdByIp))
+            {
+                _logger.LogWarning("Refresh token creation attempted with null or empty IP address.");
+                throw new ArgumentNullException(nameof(createdByIp), "IP address cannot be null or empty.");
+            }
+
             var refreshToken = new RefreshToken
             {
                 Token = GenerateSecureToken(),
                 UserId = userId,
-                Expires = _dateTimeProvider.UtcNow.AddDays(7), // Set desired expiration
+                ExpirationTime = _dateTimeProvider.UtcNow.AddDays(7), // Refresh token valid for 7 days
                 Created = _dateTimeProvider.UtcNow,
-                CreatedByIp = createdByIp
+                CreatedByIp = createdByIp,
+                // Revoked, RevokedByIp, ReplacedByToken are null by default
             };
 
             _logger.LogInformation("Refresh token generated successfully for UserID: {UserId}", userId);
@@ -98,6 +105,10 @@ namespace Stemkit.Utils.Implementation
             return refreshToken;
         }
 
+        /// <summary>
+        /// Generates a secure random token string.
+        /// </summary>
+        /// <returns>A secure, base64-encoded token string.</returns>
         private string GenerateSecureToken()
         {
             var randomNumber = new byte[32];

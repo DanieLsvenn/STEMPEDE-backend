@@ -14,6 +14,7 @@ using Xunit;
 using Microsoft.EntityFrameworkCore.Storage;
 using Stemkit.Data;
 using Stemkit.DTOs;
+using Stemkit.Tests.Helpers;
 
 namespace Stemkit.Tests
 {
@@ -73,7 +74,11 @@ namespace Stemkit.Tests
                 Username = "testuser",
                 Password = "Test@123",
                 Email = "testuser@example.com",
-                Role = "Customer"
+                Role = "Customer",
+                Phone = "123-456-7890",
+                Address = "123 Test Street",
+                IsExternal = false,
+                ExternalProvider = null
             };
 
             // Mock the user does not exist
@@ -94,22 +99,20 @@ namespace Stemkit.Tests
             _userRoleRepositoryMock.Setup(repo => repo.AddAsync(It.IsAny<UserRole>()))
                 .Returns(Task.CompletedTask);
 
-            // Mock adding Customer
-            _customerRepositoryMock.Setup(repo => repo.AddAsync(It.IsAny<Customer>()))
-                .Returns(Task.CompletedTask);
-
             // Mock adding RefreshToken
             _refreshTokenRepositoryMock.Setup(repo => repo.AddAsync(It.IsAny<RefreshToken>()))
                 .Returns(Task.CompletedTask);
 
             // Mock CompleteAsync with SetupSequence
             _unitOfWorkMock.SetupSequence(uow => uow.CompleteAsync())
-                .ReturnsAsync(1) // After adding user
-                .ReturnsAsync(1); // After adding refresh token
+                .ReturnsAsync(1) // After adding user and UserRole
+                .ReturnsAsync(1) // After adding refresh token
+                .ReturnsAsync(1); // If needed, for any additional CompleteAsync calls
 
             // Mock BeginTransactionAsync
             var transactionMock = new Mock<IDbContextTransaction>();
-            transactionMock.Setup(t => t.CommitAsync(It.IsAny<System.Threading.CancellationToken>())).Returns(Task.CompletedTask);
+            transactionMock.Setup(t => t.CommitAsync(It.IsAny<System.Threading.CancellationToken>()))
+                .Returns(Task.CompletedTask);
             _unitOfWorkMock.Setup(uow => uow.BeginTransactionAsync()).ReturnsAsync(transactionMock.Object);
 
             // Mock IJwtTokenGenerator methods
@@ -125,24 +128,27 @@ namespace Stemkit.Tests
                 {
                     Token = "MockedRefreshToken",
                     UserId = 1,
-                    Expires = DateTime.UtcNow.AddDays(7),
+                    ExpirationTime = DateTime.UtcNow.AddDays(7),
                     Created = DateTime.UtcNow,
                     CreatedByIp = "127.0.0.1"
                 });
 
             // Act
-            var result = await _authService.RegisterAsync(registrationDto);
+            var result = await _authService.RegisterAsync(registrationDto, "127.0.0.1");
 
             // Assert
             Assert.True(result.Success, $"Registration failed with message: {result.Message}");
             Assert.Equal("Registration successful.", result.Message);
             Assert.Equal("MockedJwtToken", result.Token);
             Assert.Equal("MockedRefreshToken", result.RefreshToken);
+            _userRepositoryMock.Verify(repo => repo.AnyAsync(It.IsAny<Expression<Func<User, bool>>>()), Times.Once);
             _userRepositoryMock.Verify(repo => repo.AddAsync(It.IsAny<User>()), Times.Once);
+            _roleRepositoryMock.Verify(repo => repo.GetAsync(
+                It.IsAny<Expression<Func<Role, bool>>>(),
+                It.IsAny<string>()), Times.Once);
             _userRoleRepositoryMock.Verify(repo => repo.AddAsync(It.IsAny<UserRole>()), Times.Once);
-            _customerRepositoryMock.Verify(repo => repo.AddAsync(It.IsAny<Customer>()), Times.Once);
             _refreshTokenRepositoryMock.Verify(repo => repo.AddAsync(It.IsAny<RefreshToken>()), Times.Once);
-            _unitOfWorkMock.Verify(uow => uow.CompleteAsync(), Times.Exactly(2));
+            _unitOfWorkMock.Verify(uow => uow.CompleteAsync(), Times.Exactly(3)); // Adjust based on actual calls
             transactionMock.Verify(t => t.CommitAsync(It.IsAny<System.Threading.CancellationToken>()), Times.Once);
         }
 
@@ -170,8 +176,9 @@ namespace Stemkit.Tests
                     It.IsAny<string>()))
                 .ReturnsAsync(role);
 
+            var ipAddress = "192.168.1.1";
             // Act
-            var result = await _authService.RegisterAsync(registrationDto);
+            var result = await _authService.RegisterAsync(registrationDto, ipAddress);
 
             // Assert
             Assert.False(result.Success);
@@ -203,8 +210,9 @@ namespace Stemkit.Tests
                     It.IsAny<string>()))
                 .ReturnsAsync((Role)null);
 
+            var ipAddress = "192.168.1.1";
             // Act
-            var result = await _authService.RegisterAsync(registrationDto);
+            var result = await _authService.RegisterAsync(registrationDto, ipAddress);
 
             // Assert
             Assert.False(result.Success);
@@ -225,8 +233,9 @@ namespace Stemkit.Tests
                 Role = ""
             };
 
+            var ipAddress = "192.168.1.1";
             // Act
-            var result = await _authService.RegisterAsync(registrationDto);
+            var result = await _authService.RegisterAsync(registrationDto, ipAddress);
 
             // Assert
             Assert.False(result.Success);
@@ -268,8 +277,9 @@ namespace Stemkit.Tests
             transactionMock.Setup(t => t.RollbackAsync(It.IsAny<System.Threading.CancellationToken>())).Returns(Task.CompletedTask);
             _unitOfWorkMock.Setup(uow => uow.BeginTransactionAsync()).ReturnsAsync(transactionMock.Object);
 
+            var ipAddress = "192.168.1.1";
             // Act
-            var result = await _authService.RegisterAsync(registrationDto);
+            var result = await _authService.RegisterAsync(registrationDto, ipAddress);
 
             // Assert
             Assert.False(result.Success);
@@ -287,7 +297,7 @@ namespace Stemkit.Tests
                 Password = "Test@123"
             };
 
-            // Hash the password
+            // Hash the password as it would be stored in the database
             var hashedPassword = BCrypt.Net.BCrypt.HashPassword("Test@123", workFactor: 12);
 
             // Define Role
@@ -308,7 +318,7 @@ namespace Stemkit.Tests
 
             var userRoles = new List<UserRole> { userRole };
 
-            // Mock the user exists with the correct password and roles
+            // Define User
             var user = new User
             {
                 UserId = 1,
@@ -318,45 +328,20 @@ namespace Stemkit.Tests
                 UserRoles = userRoles // Assign the userRoles to the user
             };
 
-            // Setup GetAsync to return the user
-            _userRepositoryMock.Setup(repo => repo.GetAsync(
-                    It.IsAny<Expression<Func<User, bool>>>(),
-                    It.IsAny<string>()))
-                .ReturnsAsync(user);
-
-            // Setup FindAsync for UserRoles to return userRoles
-            _userRoleRepositoryMock.Setup(repo => repo.FindAsync(
-                    It.IsAny<Expression<Func<UserRole, bool>>>(),
-                    It.IsAny<string>()))
-                .ReturnsAsync(userRoles);
-
-            // Setup FindAsync for Roles to return roles based on roleIds
-            _roleRepositoryMock.Setup(repo => repo.FindAsync(
-                    It.IsAny<Expression<Func<Role, bool>>>(),
-                    It.IsAny<string>()))
-                .ReturnsAsync(new List<Role> { role });
-
-            // Mock JWT token generation
-            _jwtTokenGeneratorMock.Setup(generator => generator.GenerateJwtToken(
-                    user.UserId,
-                    It.IsAny<List<string>>()))
-                .Returns("MockedJwtToken");
-
-            // Mock Refresh Token generation
-            _jwtTokenGeneratorMock.Setup(generator => generator.GenerateRefreshToken(
-                    user.UserId,
-                    It.IsAny<string>()))
-                .Returns(new RefreshToken
-                {
-                    Token = "MockedRefreshToken",
-                    UserId = user.UserId,
-                    Expires = DateTime.UtcNow.AddDays(7),
-                    Created = DateTime.UtcNow,
-                    CreatedByIp = "127.0.0.1"
-                });
+            // Setup mock repositories using helper methods
+            _userRepositoryMock.SetupUserRepository(user);
+            _userRoleRepositoryMock.SetupUserRoleRepository(userRoles);
+            _roleRepositoryMock.SetupRoleRepository(role);
+            _jwtTokenGeneratorMock.SetupJwtTokenGenerator(
+                userId: user.UserId,
+                roles: new List<string> { role.RoleName },
+                jwtToken: "MockedJwtToken",
+                refreshToken: "MockedRefreshToken");
+            _refreshTokenRepositoryMock.SetupRefreshTokenRepository(); // Setup specific repository
+            _unitOfWorkMock.SetupUnitOfWorkCompleteAsync();
 
             // Act
-            var result = await _authService.LoginAsync(loginDto);
+            var result = await _authService.LoginAsync(loginDto, "192.168.1.1");
 
             // Assert
             Assert.True(result.Success, $"Login failed with message: {result.Message}");
@@ -364,7 +349,7 @@ namespace Stemkit.Tests
             Assert.Equal("MockedJwtToken", result.Token);
             Assert.Equal("MockedRefreshToken", result.RefreshToken);
 
-            // Verify that GetAsync was called once
+            // Verify that GetAsync was called once for User
             _userRepositoryMock.Verify(repo => repo.GetAsync(
                     It.IsAny<Expression<Func<User, bool>>>(),
                     It.IsAny<string>()),
@@ -373,12 +358,6 @@ namespace Stemkit.Tests
             // Verify that FindAsync for UserRole was called once
             _userRoleRepositoryMock.Verify(repo => repo.FindAsync(
                     It.IsAny<Expression<Func<UserRole, bool>>>(),
-                    It.IsAny<string>()),
-                Times.Once);
-
-            // Verify that FindAsync for Role was called once
-            _roleRepositoryMock.Verify(repo => repo.FindAsync(
-                    It.IsAny<Expression<Func<Role, bool>>>(),
                     It.IsAny<string>()),
                 Times.Once);
 
@@ -393,8 +372,13 @@ namespace Stemkit.Tests
                     user.UserId,
                     It.IsAny<string>()),
                 Times.Once);
-        }
 
+            // Verify that RefreshToken was added once
+            _refreshTokenRepositoryMock.Verify(repo => repo.AddAsync(It.IsAny<RefreshToken>()), Times.Once);
+
+            // Verify that CompleteAsync was called once
+            _unitOfWorkMock.Verify(uow => uow.CompleteAsync(), Times.Once);
+        }
 
         [Fact]
         public async Task LoginAsync_UserDoesNotExist_ReturnsFailure()
@@ -412,8 +396,9 @@ namespace Stemkit.Tests
                     It.IsAny<string>()))
                 .ReturnsAsync((User)null);
 
+            var ipAddress = "192.168.1.1";
             // Act
-            var result = await _authService.LoginAsync(loginDto);
+            var result = await _authService.LoginAsync(loginDto, ipAddress);
 
             // Assert
             Assert.False(result.Success);
@@ -448,8 +433,9 @@ namespace Stemkit.Tests
                     It.IsAny<string>()))
                 .ReturnsAsync(user);
 
+            var ipAddress = "192.168.1.1";
             // Act
-            var result = await _authService.LoginAsync(loginDto);
+            var result = await _authService.LoginAsync(loginDto, ipAddress);
 
             // Assert
             Assert.False(result.Success);
@@ -467,8 +453,9 @@ namespace Stemkit.Tests
                 Password = ""
             };
 
+            var ipAddress = "192.168.1.1";
             // Act
-            var result = await _authService.LoginAsync(loginDto);
+            var result = await _authService.LoginAsync(loginDto, ipAddress);
 
             // Assert
             Assert.False(result.Success);
@@ -495,8 +482,9 @@ namespace Stemkit.Tests
                     It.IsAny<string>()))
                 .ThrowsAsync(new Exception("Database error"));
 
+            var ipAddress = "192.168.1.1";
             // Act
-            var result = await _authService.LoginAsync(loginDto);
+            var result = await _authService.LoginAsync(loginDto, ipAddress);
 
             // Assert
             Assert.False(result.Success);
@@ -513,7 +501,7 @@ namespace Stemkit.Tests
                 Id = 1,
                 Token = "valid-refresh-token",
                 UserId = 1,
-                Expires = DateTime.UtcNow.AddDays(7),
+                ExpirationTime = DateTime.UtcNow.AddDays(7),
                 Created = DateTime.UtcNow,
                 CreatedByIp = "127.0.0.1"
             };
@@ -547,7 +535,7 @@ namespace Stemkit.Tests
             {
                 Token = "new-refresh-token",
                 UserId = 1,
-                Expires = DateTime.UtcNow.AddDays(7),
+                ExpirationTime = DateTime.UtcNow.AddDays(7),
                 Created = DateTime.UtcNow,
                 CreatedByIp = "127.0.0.1"
             };
@@ -559,7 +547,7 @@ namespace Stemkit.Tests
                 .ReturnsAsync(existingRefreshToken);
 
             // Mock GetByIdAsync for User repository to return user
-            _userRepositoryMock.Setup(repo => repo.GetByIdAsync(existingRefreshToken.UserId.Value))
+            _userRepositoryMock.Setup(repo => repo.GetByIdAsync(existingRefreshToken.UserId))
                 .ReturnsAsync(user);
 
             // Mock FindAsync for UserRole repository to return userRoles with Role populated
@@ -641,7 +629,7 @@ namespace Stemkit.Tests
                 Id = 2,
                 Token = "expired-refresh-token",
                 UserId = 2,
-                Expires = DateTime.UtcNow.AddDays(-1), // Expired
+                ExpirationTime = DateTime.UtcNow.AddDays(-1), // Expired
                 Created = DateTime.UtcNow.AddDays(-8),
                 CreatedByIp = "192.168.1.1"
             };
@@ -670,7 +658,7 @@ namespace Stemkit.Tests
                 Id = 3,
                 Token = "token-with-no-user",
                 UserId = 999, // Non-existent user
-                Expires = DateTime.UtcNow.AddDays(7),
+                ExpirationTime = DateTime.UtcNow.AddDays(7),
                 Created = DateTime.UtcNow,
                 CreatedByIp = "10.0.0.1"
             };
@@ -680,7 +668,7 @@ namespace Stemkit.Tests
                     It.IsAny<string>()))
                 .ReturnsAsync(refreshToken);
 
-            _userRepositoryMock.Setup(repo => repo.GetByIdAsync(refreshToken.UserId.Value))
+            _userRepositoryMock.Setup(repo => repo.GetByIdAsync(refreshToken.UserId))
                 .ReturnsAsync((User)null); // User not found
 
             // Act

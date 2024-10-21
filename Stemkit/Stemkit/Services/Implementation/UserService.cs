@@ -23,6 +23,12 @@ namespace Stemkit.Services.Implementation
 
         public async Task<User> CreateUserAsync(User user)
         {
+            if (string.IsNullOrWhiteSpace(user.Email))
+                throw new ArgumentException("Email is required.");
+
+            if (string.IsNullOrWhiteSpace(user.Username))
+                throw new ArgumentException("Username is required.");
+
             var userRepository = _unitOfWork.GetRepository<User>();
             await userRepository.AddAsync(user);
             await _unitOfWork.CompleteAsync();
@@ -60,19 +66,6 @@ namespace Stemkit.Services.Implementation
             var roles = await roleRepository.FindAsync(r => roleIds.Contains(r.RoleId));
 
             return roles.Select(r => r.RoleName).ToList();
-        }
-
-        public async Task CreateCustomerRecordAsync(int userId)
-        {
-            var customerRepository = _unitOfWork.GetRepository<Customer>();
-            var customer = new Customer
-            {
-                UserId = userId,
-                RegistrationDate = DateTime.UtcNow,
-                CustomerPoint = 0
-            };
-            await customerRepository.AddAsync(customer);
-            await _unitOfWork.CompleteAsync();
         }
     }
 }

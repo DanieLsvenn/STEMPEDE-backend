@@ -18,11 +18,14 @@ namespace Stemkit.DTOs
         public string Email { get; set; } = null!;
 
         [Phone]
-        public string? Phone { get; set; }
+        public string Phone { get; set; }
 
-        public string? Address { get; set; }
+        public string Address { get; set; }
 
         [Required]
         public string Role { get; set; } = "Customer";
+
+        public bool IsExternal { get; set; }
+        public string? ExternalProvider { get; set; }
     }
 }

@@ -5,25 +5,15 @@ namespace Stemkit.Models;
 
 public partial class SupportRequest
 {
-    public int SupportRequestId { get; set; }
+    public int SupportId { get; set; }
 
-    public int? ProductId { get; set; }
+    public int SupportInstance { get; set; }
 
-    public int? LabId { get; set; }
+    public int UserId { get; set; }
 
-    public int? CustomerId { get; set; }
+    public int OrderDetailId { get; set; }
 
-    public int? StaffId { get; set; }
+    public virtual OrderDetail OrderDetail { get; set; } = null!;
 
-    public DateTime RequestDate { get; set; }
-
-    public string Status { get; set; } = null!;
-
-    public virtual Customer? Customer { get; set; }
-
-    public virtual Lab? Lab { get; set; }
-
-    public virtual Product? Product { get; set; }
-
-    public virtual Staff? Staff { get; set; }
+    public virtual User User { get; set; } = null!;
 }

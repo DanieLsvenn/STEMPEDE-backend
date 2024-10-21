@@ -1,0 +1,1064 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\SE\\Ky5\\SWP391\\Git_team\\Stemkit\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{8F4D6520-11BB-42D4-8305-B3CE1517489D}|Stemkit.Tests\\Stemkit.Tests.csproj|d:\\se\\ky5\\swp391\\git_team\\stemkit\\stemkit.tests\\externalauthservicetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F4D6520-11BB-42D4-8305-B3CE1517489D}|Stemkit.Tests\\Stemkit.Tests.csproj|solutionrelative:stemkit.tests\\externalauthservicetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F4D6520-11BB-42D4-8305-B3CE1517489D}|Stemkit.Tests\\Stemkit.Tests.csproj|d:\\se\\ky5\\swp391\\git_team\\stemkit\\stemkit.tests\\userscontrollertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F4D6520-11BB-42D4-8305-B3CE1517489D}|Stemkit.Tests\\Stemkit.Tests.csproj|solutionrelative:stemkit.tests\\userscontrollertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0758DC64-8DD4-4F35-8A00-5C33A0B28B53}|Stemkit\\Stemkit.csproj|d:\\se\\ky5\\swp391\\git_team\\stemkit\\stemkit\\services\\implementation\\externalauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0758DC64-8DD4-4F35-8A00-5C33A0B28B53}|Stemkit\\Stemkit.csproj|solutionrelative:stemkit\\services\\implementation\\externalauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0758DC64-8DD4-4F35-8A00-5C33A0B28B53}|Stemkit\\Stemkit.csproj|d:\\se\\ky5\\swp391\\git_team\\stemkit\\stemkit\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0758DC64-8DD4-4F35-8A00-5C33A0B28B53}|Stemkit\\Stemkit.csproj|solutionrelative:stemkit\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0758DC64-8DD4-4F35-8A00-5C33A0B28B53}|Stemkit\\Stemkit.csproj|d:\\se\\ky5\\swp391\\git_team\\stemkit\\stemkit\\dtos\\externalauthdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0758DC64-8DD4-4F35-8A00-5C33A0B28B53}|Stemkit\\Stemkit.csproj|solutionrelative:stemkit\\dtos\\externalauthdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0758DC64-8DD4-4F35-8A00-5C33A0B28B53}|Stemkit\\Stemkit.csproj|d:\\se\\ky5\\swp391\\git_team\\stemkit\\stemkit\\dtos\\authresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0758DC64-8DD4-4F35-8A00-5C33A0B28B53}|Stemkit\\Stemkit.csproj|solutionrelative:stemkit\\dtos\\authresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F4D6520-11BB-42D4-8305-B3CE1517489D}|Stemkit.Tests\\Stemkit.Tests.csproj|d:\\se\\ky5\\swp391\\git_team\\stemkit\\stemkit.tests\\helpers\\mockhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F4D6520-11BB-42D4-8305-B3CE1517489D}|Stemkit.Tests\\Stemkit.Tests.csproj|solutionrelative:stemkit.tests\\helpers\\mockhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0758DC64-8DD4-4F35-8A00-5C33A0B28B53}|Stemkit\\Stemkit.csproj|d:\\se\\ky5\\swp391\\git_team\\stemkit\\stemkit\\dtos\\userregistrationdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0758DC64-8DD4-4F35-8A00-5C33A0B28B53}|Stemkit\\Stemkit.csproj|solutionrelative:stemkit\\dtos\\userregistrationdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0758DC64-8DD4-4F35-8A00-5C33A0B28B53}|Stemkit\\Stemkit.csproj|d:\\se\\ky5\\swp391\\git_team\\stemkit\\stemkit\\services\\implementation\\googletokenvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0758DC64-8DD4-4F35-8A00-5C33A0B28B53}|Stemkit\\Stemkit.csproj|solutionrelative:stemkit\\services\\implementation\\googletokenvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0758DC64-8DD4-4F35-8A00-5C33A0B28B53}|Stemkit\\Stemkit.csproj|d:\\se\\ky5\\swp391\\git_team\\stemkit\\stemkit\\services\\implementation\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0758DC64-8DD4-4F35-8A00-5C33A0B28B53}|Stemkit\\Stemkit.csproj|solutionrelative:stemkit\\services\\implementation\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0758DC64-8DD4-4F35-8A00-5C33A0B28B53}|Stemkit\\Stemkit.csproj|d:\\se\\ky5\\swp391\\git_team\\stemkit\\stemkit\\controllers\\userscontroller .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0758DC64-8DD4-4F35-8A00-5C33A0B28B53}|Stemkit\\Stemkit.csproj|solutionrelative:stemkit\\controllers\\userscontroller .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F4D6520-11BB-42D4-8305-B3CE1517489D}|Stemkit.Tests\\Stemkit.Tests.csproj|d:\\se\\ky5\\swp391\\git_team\\stemkit\\stemkit.tests\\authservicetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F4D6520-11BB-42D4-8305-B3CE1517489D}|Stemkit.Tests\\Stemkit.Tests.csproj|solutionrelative:stemkit.tests\\authservicetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0758DC64-8DD4-4F35-8A00-5C33A0B28B53}|Stemkit\\Stemkit.csproj|d:\\se\\ky5\\swp391\\git_team\\stemkit\\stemkit\\services\\implementation\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0758DC64-8DD4-4F35-8A00-5C33A0B28B53}|Stemkit\\Stemkit.csproj|solutionrelative:stemkit\\services\\implementation\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0758DC64-8DD4-4F35-8A00-5C33A0B28B53}|Stemkit\\Stemkit.csproj|d:\\se\\ky5\\swp391\\git_team\\stemkit\\stemkit\\repositories\\implementations\\genericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0758DC64-8DD4-4F35-8A00-5C33A0B28B53}|Stemkit\\Stemkit.csproj|solutionrelative:stemkit\\repositories\\implementations\\genericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0758DC64-8DD4-4F35-8A00-5C33A0B28B53}|Stemkit\\Stemkit.csproj|d:\\se\\ky5\\swp391\\git_team\\stemkit\\stemkit\\dtos\\userlogindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0758DC64-8DD4-4F35-8A00-5C33A0B28B53}|Stemkit\\Stemkit.csproj|solutionrelative:stemkit\\dtos\\userlogindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0758DC64-8DD4-4F35-8A00-5C33A0B28B53}|Stemkit\\Stemkit.csproj|d:\\se\\ky5\\swp391\\git_team\\stemkit\\stemkit\\dtos\\userprofiledto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0758DC64-8DD4-4F35-8A00-5C33A0B28B53}|Stemkit\\Stemkit.csproj|solutionrelative:stemkit\\dtos\\userprofiledto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0758DC64-8DD4-4F35-8A00-5C33A0B28B53}|Stemkit\\Stemkit.csproj|d:\\se\\ky5\\swp391\\git_team\\stemkit\\stemkit\\dtos\\refreshrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0758DC64-8DD4-4F35-8A00-5C33A0B28B53}|Stemkit\\Stemkit.csproj|solutionrelative:stemkit\\dtos\\refreshrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0758DC64-8DD4-4F35-8A00-5C33A0B28B53}|Stemkit\\Stemkit.csproj|d:\\se\\ky5\\swp391\\git_team\\stemkit\\stemkit\\dtos\\apiresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0758DC64-8DD4-4F35-8A00-5C33A0B28B53}|Stemkit\\Stemkit.csproj|solutionrelative:stemkit\\dtos\\apiresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0758DC64-8DD4-4F35-8A00-5C33A0B28B53}|Stemkit\\Stemkit.csproj|d:\\se\\ky5\\swp391\\git_team\\stemkit\\stemkit\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0758DC64-8DD4-4F35-8A00-5C33A0B28B53}|Stemkit\\Stemkit.csproj|solutionrelative:stemkit\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0758DC64-8DD4-4F35-8A00-5C33A0B28B53}|Stemkit\\Stemkit.csproj|d:\\se\\ky5\\swp391\\git_team\\stemkit\\stemkit\\services\\interfaces\\iexternalauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0758DC64-8DD4-4F35-8A00-5C33A0B28B53}|Stemkit\\Stemkit.csproj|solutionrelative:stemkit\\services\\interfaces\\iexternalauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0758DC64-8DD4-4F35-8A00-5C33A0B28B53}|Stemkit\\Stemkit.csproj|d:\\se\\ky5\\swp391\\git_team\\stemkit\\stemkit\\services\\interfaces\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0758DC64-8DD4-4F35-8A00-5C33A0B28B53}|Stemkit\\Stemkit.csproj|solutionrelative:stemkit\\services\\interfaces\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0758DC64-8DD4-4F35-8A00-5C33A0B28B53}|Stemkit\\Stemkit.csproj|d:\\se\\ky5\\swp391\\git_team\\stemkit\\stemkit\\utils\\implementation\\jwttokengenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0758DC64-8DD4-4F35-8A00-5C33A0B28B53}|Stemkit\\Stemkit.csproj|solutionrelative:stemkit\\utils\\implementation\\jwttokengenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0758DC64-8DD4-4F35-8A00-5C33A0B28B53}|Stemkit\\Stemkit.csproj|d:\\se\\ky5\\swp391\\git_team\\stemkit\\stemkit\\models\\refreshtoken.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0758DC64-8DD4-4F35-8A00-5C33A0B28B53}|Stemkit\\Stemkit.csproj|solutionrelative:stemkit\\models\\refreshtoken.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0758DC64-8DD4-4F35-8A00-5C33A0B28B53}|Stemkit\\Stemkit.csproj|d:\\se\\ky5\\swp391\\git_team\\stemkit\\stemkit\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0758DC64-8DD4-4F35-8A00-5C33A0B28B53}|Stemkit\\Stemkit.csproj|solutionrelative:stemkit\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0758DC64-8DD4-4F35-8A00-5C33A0B28B53}|Stemkit\\Stemkit.csproj|d:\\se\\ky5\\swp391\\git_team\\stemkit\\stemkit\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0758DC64-8DD4-4F35-8A00-5C33A0B28B53}|Stemkit\\Stemkit.csproj|solutionrelative:stemkit\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0758DC64-8DD4-4F35-8A00-5C33A0B28B53}|Stemkit\\Stemkit.csproj|d:\\se\\ky5\\swp391\\git_team\\stemkit\\stemkit\\repositories\\implementations\\refreshtokenrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0758DC64-8DD4-4F35-8A00-5C33A0B28B53}|Stemkit\\Stemkit.csproj|solutionrelative:stemkit\\repositories\\implementations\\refreshtokenrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\NhatHung\\AppData\\Roaming\\Microsoft\\UserSecrets\\33fe3b1d-3d5a-4017-abe6-6606100dd610\\secrets.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0758DC64-8DD4-4F35-8A00-5C33A0B28B53}|Stemkit\\Stemkit.csproj|d:\\se\\ky5\\swp391\\git_team\\stemkit\\stemkit\\utils\\implementation\\datetimeprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0758DC64-8DD4-4F35-8A00-5C33A0B28B53}|Stemkit\\Stemkit.csproj|solutionrelative:stemkit\\utils\\implementation\\datetimeprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0758DC64-8DD4-4F35-8A00-5C33A0B28B53}|Stemkit\\Stemkit.csproj|d:\\se\\ky5\\swp391\\git_team\\stemkit\\stemkit\\data\\unitofwork .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0758DC64-8DD4-4F35-8A00-5C33A0B28B53}|Stemkit\\Stemkit.csproj|solutionrelative:stemkit\\data\\unitofwork .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0758DC64-8DD4-4F35-8A00-5C33A0B28B53}|Stemkit\\Stemkit.csproj|d:\\se\\ky5\\swp391\\git_team\\stemkit\\stemkit\\data\\iunitofwork .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0758DC64-8DD4-4F35-8A00-5C33A0B28B53}|Stemkit\\Stemkit.csproj|solutionrelative:stemkit\\data\\iunitofwork .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0758DC64-8DD4-4F35-8A00-5C33A0B28B53}|Stemkit\\Stemkit.csproj|d:\\se\\ky5\\swp391\\git_team\\stemkit\\stemkit\\services\\interfaces\\igoogletokenvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0758DC64-8DD4-4F35-8A00-5C33A0B28B53}|Stemkit\\Stemkit.csproj|solutionrelative:stemkit\\services\\interfaces\\igoogletokenvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F4D6520-11BB-42D4-8305-B3CE1517489D}|Stemkit.Tests\\Stemkit.Tests.csproj|d:\\se\\ky5\\swp391\\git_team\\stemkit\\stemkit.tests\\sqlserverconnectiontests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F4D6520-11BB-42D4-8305-B3CE1517489D}|Stemkit.Tests\\Stemkit.Tests.csproj|solutionrelative:stemkit.tests\\sqlserverconnectiontests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F4D6520-11BB-42D4-8305-B3CE1517489D}|Stemkit.Tests\\Stemkit.Tests.csproj|d:\\se\\ky5\\swp391\\git_team\\stemkit\\stemkit.tests\\jwttokengeneratortests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F4D6520-11BB-42D4-8305-B3CE1517489D}|Stemkit.Tests\\Stemkit.Tests.csproj|solutionrelative:stemkit.tests\\jwttokengeneratortests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0758DC64-8DD4-4F35-8A00-5C33A0B28B53}|Stemkit\\Stemkit.csproj|d:\\se\\ky5\\swp391\\git_team\\stemkit\\stemkit\\services\\interfaces\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0758DC64-8DD4-4F35-8A00-5C33A0B28B53}|Stemkit\\Stemkit.csproj|solutionrelative:stemkit\\services\\interfaces\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0758DC64-8DD4-4F35-8A00-5C33A0B28B53}|Stemkit\\Stemkit.csproj|d:\\se\\ky5\\swp391\\git_team\\stemkit\\stemkit\\utils\\interfaces\\ijwttokengenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0758DC64-8DD4-4F35-8A00-5C33A0B28B53}|Stemkit\\Stemkit.csproj|solutionrelative:stemkit\\utils\\interfaces\\ijwttokengenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0758DC64-8DD4-4F35-8A00-5C33A0B28B53}|Stemkit\\Stemkit.csproj|d:\\se\\ky5\\swp391\\git_team\\stemkit\\stemkit\\repositories\\interfaces\\igenericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0758DC64-8DD4-4F35-8A00-5C33A0B28B53}|Stemkit\\Stemkit.csproj|solutionrelative:stemkit\\repositories\\interfaces\\igenericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0758DC64-8DD4-4F35-8A00-5C33A0B28B53}|Stemkit\\Stemkit.csproj|d:\\se\\ky5\\swp391\\git_team\\stemkit\\stemkit\\repositories\\interfaces\\irefreshtokenrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0758DC64-8DD4-4F35-8A00-5C33A0B28B53}|Stemkit\\Stemkit.csproj|solutionrelative:stemkit\\repositories\\interfaces\\irefreshtokenrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0758DC64-8DD4-4F35-8A00-5C33A0B28B53}|Stemkit\\Stemkit.csproj|d:\\se\\ky5\\swp391\\git_team\\stemkit\\stemkit\\utils\\interfaces\\idatetimeprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0758DC64-8DD4-4F35-8A00-5C33A0B28B53}|Stemkit\\Stemkit.csproj|solutionrelative:stemkit\\utils\\interfaces\\idatetimeprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0758DC64-8DD4-4F35-8A00-5C33A0B28B53}|Stemkit\\Stemkit.csproj|d:\\se\\ky5\\swp391\\git_team\\stemkit\\stemkit\\models\\userrole.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0758DC64-8DD4-4F35-8A00-5C33A0B28B53}|Stemkit\\Stemkit.csproj|solutionrelative:stemkit\\models\\userrole.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0758DC64-8DD4-4F35-8A00-5C33A0B28B53}|Stemkit\\Stemkit.csproj|d:\\se\\ky5\\swp391\\git_team\\stemkit\\stemkit\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{0758DC64-8DD4-4F35-8A00-5C33A0B28B53}|Stemkit\\Stemkit.csproj|solutionrelative:stemkit\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 200,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
+            }
+          ]
+        },
+        {
+          "DockedHeight": 200,
+          "SelectedChildIndex": 63,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e506b91c-c606-466a-90a9-123d1d1e12b3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:13:0:{2456bd12-ecf7-4988-a4a6-67d49173f565}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{004be353-6879-467c-9d1e-9ac23cdf6d49}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{e8b06f52-6d01-11d2-aa7d-00c04f990343}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:132:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:131:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:2:0:{e8b06f52-6d01-11d2-aa7d-00c04f990343}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{873151d0-cf2e-48cc-b4bf-ad0394f6a3c3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{c9c0ae26-aa77-11d2-b3f0-0000f87570ee}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1377497384:0:{83107a3e-496a-485e-b455-16ddb978e55e}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:15:0:{e8b06f52-6d01-11d2-aa7d-00c04f990343}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:16:0:{e8b06f52-6d01-11d2-aa7d-00c04f990343}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:17:0:{e8b06f52-6d01-11d2-aa7d-00c04f990343}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:14:0:{e8b06f52-6d01-11d2-aa7d-00c04f990343}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:13:0:{e8b06f52-6d01-11d2-aa7d-00c04f990343}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:12:0:{e8b06f52-6d01-11d2-aa7d-00c04f990343}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:11:0:{e8b06f52-6d01-11d2-aa7d-00c04f990343}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:10:0:{e8b06f52-6d01-11d2-aa7d-00c04f990343}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:9:0:{e8b06f52-6d01-11d2-aa7d-00c04f990343}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:8:0:{e8b06f52-6d01-11d2-aa7d-00c04f990343}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:7:0:{e8b06f52-6d01-11d2-aa7d-00c04f990343}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:6:0:{e8b06f52-6d01-11d2-aa7d-00c04f990343}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:5:0:{e8b06f52-6d01-11d2-aa7d-00c04f990343}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:4:0:{e8b06f52-6d01-11d2-aa7d-00c04f990343}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:3:0:{e8b06f52-6d01-11d2-aa7d-00c04f990343}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:131:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:132:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:7:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:16:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:17:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:11:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{588470cc-84f8-4a57-9ac4-86bca0625ff4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1928210406:0:{bf84ea66-d821-4dba-b1b1-2777d8574775}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:350743133:0:{bf84ea66-d821-4dba-b1b1-2777d8574775}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:132:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:4:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:6:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:20:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:27:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:23:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:3:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:5:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:29:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:12:0:{2456bd12-ecf7-4988-a4a6-67d49173f565}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:8:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:9:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:10:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:7:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:5:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:3:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:11:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ExternalAuthServiceTests.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\Stemkit\\Stemkit.Tests\\ExternalAuthServiceTests.cs",
+              "RelativeDocumentMoniker": "Stemkit.Tests\\ExternalAuthServiceTests.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\Stemkit\\Stemkit.Tests\\ExternalAuthServiceTests.cs",
+              "RelativeToolTip": "Stemkit.Tests\\ExternalAuthServiceTests.cs",
+              "ViewState": "AgIAAC4AAAAAAAAAAAAqwDgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-15T20:16:56.839Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AuthResponse.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\Stemkit\\Stemkit\\DTOs\\AuthResponse.cs",
+              "RelativeDocumentMoniker": "Stemkit\\DTOs\\AuthResponse.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\Stemkit\\Stemkit\\DTOs\\AuthResponse.cs",
+              "RelativeToolTip": "Stemkit\\DTOs\\AuthResponse.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-15T12:20:08.64Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\Stemkit\\Stemkit\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "Stemkit\\Controllers\\AuthController.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\Stemkit\\Stemkit\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "Stemkit\\Controllers\\AuthController.cs",
+              "ViewState": "AgIAAFMAAAAAAAAAAAAgwGwAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-15T12:18:52.53Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ExternalAuthDto.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\Stemkit\\Stemkit\\DTOs\\ExternalAuthDto.cs",
+              "RelativeDocumentMoniker": "Stemkit\\DTOs\\ExternalAuthDto.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\Stemkit\\Stemkit\\DTOs\\ExternalAuthDto.cs",
+              "RelativeToolTip": "Stemkit\\DTOs\\ExternalAuthDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-15T12:20:13.32Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ExternalAuthService.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\Stemkit\\Stemkit\\Services\\Implementation\\ExternalAuthService.cs",
+              "RelativeDocumentMoniker": "Stemkit\\Services\\Implementation\\ExternalAuthService.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\Stemkit\\Stemkit\\Services\\Implementation\\ExternalAuthService.cs",
+              "RelativeToolTip": "Stemkit\\Services\\Implementation\\ExternalAuthService.cs",
+              "ViewState": "AgIAADYAAAAAAAAAAAAYwF8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-15T12:23:31.056Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UsersControllerTests.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\Stemkit\\Stemkit.Tests\\UsersControllerTests.cs",
+              "RelativeDocumentMoniker": "Stemkit.Tests\\UsersControllerTests.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\Stemkit\\Stemkit.Tests\\UsersControllerTests.cs",
+              "RelativeToolTip": "Stemkit.Tests\\UsersControllerTests.cs",
+              "ViewState": "AgIAAJ0AAAAAAAAAAAAawKoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-21T22:45:19.713Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "MockHelper.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\Stemkit\\Stemkit.Tests\\Helpers\\MockHelper.cs",
+              "RelativeDocumentMoniker": "Stemkit.Tests\\Helpers\\MockHelper.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\Stemkit\\Stemkit.Tests\\Helpers\\MockHelper.cs",
+              "RelativeToolTip": "Stemkit.Tests\\Helpers\\MockHelper.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAYwKUAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-21T22:16:15.541Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "GoogleTokenValidator.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\Stemkit\\Stemkit\\Services\\Implementation\\GoogleTokenValidator.cs",
+              "RelativeDocumentMoniker": "Stemkit\\Services\\Implementation\\GoogleTokenValidator.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\Stemkit\\Stemkit\\Services\\Implementation\\GoogleTokenValidator.cs",
+              "RelativeToolTip": "Stemkit\\Services\\Implementation\\GoogleTokenValidator.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-15T12:23:45.752Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "UserRegistrationDto.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\Stemkit\\Stemkit\\DTOs\\UserRegistrationDto.cs",
+              "RelativeDocumentMoniker": "Stemkit\\DTOs\\UserRegistrationDto.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\Stemkit\\Stemkit\\DTOs\\UserRegistrationDto.cs",
+              "RelativeToolTip": "Stemkit\\DTOs\\UserRegistrationDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-15T12:20:19.822Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "UserService.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\Stemkit\\Stemkit\\Services\\Implementation\\UserService.cs",
+              "RelativeDocumentMoniker": "Stemkit\\Services\\Implementation\\UserService.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\Stemkit\\Stemkit\\Services\\Implementation\\UserService.cs",
+              "RelativeToolTip": "Stemkit\\Services\\Implementation\\UserService.cs",
+              "ViewState": "AgIAACsAAAAAAAAAAAAkwEYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-15T12:23:53.46Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "UsersController .cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\Stemkit\\Stemkit\\Controllers\\UsersController .cs",
+              "RelativeDocumentMoniker": "Stemkit\\Controllers\\UsersController .cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\Stemkit\\Stemkit\\Controllers\\UsersController .cs",
+              "RelativeToolTip": "Stemkit\\Controllers\\UsersController .cs",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAYwD8AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-15T12:19:21.003Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "AuthServiceTests.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\Stemkit\\Stemkit.Tests\\AuthServiceTests.cs",
+              "RelativeDocumentMoniker": "Stemkit.Tests\\AuthServiceTests.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\Stemkit\\Stemkit.Tests\\AuthServiceTests.cs",
+              "RelativeToolTip": "Stemkit.Tests\\AuthServiceTests.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAAAAwDwAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-15T20:15:05.478Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "AuthService.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\Stemkit\\Stemkit\\Services\\Implementation\\AuthService.cs",
+              "RelativeDocumentMoniker": "Stemkit\\Services\\Implementation\\AuthService.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\Stemkit\\Stemkit\\Services\\Implementation\\AuthService.cs",
+              "RelativeToolTip": "Stemkit\\Services\\Implementation\\AuthService.cs",
+              "ViewState": "AgIAAK4AAAAAAAAAAAAjwNEAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-15T12:23:11.782Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "UserLoginDto.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\Stemkit\\Stemkit\\DTOs\\UserLoginDto.cs",
+              "RelativeDocumentMoniker": "Stemkit\\DTOs\\UserLoginDto.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\Stemkit\\Stemkit\\DTOs\\UserLoginDto.cs",
+              "RelativeToolTip": "Stemkit\\DTOs\\UserLoginDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-15T12:20:16.655Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "GenericRepository.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\Stemkit\\Stemkit\\Repositories\\Implementations\\GenericRepository.cs",
+              "RelativeDocumentMoniker": "Stemkit\\Repositories\\Implementations\\GenericRepository.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\Stemkit\\Stemkit\\Repositories\\Implementations\\GenericRepository.cs",
+              "RelativeToolTip": "Stemkit\\Repositories\\Implementations\\GenericRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-15T12:21:16.76Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "UserProfileDto.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\Stemkit\\Stemkit\\DTOs\\UserProfileDto.cs",
+              "RelativeDocumentMoniker": "Stemkit\\DTOs\\UserProfileDto.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\Stemkit\\Stemkit\\DTOs\\UserProfileDto.cs",
+              "RelativeToolTip": "Stemkit\\DTOs\\UserProfileDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-18T20:46:42.852Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "RefreshRequestDto.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\Stemkit\\Stemkit\\DTOs\\RefreshRequestDto.cs",
+              "RelativeDocumentMoniker": "Stemkit\\DTOs\\RefreshRequestDto.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\Stemkit\\Stemkit\\DTOs\\RefreshRequestDto.cs",
+              "RelativeToolTip": "Stemkit\\DTOs\\RefreshRequestDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-16T08:02:47.486Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "ApiResponse.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\Stemkit\\Stemkit\\DTOs\\ApiResponse.cs",
+              "RelativeDocumentMoniker": "Stemkit\\DTOs\\ApiResponse.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\Stemkit\\Stemkit\\DTOs\\ApiResponse.cs",
+              "RelativeToolTip": "Stemkit\\DTOs\\ApiResponse.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-15T12:20:00.926Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "User.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\Stemkit\\Stemkit\\Models\\User.cs",
+              "RelativeDocumentMoniker": "Stemkit\\Models\\User.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\Stemkit\\Stemkit\\Models\\User.cs",
+              "RelativeToolTip": "Stemkit\\Models\\User.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABsAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-16T07:30:49.286Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "IExternalAuthService.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\Stemkit\\Stemkit\\Services\\Interfaces\\IExternalAuthService.cs",
+              "RelativeDocumentMoniker": "Stemkit\\Services\\Interfaces\\IExternalAuthService.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\Stemkit\\Stemkit\\Services\\Interfaces\\IExternalAuthService.cs",
+              "RelativeToolTip": "Stemkit\\Services\\Interfaces\\IExternalAuthService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-15T12:22:55.825Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "IUserService.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\Stemkit\\Stemkit\\Services\\Interfaces\\IUserService.cs",
+              "RelativeDocumentMoniker": "Stemkit\\Services\\Interfaces\\IUserService.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\Stemkit\\Stemkit\\Services\\Interfaces\\IUserService.cs",
+              "RelativeToolTip": "Stemkit\\Services\\Interfaces\\IUserService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-15T12:22:32.773Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "JwtTokenGenerator.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\Stemkit\\Stemkit\\Utils\\Implementation\\JwtTokenGenerator.cs",
+              "RelativeDocumentMoniker": "Stemkit\\Utils\\Implementation\\JwtTokenGenerator.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\Stemkit\\Stemkit\\Utils\\Implementation\\JwtTokenGenerator.cs",
+              "RelativeToolTip": "Stemkit\\Utils\\Implementation\\JwtTokenGenerator.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACMAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-21T18:50:46.647Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "RefreshToken.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\Stemkit\\Stemkit\\Models\\RefreshToken.cs",
+              "RelativeDocumentMoniker": "Stemkit\\Models\\RefreshToken.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\Stemkit\\Stemkit\\Models\\RefreshToken.cs",
+              "RelativeToolTip": "Stemkit\\Models\\RefreshToken.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-16T07:07:45.631Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\Stemkit\\Stemkit\\Program.cs",
+              "RelativeDocumentMoniker": "Stemkit\\Program.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\Stemkit\\Stemkit\\Program.cs",
+              "RelativeToolTip": "Stemkit\\Program.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAQwDsAAABYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-15T12:25:21.867Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\Stemkit\\Stemkit\\Data\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "Stemkit\\Data\\AppDbContext.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\Stemkit\\Stemkit\\Data\\AppDbContext.cs",
+              "RelativeToolTip": "Stemkit\\Data\\AppDbContext.cs",
+              "ViewState": "AgIAADsAAAAAAAAAAAAgwDIAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-21T21:02:22.512Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "RefreshTokenRepository.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\Stemkit\\Stemkit\\Repositories\\Implementations\\RefreshTokenRepository.cs",
+              "RelativeDocumentMoniker": "Stemkit\\Repositories\\Implementations\\RefreshTokenRepository.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\Stemkit\\Stemkit\\Repositories\\Implementations\\RefreshTokenRepository.cs",
+              "RelativeToolTip": "Stemkit\\Repositories\\Implementations\\RefreshTokenRepository.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABcAAABIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-16T07:23:47.436Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "secrets.json",
+              "DocumentMoniker": "C:\\Users\\NhatHung\\AppData\\Roaming\\Microsoft\\UserSecrets\\33fe3b1d-3d5a-4017-abe6-6606100dd610\\secrets.json",
+              "ToolTip": "C:\\Users\\NhatHung\\AppData\\Roaming\\Microsoft\\UserSecrets\\33fe3b1d-3d5a-4017-abe6-6606100dd610\\secrets.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-10-15T20:31:32.897Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "DateTimeProvider.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\Stemkit\\Stemkit\\Utils\\Implementation\\DateTimeProvider.cs",
+              "RelativeDocumentMoniker": "Stemkit\\Utils\\Implementation\\DateTimeProvider.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\Stemkit\\Stemkit\\Utils\\Implementation\\DateTimeProvider.cs",
+              "RelativeToolTip": "Stemkit\\Utils\\Implementation\\DateTimeProvider.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-15T21:29:08.081Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "UnitOfWork .cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\Stemkit\\Stemkit\\Data\\UnitOfWork .cs",
+              "RelativeDocumentMoniker": "Stemkit\\Data\\UnitOfWork .cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\Stemkit\\Stemkit\\Data\\UnitOfWork .cs",
+              "RelativeToolTip": "Stemkit\\Data\\UnitOfWork .cs",
+              "ViewState": "AgIAABoAAAAAAAAAAAAgwD0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-15T12:16:43.922Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "IUnitOfWork .cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\Stemkit\\Stemkit\\Data\\IUnitOfWork .cs",
+              "RelativeDocumentMoniker": "Stemkit\\Data\\IUnitOfWork .cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\Stemkit\\Stemkit\\Data\\IUnitOfWork .cs",
+              "RelativeToolTip": "Stemkit\\Data\\IUnitOfWork .cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-15T12:16:33.953Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "IGoogleTokenValidator.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\Stemkit\\Stemkit\\Services\\Interfaces\\IGoogleTokenValidator.cs",
+              "RelativeDocumentMoniker": "Stemkit\\Services\\Interfaces\\IGoogleTokenValidator.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\Stemkit\\Stemkit\\Services\\Interfaces\\IGoogleTokenValidator.cs",
+              "RelativeToolTip": "Stemkit\\Services\\Interfaces\\IGoogleTokenValidator.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-15T12:22:46.18Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "SqlServerConnectionTests.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\Stemkit\\Stemkit.Tests\\SqlServerConnectionTests.cs",
+              "RelativeDocumentMoniker": "Stemkit.Tests\\SqlServerConnectionTests.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\Stemkit\\Stemkit.Tests\\SqlServerConnectionTests.cs",
+              "RelativeToolTip": "Stemkit.Tests\\SqlServerConnectionTests.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAxwAkAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-15T20:17:35.96Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "JwtTokenGeneratorTests.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\Stemkit\\Stemkit.Tests\\JwtTokenGeneratorTests.cs",
+              "RelativeDocumentMoniker": "Stemkit.Tests\\JwtTokenGeneratorTests.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\Stemkit\\Stemkit.Tests\\JwtTokenGeneratorTests.cs",
+              "RelativeToolTip": "Stemkit.Tests\\JwtTokenGeneratorTests.cs",
+              "ViewState": "AgIAALkAAAAAAAAAAAAlwMsAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-15T20:19:30.731Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "IAuthService.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\Stemkit\\Stemkit\\Services\\Interfaces\\IAuthService.cs",
+              "RelativeDocumentMoniker": "Stemkit\\Services\\Interfaces\\IAuthService.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\Stemkit\\Stemkit\\Services\\Interfaces\\IAuthService.cs",
+              "RelativeToolTip": "Stemkit\\Services\\Interfaces\\IAuthService.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-15T12:23:01.852Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "IJwtTokenGenerator.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\Stemkit\\Stemkit\\Utils\\Interfaces\\IJwtTokenGenerator.cs",
+              "RelativeDocumentMoniker": "Stemkit\\Utils\\Interfaces\\IJwtTokenGenerator.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\Stemkit\\Stemkit\\Utils\\Interfaces\\IJwtTokenGenerator.cs",
+              "RelativeToolTip": "Stemkit\\Utils\\Interfaces\\IJwtTokenGenerator.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-15T12:24:52.984Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "IGenericRepository.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\Stemkit\\Stemkit\\Repositories\\Interfaces\\IGenericRepository.cs",
+              "RelativeDocumentMoniker": "Stemkit\\Repositories\\Interfaces\\IGenericRepository.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\Stemkit\\Stemkit\\Repositories\\Interfaces\\IGenericRepository.cs",
+              "RelativeToolTip": "Stemkit\\Repositories\\Interfaces\\IGenericRepository.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAuwA0AAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-15T12:21:30.454Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "IRefreshTokenRepository.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\Stemkit\\Stemkit\\Repositories\\Interfaces\\IRefreshTokenRepository.cs",
+              "RelativeDocumentMoniker": "Stemkit\\Repositories\\Interfaces\\IRefreshTokenRepository.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\Stemkit\\Stemkit\\Repositories\\Interfaces\\IRefreshTokenRepository.cs",
+              "RelativeToolTip": "Stemkit\\Repositories\\Interfaces\\IRefreshTokenRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-16T07:23:10.281Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "IDateTimeProvider.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\Stemkit\\Stemkit\\Utils\\Interfaces\\IDateTimeProvider.cs",
+              "RelativeDocumentMoniker": "Stemkit\\Utils\\Interfaces\\IDateTimeProvider.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\Stemkit\\Stemkit\\Utils\\Interfaces\\IDateTimeProvider.cs",
+              "RelativeToolTip": "Stemkit\\Utils\\Interfaces\\IDateTimeProvider.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-15T21:28:41.394Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "UserRole.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\Stemkit\\Stemkit\\Models\\UserRole.cs",
+              "RelativeDocumentMoniker": "Stemkit\\Models\\UserRole.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\Stemkit\\Stemkit\\Models\\UserRole.cs",
+              "RelativeToolTip": "Stemkit\\Models\\UserRole.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-16T07:30:48.234Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\Stemkit\\Stemkit\\appsettings.json",
+              "RelativeDocumentMoniker": "Stemkit\\appsettings.json",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\Stemkit\\Stemkit\\appsettings.json",
+              "RelativeToolTip": "Stemkit\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAB2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-10-15T12:14:21.33Z"
+            }
+          ]
+        },
+        {
+          "DockedHeight": 200,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:12:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:13:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:10:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:25:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:26:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:31:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:32:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:33:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:35:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:36:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:38:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:39:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:40:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:42:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:15:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:24:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:28:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:22:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:13:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:17:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:15:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            }
+          ]
+        },
+        {
+          "DockedHeight": 200,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:9:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
