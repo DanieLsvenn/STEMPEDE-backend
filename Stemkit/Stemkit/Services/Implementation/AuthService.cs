@@ -1,12 +1,15 @@
-﻿using Stemkit.Data;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
+using Stemkit.Data;
 using Stemkit.DTOs;
 using Stemkit.Models;
 using Stemkit.Services.Interfaces;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Data.SqlClient;
 using Stemkit.Utils.Interfaces;
-using Stemkit.Utils.Implementation;
-using System.Data;
 
 namespace Stemkit.Services.Implementation
 {
@@ -29,9 +32,9 @@ namespace Stemkit.Services.Implementation
             _logger = logger;
         }
 
-        public async Task<AuthResponse> RegisterAsync(UserRegistrationDto registrationDto)
+        public async Task<AuthResponse> RegisterAsync(UserRegistrationDto registrationDto, string ipAddress)
         {
-            _logger.LogInformation("Starting registration process.");
+            _logger.LogInformation("Starting registration process from IP: {IpAddress}", ipAddress);
 
             // Validate inputs
             if (string.IsNullOrWhiteSpace(registrationDto.Email) ||
@@ -41,9 +44,10 @@ namespace Stemkit.Services.Implementation
                 return new AuthResponse { Success = false, Message = "Invalid registration data." };
             }
 
+            // Check if user already exists (by Email or Username)
             var userExists = await _unitOfWork.GetRepository<User>().AnyAsync(u =>
-    EF.Functions.Collate(u.Email, "SQL_Latin1_General_CP1_CI_AS") == registrationDto.Email ||
-    EF.Functions.Collate(u.Username, "SQL_Latin1_General_CP1_CI_AS") == registrationDto.Username);
+                EF.Functions.Collate(u.Email, "SQL_Latin1_General_CP1_CI_AS") == registrationDto.Email ||
+                EF.Functions.Collate(u.Username, "SQL_Latin1_General_CP1_CI_AS") == registrationDto.Username);
 
             if (userExists)
             {
@@ -51,6 +55,7 @@ namespace Stemkit.Services.Implementation
                 return new AuthResponse { Success = false, Message = "User already exists." };
             }
 
+            // Validate role
             var allowedRoles = new List<string> { "Customer", "Staff" };
             if (string.IsNullOrWhiteSpace(registrationDto.Role) ||
                 !allowedRoles.Contains(registrationDto.Role, StringComparer.OrdinalIgnoreCase))
@@ -59,6 +64,7 @@ namespace Stemkit.Services.Implementation
                 return new AuthResponse { Success = false, Message = "Invalid or missing role provided." };
             }
 
+            // Retrieve role from the database
             var role = await _unitOfWork.GetRepository<Role>()
                 .GetAsync(r => EF.Functions.Collate(r.RoleName, "SQL_Latin1_General_CP1_CI_AS") == registrationDto.Role);
 
@@ -78,14 +84,17 @@ namespace Stemkit.Services.Implementation
                         Username = registrationDto.Username,
                         Email = registrationDto.Email,
                         Password = BCrypt.Net.BCrypt.HashPassword(registrationDto.Password, workFactor: 12),
-                        Phone = registrationDto.Phone?.Trim(),
-                        Address = registrationDto.Address?.Trim()
+                        Phone = registrationDto.Phone ?? "N/A",
+                        Address = registrationDto.Address ?? "N/A",
+                        Status = true, 
+                        IsExternal = registrationDto.IsExternal, 
+                        ExternalProvider = registrationDto.IsExternal ? registrationDto.ExternalProvider : null 
                     };
 
                     await _unitOfWork.GetRepository<User>().AddAsync(user);
                     await _unitOfWork.CompleteAsync();
 
-                    // Assign Role to the User
+                    // Assign Role to the User via UserRoles
                     var userRole = new UserRole
                     {
                         UserId = user.UserId,
@@ -93,35 +102,16 @@ namespace Stemkit.Services.Implementation
                     };
                     await _unitOfWork.GetRepository<UserRole>().AddAsync(userRole);
 
-                    // Add Customer or Staff Record Based on Roles
-                    if (registrationDto.Role.Equals("Customer", StringComparison.OrdinalIgnoreCase))
-                    {
-                        var customer = new Customer
-                        {
-                            UserId = user.UserId,
-                            RegistrationDate = DateTime.UtcNow,
-                            CustomerPoint = 0
-                        };
-                        await _unitOfWork.GetRepository<Customer>().AddAsync(customer);
-                    }
-
-                    else if (registrationDto.Role.Equals("Staff", StringComparison.OrdinalIgnoreCase))
-                    {
-                        var staff = new Staff
-                        {
-                            UserId = user.UserId,
-                            StaffPoint = 0
-                        };
-                        await _unitOfWork.GetRepository<Staff>().AddAsync(staff);
-                    }
+                    // Save role assignment
+                    await _unitOfWork.CompleteAsync();
 
                     // Generate JWT Access Token
-                    var accessToken = _jwtTokenGenerator.GenerateJwtToken(user.UserId, new List<string> { "Customer" });
+                    var accessToken = _jwtTokenGenerator.GenerateJwtToken(user.UserId, new List<string> { role.RoleName });
 
                     // Generate Refresh Token
-                    var refreshToken = _jwtTokenGenerator.GenerateRefreshToken(user.UserId, "127.0.0.1"); // Replace with actual IP
+                    var refreshToken = _jwtTokenGenerator.GenerateRefreshToken(user.UserId, ipAddress);
 
-                    // Save all changes to the database
+                    // Save the Refresh Token
                     await _unitOfWork.RefreshTokens.AddAsync(refreshToken);
                     await _unitOfWork.CompleteAsync();
 
@@ -151,9 +141,9 @@ namespace Stemkit.Services.Implementation
             }
         }
 
-        public async Task<AuthResponse> LoginAsync(UserLoginDto loginDto)
+        public async Task<AuthResponse> LoginAsync(UserLoginDto loginDto, string ipAddress)
         {
-            _logger.LogInformation("User login attempt.");
+            _logger.LogInformation("User login attempt from IP: {IpAddress}", ipAddress);
 
             // Validate inputs
             if (string.IsNullOrWhiteSpace(loginDto.EmailOrUsername) || string.IsNullOrWhiteSpace(loginDto.Password))
@@ -166,8 +156,8 @@ namespace Stemkit.Services.Implementation
             try
             {
                 var user = await _unitOfWork.GetRepository<User>().GetAsync(u =>
-            EF.Functions.Collate(u.Email, "SQL_Latin1_General_CP1_CI_AS") == emailOrUsername ||
-            EF.Functions.Collate(u.Username, "SQL_Latin1_General_CP1_CI_AS") == emailOrUsername);
+                    EF.Functions.Collate(u.Email, "SQL_Latin1_General_CP1_CI_AS") == emailOrUsername ||
+                    EF.Functions.Collate(u.Username, "SQL_Latin1_General_CP1_CI_AS") == emailOrUsername);
 
                 if (user == null)
                 {
@@ -183,20 +173,19 @@ namespace Stemkit.Services.Implementation
 
                 // Retrieve user roles
                 var userRoles = await _unitOfWork.GetRepository<UserRole>()
-                    .FindAsync(ur => ur.UserId == user.UserId);
+                    .FindAsync(ur => ur.UserId == user.UserId, includeProperties: "Role");
 
-                var roleIds = userRoles.Select(ur => ur.RoleId).ToList();
-
-                var roles = await _unitOfWork.GetRepository<Role>()
-                    .FindAsync(r => roleIds.Contains(r.RoleId));
-
-                var roleNames = roles.Select(r => r.RoleName).ToList();
+                var roleNames = userRoles.Select(ur => ur.Role.RoleName).ToList();
 
                 // Generate JWT token
                 var accessToken = _jwtTokenGenerator.GenerateJwtToken(user.UserId, roleNames);
 
                 // Generate Refresh Token
-                var refreshToken = _jwtTokenGenerator.GenerateRefreshToken(user.UserId, "127.0.0.1"); // Replace with actual IP
+                var refreshToken = _jwtTokenGenerator.GenerateRefreshToken(user.UserId, ipAddress);
+
+                // Save the Refresh Token
+                await _unitOfWork.RefreshTokens.AddAsync(refreshToken);
+                await _unitOfWork.CompleteAsync();
 
                 _logger.LogInformation("User login successful for UserID: {UserId}", user.UserId);
 
@@ -220,8 +209,10 @@ namespace Stemkit.Services.Implementation
             }
         }
 
-        public async Task<AuthResponse> LogoutAsync(string refreshToken)
+        public async Task<AuthResponse> LogoutAsync(string refreshToken, string ipAddress)
         {
+            _logger.LogInformation("Logout attempt from IP: {IpAddress}", ipAddress);
+
             if (string.IsNullOrEmpty(refreshToken))
             {
                 _logger.LogWarning("Refresh token is null or empty during logout.");
@@ -245,9 +236,10 @@ namespace Stemkit.Services.Implementation
             return new AuthResponse { Success = true, Message = "Logout successful." };
         }
 
-
         public async Task<AuthResponse> RefreshTokenAsync(string token, string ipAddress)
         {
+            _logger.LogInformation("Refresh token attempt from IP: {IpAddress}", ipAddress);
+
             if (string.IsNullOrEmpty(token))
             {
                 _logger.LogWarning("Refresh token is null or empty.");
@@ -256,9 +248,9 @@ namespace Stemkit.Services.Implementation
 
             // Retrieve the refresh token from the database
             var existingRefreshToken = await _unitOfWork.RefreshTokens.GetAsync(
-        rt => rt.Token == token,
-        includeProperties: ""
-    );
+                rt => rt.Token == token,
+                includeProperties: ""
+            );
 
             if (existingRefreshToken == null)
             {
@@ -266,21 +258,20 @@ namespace Stemkit.Services.Implementation
                 return new AuthResponse { Success = false, Message = "Invalid refresh token." };
             }
 
-            if (existingRefreshToken.Expires < _dateTimeProvider.UtcNow)
+            if (existingRefreshToken.ExpirationTime < _dateTimeProvider.UtcNow)
             {
                 _logger.LogWarning("Refresh token expired: {Token}", token);
                 return new AuthResponse { Success = false, Message = "Expired refresh token." };
             }
 
-            // Optionally: Check if the token has been revoked or used (for token rotation)
 
-            if (!existingRefreshToken.UserId.HasValue)
+            if (existingRefreshToken.UserId <= 0)
             {
                 _logger.LogWarning("Refresh token does not have a valid UserID.");
                 return new AuthResponse { Success = false, Message = "Invalid refresh token." };
             }
 
-            var user = await _unitOfWork.GetRepository<User>().GetByIdAsync(existingRefreshToken.UserId.Value);
+            var user = await _unitOfWork.GetRepository<User>().GetByIdAsync(existingRefreshToken.UserId);
             if (user == null)
             {
                 _logger.LogWarning("User not found for Refresh Token: {Token}", token);
@@ -325,3 +316,4 @@ namespace Stemkit.Services.Implementation
         }
     }
 }
+

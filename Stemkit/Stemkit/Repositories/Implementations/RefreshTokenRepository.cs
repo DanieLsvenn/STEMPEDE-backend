@@ -24,7 +24,6 @@ namespace Stemkit.Repositories.Implementations
                                        .Where(rt => rt.UserId == userId)
                                        .ToListAsync();
             _context.RefreshTokens.RemoveRange(tokens);
-            await _context.SaveChangesAsync();
         }
     }
 }

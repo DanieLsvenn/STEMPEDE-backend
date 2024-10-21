@@ -55,7 +55,9 @@ namespace Stemkit
                     ValidateIssuerSigningKey = true,
                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(jwtSecretKey)),
                     ValidateIssuer = false,
-                    ValidateAudience = false
+                    ValidateAudience = false,
+                    ValidIssuer = builder.Configuration["Authentication:Jwt:Issuer"],
+                    ValidAudience = builder.Configuration["Authentication:Jwt:Audience"]
                 };
             });
 

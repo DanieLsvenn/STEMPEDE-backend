@@ -25,12 +25,16 @@ namespace Stemkit.Services.Implementation
                 var payload = await GoogleJsonWebSignature.ValidateAsync(idToken, settings);
                 return payload;
             }
+            catch (InvalidJwtException ex)
+            {
+                _logger.LogError(ex, "Invalid Google JWT.");
+                return null;
+            }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Google token validation failed.");
+                _logger.LogError(ex, "Unexpected error during Google token validation.");
                 return null;
             }
         }
     }
-
 }

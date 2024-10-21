@@ -1,21 +1,34 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Stemkit.Models;
 
 public partial class RefreshToken
 {
+    [Key]
     public int Id { get; set; }
+
+    public int UserId { get; set; }
+
+    public DateTime ExpirationTime { get; set; }
+
+    public DateTime? Revoked { get; set; }
+
+    [MaxLength(45)]
+    public string? RevokedByIp { get; set; }
+
+    [MaxLength(255)]
+    public string? ReplacedByToken { get; set; }
 
     public string Token { get; set; } = null!;
 
-    public int? UserId { get; set; }
-
-    public DateTime Expires { get; set; }
-
     public DateTime Created { get; set; }
 
-    public string? CreatedByIp { get; set; }
+    [Required]
+    [MaxLength(45)]
 
-    public virtual User? User { get; set; }
+    public string CreatedByIp { get; set; } = null!;
+
+    public virtual User User { get; set; } = null!;
 }

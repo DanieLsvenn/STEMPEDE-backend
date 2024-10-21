@@ -9,6 +9,5 @@ namespace Stemkit.Services.Interfaces
         Task<User> CreateUserAsync(User user);
         Task AssignRoleAsync(int userId, string roleName);
         Task<List<string>> GetUserRolesAsync(int userId);
-        Task CreateCustomerRecordAsync(int userId);
     }
 }

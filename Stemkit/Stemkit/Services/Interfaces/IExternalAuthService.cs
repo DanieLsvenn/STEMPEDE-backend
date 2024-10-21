@@ -4,6 +4,7 @@ namespace Stemkit.Services.Interfaces
 {
     public interface IExternalAuthService
     {
-        Task<AuthResponse> GoogleLoginAsync(string idToken);
+        Task<AuthResponse> GoogleLoginAsync(string idToken, string ipAddress);
+
     }
 }

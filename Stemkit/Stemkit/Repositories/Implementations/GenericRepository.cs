@@ -16,7 +16,6 @@ namespace Stemkit.Repositories.Implementations
             _dbSet = context.Set<T>();
         }
 
-        // Synchronous methods (if you still need them)
         public T Get(Expression<Func<T, bool>> predicate)
         {
             return _dbSet.FirstOrDefault(predicate);

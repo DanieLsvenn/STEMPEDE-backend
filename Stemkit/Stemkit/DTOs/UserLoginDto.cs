@@ -9,5 +9,4 @@ namespace Stemkit.DTOs
         [Required]
         public string Password { get; set; } = null!;
     }
-
 }
