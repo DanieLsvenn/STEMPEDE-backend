@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Google.Apis.Auth;
 using Stemkit.Services.Interfaces;
+using Stemkit.Auth.Helpers.Interfaces;
 
 namespace Stemkit.Tests.Helpers
 {

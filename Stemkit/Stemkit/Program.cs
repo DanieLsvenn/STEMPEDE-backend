@@ -11,6 +11,10 @@ using Stemkit.Services.Interfaces;
 using System.Text.Json.Serialization;
 using Stemkit.Utils.Interfaces;
 using Stemkit.Utils.Implementation;
+using Stemkit.Auth.Services.Implementation;
+using Stemkit.Auth.Services.Interfaces;
+using Stemkit.Auth.Helpers.Implementation;
+using Stemkit.Auth.Helpers.Interfaces;
 
 namespace Stemkit
 {
@@ -40,7 +44,6 @@ namespace Stemkit
 
             // Retrieve the JWT secret key from User Secrets
             var jwtSecretKey = builder.Configuration["Authentication:Jwt:Secret"];
-            //jwtSecretKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c";
 
             // Add JWT Authentication
             builder.Services.AddAuthentication(options =>
@@ -70,7 +73,8 @@ namespace Stemkit
 
             builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
             builder.Services.AddScoped<IAuthService, AuthService>();
-            builder.Services.AddScoped<IJwtTokenGenerator, JwtTokenGenerator>();
+            builder.Services.AddScoped<IJwtTokenService, JwtTokenService>();
+            builder.Services.AddScoped<IRefreshTokenService, RefreshTokenService>();
             builder.Services.AddScoped<IDateTimeProvider, DateTimeProvider>();
             builder.Services.AddScoped<IGoogleTokenValidator, GoogleTokenValidator>();
             builder.Services.AddScoped<IExternalAuthService, ExternalAuthService>();
