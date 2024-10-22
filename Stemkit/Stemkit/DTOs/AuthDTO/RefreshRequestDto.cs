@@ -1,4 +1,4 @@
-﻿namespace Stemkit.DTOs
+﻿namespace Stemkit.DTOs.AuthDTO
 {
     public class RefreshRequestDto
     {

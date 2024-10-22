@@ -1,11 +1,11 @@
-﻿using Stemkit.DTOs;
-using Stemkit.Models;
+﻿using Stemkit.Models;
 using Stemkit.Services.Interfaces;
 using Google.Apis.Auth;
 using Stemkit.Utils.Interfaces;
 using Stemkit.Data;
 using Stemkit.Auth.Services.Interfaces;
 using Stemkit.Auth.Helpers.Interfaces;
+using Stemkit.DTOs.AuthDTO;
 
 namespace Stemkit.Auth.Services.Implementation
 {
@@ -34,7 +34,8 @@ namespace Stemkit.Auth.Services.Implementation
             _logger = logger;
         }
 
-        public async Task<AuthResponse> GoogleLoginAsync(string idToken, string ipAddress)
+        public async Task<AuthResponse> GoogleLoginAsync
+            (string idToken, string ipAddress)
         {
             _logger.LogInformation("External Google login attempt from IP: {IpAddress}", ipAddress);
 

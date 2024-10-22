@@ -6,11 +6,11 @@ using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Stemkit.Data;
-using Stemkit.DTOs;
 using Stemkit.Models;
 using Stemkit.Utils.Interfaces;
 using System.Security.Claims;
 using Stemkit.Auth.Services.Interfaces;
+using Stemkit.DTOs.AuthDTO;
 
 namespace Stemkit.Auth.Services.Implementation
 {
@@ -85,6 +85,7 @@ namespace Stemkit.Auth.Services.Implementation
                         Username = registrationDto.Username,
                         Email = registrationDto.Email,
                         Password = BCrypt.Net.BCrypt.HashPassword(registrationDto.Password, workFactor: 12),
+                        FullName = registrationDto.FullName ?? "N/A",
                         Phone = registrationDto.Phone ?? "N/A",
                         Address = registrationDto.Address ?? "N/A",
                         Status = true,

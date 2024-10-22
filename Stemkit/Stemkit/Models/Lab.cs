@@ -13,7 +13,5 @@ public partial class Lab
 
     public string? LabFileUrl { get; set; }
 
-    public int? ProductId { get; set; }
-
     public virtual ICollection<Product> Products { get; set; } = new List<Product>();
 }

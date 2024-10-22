@@ -6,6 +6,7 @@ using System.Security.Claims;
 using Stemkit.Models;
 using Stemkit.Services.Implementation;
 using Stemkit.Auth.Services.Interfaces;
+using Stemkit.DTOs.AuthDTO;
 
 namespace Stemkit.Controllers
 {
