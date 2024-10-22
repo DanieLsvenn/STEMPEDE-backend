@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Stemkit.Services.Interfaces;
 using Stemkit.DTOs;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication;
 using System.Security.Claims;
 using Stemkit.Models;
 using Stemkit.Services.Implementation;
+using Stemkit.Auth.Services.Interfaces;
 
 namespace Stemkit.Controllers
 {

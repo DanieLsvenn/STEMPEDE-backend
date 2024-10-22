@@ -7,7 +7,6 @@ using Xunit;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Configuration;
 using Stemkit.Services.Interfaces;
-using Stemkit.Services.Implementation;
 using Stemkit.DTOs;
 using Stemkit.Models;
 using Google.Apis.Auth;
@@ -15,6 +14,8 @@ using Stemkit.Utils.Interfaces;
 using Stemkit.Data;
 using Stemkit.Tests.Helpers;
 using Stemkit.Repositories.Interfaces;
+using Stemkit.Auth.Services.Implementation;
+using Stemkit.Auth.Helpers.Interfaces;
 
 
 namespace Stemkit.Tests

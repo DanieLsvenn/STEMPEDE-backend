@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Stemkit.Models;
 
@@ -31,4 +32,8 @@ public partial class RefreshToken
     public string CreatedByIp { get; set; } = null!;
 
     public virtual User User { get; set; } = null!;
+
+    // Computed property to determine if the token is revoked
+    [NotMapped]
+    public bool IsRevoked => Revoked.HasValue;
 }

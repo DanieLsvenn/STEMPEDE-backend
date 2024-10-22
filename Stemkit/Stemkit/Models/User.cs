@@ -11,15 +11,20 @@ public partial class User
 
     public string FullName { get; set; } = null!;
 
+    [Required]
+    [MaxLength(100)]
     public string Username { get; set; } = null!;
 
-    public string Password { get; set; } = null!;
+    [MaxLength(255)]
+    public string? Password { get; set; }
 
+    [Required]
+    [MaxLength(255)]
     public string Email { get; set; } = null!;
 
-    public string Phone { get; set; } = null!;
+    public string? Phone { get; set; } 
 
-    public string Address { get; set; } = null!;
+    public string? Address { get; set; }
 
     public bool Status { get; set; }
 
