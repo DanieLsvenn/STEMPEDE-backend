@@ -1,6 +1,6 @@
 ﻿using Stemkit.Auth.Services.Interfaces;
 using Stemkit.Data;
-using Stemkit.DTOs;
+using Stemkit.DTOs.AuthDTO;
 using Stemkit.Models;
 using Stemkit.Utils.Implementation;
 using Stemkit.Utils.Interfaces;
