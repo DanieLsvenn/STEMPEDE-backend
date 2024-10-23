@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Stemkit.Tests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1e18014aa8fe841fb8fd4be0332e2ad7f2ebf219")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f25ee6b8b6b54602eb909fe542098ffd8abec3f3")]
 [assembly: System.Reflection.AssemblyProductAttribute("Stemkit.Tests")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Stemkit.Tests")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -250,6 +250,10 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             }
           ]
         },
@@ -499,8 +503,7 @@
               "RelativeToolTip": "Stemkit\\DTOs\\Cart\\CheckOutRequest.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAEAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-23T23:19:20.085Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-23T23:19:20.085Z"
             },
             {
               "$type": "Document",
@@ -510,7 +513,7 @@
               "RelativeDocumentMoniker": "Stemkit\\Controllers\\CartController.cs",
               "ToolTip": "D:\\Git storage\\StemKit_BackEnd_LastestVersion\\Stemkit\\Stemkit\\Controllers\\CartController.cs",
               "RelativeToolTip": "Stemkit\\Controllers\\CartController.cs",
-              "ViewState": "AQIAABUAAAAAAAAAAAA1wAMAAAAYAAAA",
+              "ViewState": "AQIAAB4AAAAAAAAAAAAYwAMAAAAYAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-23T23:17:52.756Z",
               "EditorCaption": ""
@@ -525,8 +528,7 @@
               "RelativeToolTip": "Stemkit\\Configurations\\AutoMapperProfile.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-23T23:21:26.665Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-23T23:21:26.665Z"
             },
             {
               "$type": "Document",
@@ -538,8 +540,7 @@
               "RelativeToolTip": "Stemkit\\Configurations\\SystemConstant.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAA4AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-23T23:21:39.223Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-23T23:21:39.223Z"
             },
             {
               "$type": "Document",
@@ -551,8 +552,7 @@
               "RelativeToolTip": "Stemkit\\DTOs\\Cart\\CartItemViewModel.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-23T23:11:19.856Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-23T23:11:19.856Z"
             },
             {
               "$type": "Document",
@@ -564,8 +564,7 @@
               "RelativeToolTip": "Stemkit\\Services\\Interfaces\\IProductService.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-23T23:20:30.797Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-23T23:20:30.797Z"
             },
             {
               "$type": "Document",
@@ -577,8 +576,7 @@
               "RelativeToolTip": "Stemkit\\DTOs\\Order\\OrderDetailViewModel.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAEAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-23T23:13:23.011Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-23T23:13:23.011Z"
             },
             {
               "$type": "Document",
@@ -590,8 +588,7 @@
               "RelativeToolTip": "Stemkit\\DTOs\\Product\\ReadProductDto.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-23T00:29:02.502Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-23T00:29:02.502Z"
             },
             {
               "$type": "Document",
@@ -603,8 +600,7 @@
               "RelativeToolTip": "Stemkit\\DTOs\\Product\\CreateProductDto.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-23T00:22:46.386Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-23T00:22:46.386Z"
             },
             {
               "$type": "Document",
@@ -616,8 +612,7 @@
               "RelativeToolTip": "Stemkit\\DTOs\\Cart\\AddCartItemDto.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAbAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-23T23:11:24.637Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-23T23:11:24.637Z"
             },
             {
               "$type": "Document",
@@ -629,8 +624,7 @@
               "RelativeToolTip": "Stemkit\\Repositories\\Interfaces\\IGenericRepository.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAKAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-23T14:17:52.514Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-23T14:17:52.514Z"
             },
             {
               "$type": "Document",
@@ -642,8 +636,7 @@
               "RelativeToolTip": "Stemkit\\Repositories\\Implementations\\GenericRepository.cs",
               "ViewState": "AQIAAB4AAAAAAAAAAAAYwAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-23T14:17:25.156Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-23T14:17:25.156Z"
             },
             {
               "$type": "Document",
@@ -655,8 +648,7 @@
               "RelativeToolTip": "Stemkit\\DTOs\\UserProfileDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-18T20:46:42.852Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-18T20:46:42.852Z"
             },
             {
               "$type": "Document",
@@ -668,8 +660,7 @@
               "RelativeToolTip": "Stemkit\\DTOs\\UserProfileUpdateDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAABTAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-22T00:04:14.18Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-22T00:04:14.18Z"
             },
             {
               "$type": "Document",
@@ -681,8 +672,7 @@
               "RelativeToolTip": "Stemkit\\Controllers\\ProductController.cs",
               "ViewState": "AgIAAAkAAAAAAAAAAAAAAB4AAABQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-23T06:23:41.03Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-23T06:23:41.03Z"
             },
             {
               "$type": "Document",
@@ -694,8 +684,7 @@
               "RelativeToolTip": "Stemkit\\DTOs\\Product\\ProductQueryParameters.cs",
               "ViewState": "AgIAABsAAAAAAAAAAAAYwDAAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-23T06:47:13.552Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-23T06:47:13.552Z"
             },
             {
               "$type": "Document",
@@ -707,8 +696,7 @@
               "RelativeToolTip": "Stemkit\\Program.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-23T09:15:37.537Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-23T09:15:37.537Z"
             },
             {
               "$type": "Document",
@@ -720,8 +708,7 @@
               "RelativeToolTip": "Stemkit\\Data\\IUnitOfWork .cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-15T12:16:33.953Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-15T12:16:33.953Z"
             },
             {
               "$type": "Document",
@@ -733,8 +720,7 @@
               "RelativeToolTip": "Stemkit\\DTOs\\PagedResult.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-23T06:45:03.763Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-23T06:45:03.763Z"
             },
             {
               "$type": "Document",
@@ -746,8 +732,7 @@
               "RelativeToolTip": "Stemkit\\Data\\AppDbContext.cs",
               "ViewState": "AgIAACMAAAAAAAAAAAAUwDIAAAA6AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-22T09:13:03.833Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-22T09:13:03.833Z"
             },
             {
               "$type": "Document",
@@ -759,8 +744,7 @@
               "RelativeToolTip": "Stemkit\\Controllers\\UsersController .cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAEAAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-15T12:19:21.003Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-15T12:19:21.003Z"
             },
             {
               "$type": "Document",
@@ -772,8 +756,7 @@
               "RelativeToolTip": "Stemkit\\DTOs\\Product\\UpdateProductDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAIBJwCAAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-23T00:28:06.889Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-23T00:28:06.889Z"
             },
             {
               "$type": "Document",
@@ -785,8 +768,7 @@
               "RelativeToolTip": "Stemkit\\Data\\UnitOfWork .cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAD0AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-15T12:16:43.922Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-15T12:16:43.922Z"
             },
             {
               "$type": "Document",
@@ -798,8 +780,7 @@
               "RelativeToolTip": "Stemkit\\Services\\Implementation\\ProductService.cs",
               "ViewState": "AgIAAE0AAAAAAAAAAAAgwFEAAAA8AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-23T00:32:19.53Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-23T00:32:19.53Z"
             },
             {
               "$type": "Document",
@@ -823,8 +804,7 @@
               "RelativeToolTip": "Stemkit.Tests\\JwtTokenGeneratorTests.cs",
               "ViewState": "AgIAAEIAAAAAAAAAAAAWwFgAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-15T20:19:30.731Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-15T20:19:30.731Z"
             },
             {
               "$type": "Document",
@@ -836,8 +816,7 @@
               "RelativeToolTip": "Stemkit\\DTOs\\Auth\\ExternalAuthDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-15T12:20:13.32Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-15T12:20:13.32Z"
             },
             {
               "$type": "Document",
@@ -849,8 +828,7 @@
               "RelativeToolTip": "Stemkit\\DTOs\\Auth\\RefreshRequestDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-16T08:02:47.486Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-16T08:02:47.486Z"
             },
             {
               "$type": "Document",
@@ -862,8 +840,7 @@
               "RelativeToolTip": "Stemkit\\DTOs\\Auth\\UserLoginDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-15T12:20:16.655Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-15T12:20:16.655Z"
             },
             {
               "$type": "Document",
@@ -875,8 +852,7 @@
               "RelativeToolTip": "Stemkit\\DTOs\\Auth\\UserRegistrationDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-15T12:20:19.822Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-15T12:20:19.822Z"
             },
             {
               "$type": "Document",
@@ -888,8 +864,7 @@
               "RelativeToolTip": "Stemkit\\Auth\\Services\\Implementation\\AuthService.cs",
               "ViewState": "AgIAACQAAAAAAAAAAAAYwEQAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-15T12:23:11.782Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-15T12:23:11.782Z"
             },
             {
               "$type": "Document",
@@ -901,8 +876,7 @@
               "RelativeToolTip": "Stemkit\\Auth\\Services\\Implementation\\JwtTokenService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-22T03:25:19.998Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-22T03:25:19.998Z"
             },
             {
               "$type": "Document",
@@ -914,8 +888,7 @@
               "RelativeToolTip": "Stemkit\\Auth\\Services\\Implementation\\ExternalAuthService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-15T12:23:31.056Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-15T12:23:31.056Z"
             },
             {
               "$type": "Document",
@@ -927,8 +900,7 @@
               "RelativeToolTip": "Stemkit\\Models\\RefreshToken.cs",
               "ViewState": "AgIAAAkAAAAAAAAAAAAqwB0AAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-16T07:07:45.631Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-16T07:07:45.631Z"
             },
             {
               "$type": "Document",
@@ -940,8 +912,7 @@
               "RelativeToolTip": "Stemkit\\Services\\Interfaces\\IUserService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAA5AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-15T12:22:32.773Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-15T12:22:32.773Z"
             },
             {
               "$type": "Document",
@@ -953,8 +924,7 @@
               "RelativeToolTip": "Stemkit\\Services\\Implementation\\UserService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-15T12:23:53.46Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-15T12:23:53.46Z"
             },
             {
               "$type": "Document",
@@ -966,8 +936,7 @@
               "RelativeToolTip": "Stemkit\\Repositories\\Implementations\\RefreshTokenRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAIBJwBcAAABIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-16T07:23:47.436Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-16T07:23:47.436Z"
             },
             {
               "$type": "Document",
@@ -979,8 +948,7 @@
               "RelativeToolTip": "Stemkit\\Auth\\Services\\Implementation\\RefreshTokenService.cs",
               "ViewState": "AgIAAEYAAAAAAAAAAAAMwFsAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-22T03:24:27.334Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-22T03:24:27.334Z"
             },
             {
               "$type": "Document",
@@ -992,8 +960,7 @@
               "RelativeToolTip": "Stemkit\\Auth\\Services\\Interfaces\\IRefreshTokenService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-22T03:24:07.046Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-22T03:24:07.046Z"
             },
             {
               "$type": "Document",
@@ -1005,8 +972,7 @@
               "RelativeToolTip": "Stemkit\\Auth\\Services\\Interfaces\\IJwtTokenService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-22T03:25:00.149Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-22T03:25:00.149Z"
             },
             {
               "$type": "Document",
@@ -1018,8 +984,7 @@
               "RelativeToolTip": "Stemkit\\Auth\\Services\\Interfaces\\IExternalAuthService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-15T12:22:55.825Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-15T12:22:55.825Z"
             },
             {
               "$type": "Document",
@@ -1031,8 +996,7 @@
               "RelativeToolTip": "Stemkit\\Auth\\Services\\Interfaces\\IAuthService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-15T12:23:01.852Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-15T12:23:01.852Z"
             },
             {
               "$type": "Document",
@@ -1044,8 +1008,7 @@
               "RelativeToolTip": "Stemkit\\Models\\Subcategory.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-23T00:20:52.594Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-23T00:20:52.594Z"
             },
             {
               "$type": "Document",
@@ -1057,8 +1020,7 @@
               "RelativeToolTip": "Stemkit\\Models\\Lab.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-23T00:20:16.001Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-23T00:20:16.001Z"
             },
             {
               "$type": "Document",
@@ -1070,8 +1032,7 @@
               "RelativeToolTip": "Stemkit\\Models\\Product.cs",
               "ViewState": "AgIAAA8AAAAAAAAAAAAYwCMAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-23T00:18:14.33Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-23T00:18:14.33Z"
             },
             {
               "$type": "Document",
@@ -1083,8 +1044,7 @@
               "RelativeToolTip": "Stemkit\\Models\\User.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-16T07:30:49.286Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-16T07:30:49.286Z"
             },
             {
               "$type": "Document",
@@ -1096,8 +1056,7 @@
               "RelativeToolTip": "Stemkit\\Models\\Role.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-22T06:40:52.915Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-22T06:40:52.915Z"
             },
             {
               "$type": "Document",
@@ -1109,8 +1068,7 @@
               "RelativeToolTip": "Stemkit\\Models\\UserRole.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-16T07:30:48.234Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-16T07:30:48.234Z"
             },
             {
               "$type": "Document",
@@ -1122,8 +1080,7 @@
               "RelativeToolTip": "Stemkit\\Auth\\Helpers\\Implementation\\GoogleTokenValidator.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-15T12:23:45.752Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-15T12:23:45.752Z"
             },
             {
               "$type": "Document",
@@ -1135,8 +1092,7 @@
               "RelativeToolTip": "Stemkit\\Auth\\Helpers\\Interfaces\\IGoogleTokenValidator.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-15T12:22:46.18Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-15T12:22:46.18Z"
             },
             {
               "$type": "Document",
@@ -1148,8 +1104,7 @@
               "RelativeToolTip": "Stemkit.Tests\\ExternalAuthServiceTests.cs",
               "ViewState": "AgIAAC4AAAAAAAAAAAAqwD4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-15T20:16:56.839Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-15T20:16:56.839Z"
             },
             {
               "$type": "Document",
@@ -1161,8 +1116,7 @@
               "RelativeToolTip": "Stemkit.Tests\\UsersControllerTests.cs",
               "ViewState": "AgIAAJ0AAAAAAAAAAAAawKoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-21T22:45:19.713Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-21T22:45:19.713Z"
             },
             {
               "$type": "Document",
@@ -1174,8 +1128,7 @@
               "RelativeToolTip": "Stemkit.Tests\\Helpers\\MockHelper.cs",
               "ViewState": "AgIAAAwAAAAAAAAAAAAYwKUAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-21T22:16:15.541Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-21T22:16:15.541Z"
             },
             {
               "$type": "Document",
