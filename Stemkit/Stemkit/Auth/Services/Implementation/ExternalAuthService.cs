@@ -5,7 +5,7 @@ using Stemkit.Utils.Interfaces;
 using Stemkit.Data;
 using Stemkit.Auth.Services.Interfaces;
 using Stemkit.Auth.Helpers.Interfaces;
-using Stemkit.DTOs.AuthDTO;
+using Stemkit.DTOs.Auth;
 
 namespace Stemkit.Auth.Services.Implementation
 {

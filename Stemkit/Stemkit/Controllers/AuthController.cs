@@ -6,12 +6,12 @@ using System.Security.Claims;
 using Stemkit.Models;
 using Stemkit.Services.Implementation;
 using Stemkit.Auth.Services.Interfaces;
-using Stemkit.DTOs.AuthDTO;
+using Stemkit.DTOs.Auth;
 
 namespace Stemkit.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
+    [Route("api/[controller]")]
     public class AuthController : ControllerBase
     {
         private readonly IAuthService _authService;

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Stemkit.DTOs.AuthDTO
+namespace Stemkit.DTOs.Auth
 {
     public class UserLoginDto
     {

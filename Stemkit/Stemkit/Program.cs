@@ -15,6 +15,7 @@ using Stemkit.Auth.Services.Implementation;
 using Stemkit.Auth.Services.Interfaces;
 using Stemkit.Auth.Helpers.Implementation;
 using Stemkit.Auth.Helpers.Interfaces;
+using Stemkit.Configurations;
 
 namespace Stemkit
 {
@@ -79,6 +80,10 @@ namespace Stemkit
             builder.Services.AddScoped<IGoogleTokenValidator, GoogleTokenValidator>();
             builder.Services.AddScoped<IExternalAuthService, ExternalAuthService>();
             builder.Services.AddScoped<IUserService, UserService>();
+            builder.Services.AddScoped<IProductService, ProductService>();
+
+            // Register AutoMapper
+            builder.Services.AddAutoMapper(typeof(AutoMapperProfile));
 
             // Add controllers and other services
             builder.Services.AddControllers();

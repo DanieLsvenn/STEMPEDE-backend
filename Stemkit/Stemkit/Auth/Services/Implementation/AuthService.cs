@@ -10,7 +10,7 @@ using Stemkit.Models;
 using Stemkit.Utils.Interfaces;
 using System.Security.Claims;
 using Stemkit.Auth.Services.Interfaces;
-using Stemkit.DTOs.AuthDTO;
+using Stemkit.DTOs.Auth;
 
 namespace Stemkit.Auth.Services.Implementation
 {
