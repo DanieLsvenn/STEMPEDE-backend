@@ -18,6 +18,7 @@ using Stemkit.Auth.Helpers.Interfaces;
 using Stemkit.Configurations;
 using Microsoft.OpenApi.Models;
 using Serilog;
+using System.Reflection;
 
 namespace Stemkit
 {
@@ -136,6 +137,14 @@ namespace Stemkit
                 {
                     { securityScheme, new string[] { } }
                 });
+
+                // Set the comments path for the Swagger JSON and UI.
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                if (File.Exists(xmlPath))
+                {
+                    c.IncludeXmlComments(xmlPath);
+                }
             });
 
             // Add Logging Services
