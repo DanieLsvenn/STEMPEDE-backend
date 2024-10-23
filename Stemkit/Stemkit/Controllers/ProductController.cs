@@ -23,8 +23,12 @@ namespace Stemkit.Controllers
         }
 
         /// <summary>
-        /// Get all products with pagination, sorting, and filtering.
+        /// Retrieves a paginated list of products with optional sorting and filtering.
         /// </summary>
+        /// <param name="queryParameters">Parameters for pagination, sorting, and filtering.</param>
+        /// <returns>A paginated list of products.</returns>
+        /// <response code="200">Returns the list of products.</response>
+        /// <response code="400">If the query parameters are invalid.</response>
         [HttpGet("get-all")]
         [AllowAnonymous] // Allows unauthenticated access
         public async Task<ActionResult<PagedResult<ReadProductDto>>> GetAllProducts([FromQuery] ProductQueryParameters queryParameters)
