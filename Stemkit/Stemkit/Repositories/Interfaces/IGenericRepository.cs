@@ -7,6 +7,7 @@ namespace Stemkit.Repositories.Interfaces
     public interface IGenericRepository<T> where T : class
     {
         // Synchronous methods
+        IQueryable<T> Query(string includeProperties = "");
         T Get(Expression<Func<T, bool>> predicate);
         IEnumerable<T> GetAll();
         T GetById(int id);
@@ -19,7 +20,7 @@ namespace Stemkit.Repositories.Interfaces
 
         // Asynchronous methods
         Task<T> GetAsync(Expression<Func<T, bool>> predicate, string includeProperties = "");
-        Task<IEnumerable<T>> GetAllAsync();
+        Task<IEnumerable<T>> GetAllAsync(string includeProperties = "");
         Task<T> GetByIdAsync(int id);
         Task AddAsync(T entity);
         Task AddRangeAsync(IEnumerable<T> entities);

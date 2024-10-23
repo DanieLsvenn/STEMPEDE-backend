@@ -74,6 +74,7 @@ namespace Stemkit.Tests
                 Username = "testuser",
                 Password = "Test@123",
                 Email = "testuser@example.com",
+                Fullname = "Mai Tien Hoang",
                 Role = "Customer",
                 Phone = "123-456-7890",
                 Address = "123 Test Street",

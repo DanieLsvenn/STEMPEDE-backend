@@ -1,4 +1,4 @@
-﻿using Stemkit.DTOs.AuthDTO;
+﻿using Stemkit.DTOs.Auth;
 using Stemkit.Models;
 
 namespace Stemkit.Auth.Services.Interfaces
