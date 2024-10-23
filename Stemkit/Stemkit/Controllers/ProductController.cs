@@ -25,7 +25,7 @@ namespace Stemkit.Controllers
         /// <summary>
         /// Get all products with pagination, sorting, and filtering.
         /// </summary>
-        [HttpGet]
+        [HttpGet("get-all")]
         [AllowAnonymous] // Allows unauthenticated access
         public async Task<ActionResult<PagedResult<ReadProductDto>>> GetAllProducts([FromQuery] ProductQueryParameters queryParameters)
         {
@@ -60,7 +60,7 @@ namespace Stemkit.Controllers
         /// <summary>
         /// Create a new product.
         /// </summary>
-        [HttpPost]
+        [HttpPost("create")]
         [Authorize(Roles = "Manager,Staff")]
         public async Task<ActionResult<ReadProductDto>> CreateProduct([FromBody] CreateProductDto createDto)
         {
@@ -90,7 +90,7 @@ namespace Stemkit.Controllers
         /// <summary>
         /// Update an existing product.
         /// </summary>
-        [HttpPut("{id}")]
+        [HttpPut("update/{id}")]
         [Authorize(Roles = "Manager,Staff")]
         public async Task<IActionResult> UpdateProduct(int id, [FromBody] UpdateProductDto updateDto)
         {
