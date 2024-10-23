@@ -47,6 +47,9 @@ namespace Stemkit
                 options.UseSqlServer(builder.Configuration.GetConnectionString("KitStemHubDb"));
             });
 
+            // Bind DatabaseSettings
+            builder.Services.Configure<DatabaseSettings>(builder.Configuration.GetSection("DatabaseSettings"));
+
             // Add configuration for user secrets
             builder.Configuration.AddUserSecrets<Program>();
 

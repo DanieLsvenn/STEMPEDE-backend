@@ -11,31 +11,42 @@ using Stemkit.Utils.Interfaces;
 using System.Security.Claims;
 using Stemkit.Auth.Services.Interfaces;
 using Stemkit.DTOs.Auth;
+using AutoMapper;
+using Stemkit.Utils;
+using Stemkit.Configurations;
+using Microsoft.Extensions.Options;
 
 namespace Stemkit.Auth.Services.Implementation
 {
     public class AuthService : IAuthService
     {
         private readonly IUnitOfWork _unitOfWork;
+        private readonly DatabaseSettings _dbSettings;
         private readonly IRefreshTokenService _refreshTokenService;
         private readonly IJwtTokenService _jwtTokenService;
         private readonly ILogger<AuthService> _logger;
+        private readonly IMapper _mapper;
 
         public AuthService(
             IUnitOfWork unitOfWork,
             IRefreshTokenService refreshTokenService,
             IJwtTokenService jwtTokenService,
-            ILogger<AuthService> logger)
+            ILogger<AuthService> logger,
+            IMapper mapper,
+            IOptions<DatabaseSettings> dbSettings)
         {
             _unitOfWork = unitOfWork;
             _refreshTokenService = refreshTokenService;
             _jwtTokenService = jwtTokenService;
             _logger = logger;
+            _mapper = mapper;
+            _dbSettings = dbSettings.Value;
         }
 
         public async Task<AuthResponse> RegisterAsync(UserRegistrationDto registrationDto, string ipAddress)
         {
             _logger.LogInformation("Starting registration process from IP: {IpAddress}", ipAddress);
+            _logger.LogInformation("Using Database Collation: {Collation}", _dbSettings.Collation);
 
             // Validate inputs
             if (string.IsNullOrWhiteSpace(registrationDto.Email) ||
@@ -47,8 +58,8 @@ namespace Stemkit.Auth.Services.Implementation
 
             // Check if user already exists (by Email or Username)
             var userExists = await _unitOfWork.GetRepository<User>().AnyAsync(u =>
-                EF.Functions.Collate(u.Email, "SQL_Latin1_General_CP1_CI_AS") == registrationDto.Email ||
-                EF.Functions.Collate(u.Username, "SQL_Latin1_General_CP1_CI_AS") == registrationDto.Username);
+                EF.Functions.Collate(u.Email, _dbSettings.Collation) == registrationDto.Email ||
+                EF.Functions.Collate(u.Username, _dbSettings.Collation) == registrationDto.Username);
 
             if (userExists)
             {
@@ -67,7 +78,7 @@ namespace Stemkit.Auth.Services.Implementation
 
             // Retrieve role from the database
             var role = await _unitOfWork.GetRepository<Role>()
-                .GetAsync(r => EF.Functions.Collate(r.RoleName, "SQL_Latin1_General_CP1_CI_AS") == registrationDto.Role);
+                .GetAsync(r => EF.Functions.Collate(r.RoleName, _dbSettings.Collation) == registrationDto.Role);
 
             if (role == null)
             {
@@ -80,18 +91,25 @@ namespace Stemkit.Auth.Services.Implementation
                 try
                 {
                     // Create a new user
-                    var user = new User
-                    {
-                        Username = registrationDto.Username,
-                        Email = registrationDto.Email,
-                        Password = BCrypt.Net.BCrypt.HashPassword(registrationDto.Password, workFactor: 12),
-                        FullName = registrationDto.FullName ?? "N/A",
-                        Phone = registrationDto.Phone ?? "N/A",
-                        Address = registrationDto.Address ?? "N/A",
-                        Status = true,
-                        IsExternal = registrationDto.IsExternal,
-                        ExternalProvider = registrationDto.IsExternal ? registrationDto.ExternalProvider : null
-                    };
+                    //var user = new User
+                    //{
+                    //    Username = registrationDto.Username,
+                    //    Email = registrationDto.Email,
+                    //    Password = BCrypt.Net.BCrypt.HashPassword(registrationDto.Password, workFactor: 12),
+                    //    FullName = registrationDto.FullName ?? "N/A",
+                    //    Phone = registrationDto.Phone ?? "N/A",
+                    //    Address = registrationDto.Address ?? "N/A",
+                    //    Status = true,
+                    //    IsExternal = registrationDto.IsExternal,
+                    //    ExternalProvider = registrationDto.IsExternal ? registrationDto.ExternalProvider : null
+                    //};
+
+                    var user = _mapper.Map<User>(registrationDto);
+                    
+                    user.Password = BCrypt.Net.BCrypt.HashPassword(registrationDto.Password, workFactor: 12);
+                    user.Status = true;
+                    user.IsExternal = registrationDto.IsExternal;
+                    user.ExternalProvider = registrationDto.IsExternal ? registrationDto.ExternalProvider : null;
 
                     await _unitOfWork.GetRepository<User>().AddAsync(user);
                     await _unitOfWork.CompleteAsync();
@@ -148,6 +166,7 @@ namespace Stemkit.Auth.Services.Implementation
         public async Task<AuthResponse> LoginAsync(UserLoginDto loginDto, string ipAddress)
         {
             _logger.LogInformation("User login attempt from IP: {IpAddress}", ipAddress);
+            _logger.LogInformation("Using Database Collation: {Collation}", _dbSettings.Collation);
 
             // Validate inputs
             if (string.IsNullOrWhiteSpace(loginDto.EmailOrUsername) || string.IsNullOrWhiteSpace(loginDto.Password))
@@ -160,8 +179,8 @@ namespace Stemkit.Auth.Services.Implementation
             try
             {
                 var user = await _unitOfWork.GetRepository<User>().GetAsync(u =>
-                    EF.Functions.Collate(u.Email, "SQL_Latin1_General_CP1_CI_AS") == emailOrUsername ||
-                    EF.Functions.Collate(u.Username, "SQL_Latin1_General_CP1_CI_AS") == emailOrUsername);
+                    EF.Functions.Collate(u.Email, _dbSettings.Collation) == emailOrUsername ||
+                    EF.Functions.Collate(u.Username, _dbSettings.Collation) == emailOrUsername);
 
                 if (user == null)
                 {
