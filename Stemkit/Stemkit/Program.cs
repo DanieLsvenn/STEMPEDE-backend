@@ -17,6 +17,7 @@ using Stemkit.Auth.Helpers.Implementation;
 using Stemkit.Auth.Helpers.Interfaces;
 using Stemkit.Configurations;
 using Microsoft.OpenApi.Models;
+using Serilog;
 
 namespace Stemkit
 {
@@ -84,8 +85,10 @@ namespace Stemkit
             // Register Specific Repositories
             builder.Services.AddScoped<IRefreshTokenRepository, RefreshTokenRepository>();
 
-            // Register services
+            // Register Unit of Work
             builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+            // Register services
             builder.Services.AddScoped<IAuthService, AuthService>();
             builder.Services.AddScoped<IJwtTokenService, JwtTokenService>();
             builder.Services.AddScoped<IRefreshTokenService, RefreshTokenService>();
@@ -168,7 +171,7 @@ namespace Stemkit
                 app.UseSwaggerUI(c =>
                 {
                     c.SwaggerEndpoint("/swagger/v1/swagger.json", "STEMKITshop API V1");
-                    c.RoutePrefix = string.Empty; // Set Swagger UI at the app's root
+                    c.RoutePrefix = "swagger"; // Set Swagger UI at the app's root
                 });
             }
             else
