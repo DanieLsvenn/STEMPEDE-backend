@@ -43,69 +43,69 @@ namespace Stemkit.Services.Implementation
         {
             IQueryable<Product> query = _unitOfWork.GetRepository<Product>().Query(includeProperties: "Lab,Subcategory");
 
-            // Filtering
-            if (queryParameters.MinPrice.HasValue)
-            {
-                query = query.Where(p => p.Price >= queryParameters.MinPrice.Value);
-            }
+            //// Filtering
+            //if (queryParameters.MinPrice.HasValue)
+            //{
+            //    query = query.Where(p => p.Price >= queryParameters.MinPrice.Value);
+            //}
 
-            if (queryParameters.MaxPrice.HasValue)
-            {
-                query = query.Where(p => p.Price <= queryParameters.MaxPrice.Value);
-            }
+            //if (queryParameters.MaxPrice.HasValue)
+            //{
+            //    query = query.Where(p => p.Price <= queryParameters.MaxPrice.Value);
+            //}
 
-            if (!string.IsNullOrWhiteSpace(queryParameters.ProductName))
-            {
-                var productName = queryParameters.ProductName.Trim().ToLower();
-                query = query.Where(p => p.ProductName.ToLower().Contains(productName));
-            }
+            //if (!string.IsNullOrWhiteSpace(queryParameters.ProductName))
+            //{
+            //    var productName = queryParameters.ProductName.Trim().ToLower();
+            //    query = query.Where(p => p.ProductName.ToLower().Contains(productName));
+            //}
 
-            if (!string.IsNullOrWhiteSpace(queryParameters.SubcategoryName))
-            {
-                var subcategoryName = queryParameters.SubcategoryName.Trim().ToLower();
-                query = query.Where(p => p.Subcategory.SubcategoryName.ToLower().Contains(subcategoryName));
-            }
+            //if (!string.IsNullOrWhiteSpace(queryParameters.SubcategoryName))
+            //{
+            //    var subcategoryName = queryParameters.SubcategoryName.Trim().ToLower();
+            //    query = query.Where(p => p.Subcategory.SubcategoryName.ToLower().Contains(subcategoryName));
+            //}
 
-            if (!string.IsNullOrWhiteSpace(queryParameters.LabName))
-            {
-                var labName = queryParameters.LabName.Trim().ToLower();
-                query = query.Where(p => p.Lab.LabName.ToLower().Contains(labName));
-            }
+            //if (!string.IsNullOrWhiteSpace(queryParameters.LabName))
+            //{
+            //    var labName = queryParameters.LabName.Trim().ToLower();
+            //    query = query.Where(p => p.Lab.LabName.ToLower().Contains(labName));
+            //}
 
-            if (!string.IsNullOrWhiteSpace(queryParameters.Ages))
-            {
-                var ages = queryParameters.Ages.Trim().ToLower();
-                query = query.Where(p => p.Ages.ToLower().Contains(ages));
-            }
+            //if (!string.IsNullOrWhiteSpace(queryParameters.Ages))
+            //{
+            //    var ages = queryParameters.Ages.Trim().ToLower();
+            //    query = query.Where(p => p.Ages.ToLower().Contains(ages));
+            //}
 
-            // Sorting
-            if (!string.IsNullOrWhiteSpace(queryParameters.SortBy))
-            {
-                bool descending = string.Equals(queryParameters.SortDirection, "desc", StringComparison.OrdinalIgnoreCase);
+            //// Sorting
+            //if (!string.IsNullOrWhiteSpace(queryParameters.SortBy))
+            //{
+            //    bool descending = string.Equals(queryParameters.SortDirection, "desc", StringComparison.OrdinalIgnoreCase);
 
-                switch (queryParameters.SortBy.ToLower())
-                {
-                    case "price":
-                        query = descending ? query.OrderByDescending(p => p.Price) : query.OrderBy(p => p.Price);
-                        break;
-                    case "name":
-                        query = descending ? query.OrderByDescending(p => p.ProductName) : query.OrderBy(p => p.ProductName);
-                        break;
-                    case "stockquantity":
-                        query = descending ? query.OrderByDescending(p => p.StockQuantity) : query.OrderBy(p => p.StockQuantity);
-                        break;
-                    case "supportinstances":
-                        query = descending ? query.OrderByDescending(p => p.SupportInstances) : query.OrderBy(p => p.SupportInstances);
-                        break;
-                    default:
-                        query = query.OrderBy(p => p.ProductId); // Default sorting
-                        break;
-                }
-            }
-            else
-            {
+            //    switch (queryParameters.SortBy.ToLower())
+            //    {
+            //        case "price":
+            //            query = descending ? query.OrderByDescending(p => p.Price) : query.OrderBy(p => p.Price);
+            //            break;
+            //        case "name":
+            //            query = descending ? query.OrderByDescending(p => p.ProductName) : query.OrderBy(p => p.ProductName);
+            //            break;
+            //        case "stockquantity":
+            //            query = descending ? query.OrderByDescending(p => p.StockQuantity) : query.OrderBy(p => p.StockQuantity);
+            //            break;
+            //        case "supportinstances":
+            //            query = descending ? query.OrderByDescending(p => p.SupportInstances) : query.OrderBy(p => p.SupportInstances);
+            //            break;
+            //        default:
+            //            query = query.OrderBy(p => p.ProductId); // Default sorting
+            //            break;
+            //    }
+            //}
+            //else
+            //{
                 query = query.OrderBy(p => p.ProductId); // Default sorting
-            }
+            //}
 
             // Pagination
             var totalCount = await query.CountAsync();

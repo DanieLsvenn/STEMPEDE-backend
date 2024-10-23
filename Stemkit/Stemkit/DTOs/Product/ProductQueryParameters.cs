@@ -23,33 +23,33 @@ namespace Stemkit.DTOs.Product
             set => _pageSize = (value > MaxPageSize) ? MaxPageSize : value;
         }
 
-        /// <summary>
-        /// The field by which to sort the products (e.g., "price", "name").
-        /// </summary>
-        public string? SortBy { get; set; }
+        ///// <summary>
+        ///// The field by which to sort the products (e.g., "price", "name").
+        ///// </summary>
+        //public string? SortBy { get; set; }
 
-        /// <summary>
-        /// The direction of sorting: "asc" for ascending or "desc" for descending.
-        /// </summary>
-        public string? SortDirection { get; set; } // "asc" or "desc"
+        ///// <summary>
+        ///// The direction of sorting: "asc" for ascending or "desc" for descending.
+        ///// </summary>
+        //public string? SortDirection { get; set; } // "asc" or "desc"
 
-        // Filtering parameters
-        /// <summary>
-        /// The minimum price to filter products.
-        /// </summary>
-        public decimal? MinPrice { get; set; }
+        //// Filtering parameters
+        ///// <summary>
+        ///// The minimum price to filter products.
+        ///// </summary>
+        //public decimal? MinPrice { get; set; }
 
-        /// <summary>
-        /// The maximum price to filter products.
-        /// </summary>
-        public decimal? MaxPrice { get; set; }
+        ///// <summary>
+        ///// The maximum price to filter products.
+        ///// </summary>
+        //public decimal? MaxPrice { get; set; }
 
-        /// <summary>
-        /// The name of the product to filter by. Supports partial matches.
-        /// </summary>
-        public string? ProductName { get; set; }
-        public string? SubcategoryName { get; set; }
-        public string? LabName { get; set; }
-        public string? Ages { get; set; }
+        ///// <summary>
+        ///// The name of the product to filter by. Supports partial matches.
+        ///// </summary>
+        //public string? ProductName { get; set; }
+        //public string? SubcategoryName { get; set; }
+        //public string? LabName { get; set; }
+        //public string? Ages { get; set; }
     }
 }
