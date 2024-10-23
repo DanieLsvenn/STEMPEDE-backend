@@ -16,6 +16,7 @@ using Stemkit.Auth.Services.Interfaces;
 using Stemkit.Auth.Helpers.Implementation;
 using Stemkit.Auth.Helpers.Interfaces;
 using Stemkit.Configurations;
+using Microsoft.OpenApi.Models;
 
 namespace Stemkit
 {
@@ -24,6 +25,10 @@ namespace Stemkit
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+
+            // ========================================
+            // 1. Configuration and Services Setup
+            // ========================================
 
             // Add CORS policy
             builder.Services.AddCors(options =>
@@ -45,6 +50,10 @@ namespace Stemkit
 
             // Retrieve the JWT secret key from User Secrets
             var jwtSecretKey = builder.Configuration["Authentication:Jwt:Secret"];
+            if (string.IsNullOrEmpty(jwtSecretKey))
+            {
+                throw new InvalidOperationException("JWT Secret Key is not configured.");
+            }
 
             // Add JWT Authentication
             builder.Services.AddAuthentication(options =>
@@ -58,20 +67,24 @@ namespace Stemkit
                 {
                     ValidateIssuerSigningKey = true,
                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(jwtSecretKey)),
-                    ValidateIssuer = false,
-                    ValidateAudience = false,
+                    ValidateIssuer = false, 
+                    ValidateAudience = false, 
                     ValidIssuer = builder.Configuration["Authentication:Jwt:Issuer"],
-                    ValidAudience = builder.Configuration["Authentication:Jwt:Audience"]
+                    ValidAudience = builder.Configuration["Authentication:Jwt:Audience"],
+                    RequireExpirationTime = true,
+                    ValidateLifetime = true,
+                    ClockSkew = TimeSpan.Zero // Eliminate clock skew
                 };
             });
 
-            // Register services
+            
             // Register Generic Repository
             builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 
             // Register Specific Repositories
             builder.Services.AddScoped<IRefreshTokenRepository, RefreshTokenRepository>();
 
+            // Register services
             builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
             builder.Services.AddScoped<IAuthService, AuthService>();
             builder.Services.AddScoped<IJwtTokenService, JwtTokenService>();
@@ -92,6 +105,36 @@ namespace Stemkit
             builder.Services.AddLogging();
             builder.Services.AddControllers().AddJsonOptions(options => options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
 
+            // Configure Swagger with JWT support
+            builder.Services.AddEndpointsApiExplorer();
+            builder.Services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "STEMKITshop API", Version = "v1" });
+
+                // Define the security scheme
+                var securityScheme = new OpenApiSecurityScheme
+                {
+                    Name = "Authorization",
+                    Description = "Enter JWT Bearer token **_only_**",
+                    In = ParameterLocation.Header,
+                    Type = SecuritySchemeType.Http,
+                    Scheme = "bearer", 
+                    BearerFormat = "JWT",
+                    Reference = new OpenApiReference
+                    {
+                        Id = JwtBearerDefaults.AuthenticationScheme,
+                        Type = ReferenceType.SecurityScheme
+                    }
+                };
+
+                c.AddSecurityDefinition(securityScheme.Reference.Id, securityScheme);
+
+                c.AddSecurityRequirement(new OpenApiSecurityRequirement
+                {
+                    { securityScheme, new string[] { } }
+                });
+            });
+
             // Add Logging Services
             builder.Services.AddLogging(logging =>
             {
@@ -101,7 +144,15 @@ namespace Stemkit
                 logging.AddEventSourceLogger();
             });
 
+            // ========================================
+            // 2. Build the Application
+            // ========================================
+
             var app = builder.Build();
+
+            // ========================================
+            // 3. Configure the HTTP Request Pipeline
+            // ========================================
 
             // Use CORS
             app.UseCors("AllowReactApp");
@@ -114,7 +165,11 @@ namespace Stemkit
 
                 // Enable Swagger for API documentation
                 app.UseSwagger();
-                app.UseSwaggerUI();
+                app.UseSwaggerUI(c =>
+                {
+                    c.SwaggerEndpoint("/swagger/v1/swagger.json", "STEMKITshop API V1");
+                    c.RoutePrefix = string.Empty; // Set Swagger UI at the app's root
+                });
             }
             else
             {
@@ -123,13 +178,17 @@ namespace Stemkit
                 app.UseHsts();
             }
 
+            // Enforce HTTPS
             app.UseHttpsRedirection();
 
+            // Enable Authentication & Authorization
             app.UseAuthentication();
             app.UseAuthorization();
 
+            // Map Controllers
             app.MapControllers();
 
+            // Run the application
             app.Run();
         }
     }

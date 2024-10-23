@@ -8,7 +8,7 @@ namespace Stemkit.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    [Authorize(Roles = "Manager")]
+    [Authorize]
     public class ProductController : ControllerBase
     {
         private readonly IProductService _productService;
@@ -23,9 +23,10 @@ namespace Stemkit.Controllers
         }
 
         /// <summary>
-        /// Get all products.
+        /// Get all products with pagination, sorting, and filtering.
         /// </summary>
         [HttpGet]
+        [AllowAnonymous] // Allows unauthenticated access
         public async Task<ActionResult<PagedResult<ReadProductDto>>> GetAllProducts([FromQuery] ProductQueryParameters queryParameters)
         {
             if (!ModelState.IsValid)
@@ -42,6 +43,8 @@ namespace Stemkit.Controllers
         /// Get a product by ID.
         /// </summary>
         [HttpGet("{id}")]
+        [AllowAnonymous] // Allows unauthenticated access
+
         public async Task<ActionResult<ReadProductDto>> GetProductById(int id)
         {
             var product = await _productService.GetProductByIdAsync(id);
@@ -58,6 +61,7 @@ namespace Stemkit.Controllers
         /// Create a new product.
         /// </summary>
         [HttpPost]
+        [Authorize(Roles = "Manager,Staff")]
         public async Task<ActionResult<ReadProductDto>> CreateProduct([FromBody] CreateProductDto createDto)
         {
             if (!ModelState.IsValid)
@@ -87,6 +91,7 @@ namespace Stemkit.Controllers
         /// Update an existing product.
         /// </summary>
         [HttpPut("{id}")]
+        [Authorize(Roles = "Manager,Staff")]
         public async Task<IActionResult> UpdateProduct(int id, [FromBody] UpdateProductDto updateDto)
         {
             if (!ModelState.IsValid)
@@ -121,6 +126,7 @@ namespace Stemkit.Controllers
         /// Delete a product by ID.
         /// </summary>
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Manager")]
         public async Task<IActionResult> DeleteProduct(int id)
         {
             try
