@@ -134,7 +134,6 @@ namespace Stemkit.Controllers
             return Ok(new { message = result.Message });
         }
 
-
         [HttpPost("refresh")]
         public async Task<IActionResult> Refresh([FromBody] RefreshRequestDto refreshRequest)
         {

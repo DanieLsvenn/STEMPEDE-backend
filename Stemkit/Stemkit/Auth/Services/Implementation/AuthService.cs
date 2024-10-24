@@ -1,18 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.Data.SqlClient;
+﻿using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
 using Stemkit.Data;
 using Stemkit.Models;
-using Stemkit.Utils.Interfaces;
-using System.Security.Claims;
 using Stemkit.Auth.Services.Interfaces;
 using Stemkit.DTOs.Auth;
 using AutoMapper;
-using Stemkit.Utils;
 using Stemkit.Configurations;
 using Microsoft.Extensions.Options;
 
@@ -91,18 +83,6 @@ namespace Stemkit.Auth.Services.Implementation
                 try
                 {
                     // Create a new user
-                    //var user = new User
-                    //{
-                    //    Username = registrationDto.Username,
-                    //    Email = registrationDto.Email,
-                    //    Password = BCrypt.Net.BCrypt.HashPassword(registrationDto.Password, workFactor: 12),
-                    //    FullName = registrationDto.FullName ?? "N/A",
-                    //    Phone = registrationDto.Phone ?? "N/A",
-                    //    Address = registrationDto.Address ?? "N/A",
-                    //    Status = true,
-                    //    IsExternal = registrationDto.IsExternal,
-                    //    ExternalProvider = registrationDto.IsExternal ? registrationDto.ExternalProvider : null
-                    //};
 
                     var user = _mapper.Map<User>(registrationDto);
                     
