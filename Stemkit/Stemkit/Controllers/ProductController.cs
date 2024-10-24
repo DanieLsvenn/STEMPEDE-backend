@@ -23,7 +23,7 @@ namespace Stemkit.Controllers
         }
 
         /// <summary>
-        /// Retrieves a paginated list of products with optional sorting and filtering.
+        /// Retrieves a paginated list of products.
         /// </summary>
         /// <param name="queryParameters">Parameters for pagination, sorting, and filtering.</param>
         /// <returns>A paginated list of products.</returns>
@@ -36,11 +36,21 @@ namespace Stemkit.Controllers
             if (!ModelState.IsValid)
             {
                 _logger.LogWarning("Invalid query parameters for GetAllProducts.");
-                return BadRequest(ModelState);
+                return BadRequest(new ApiResponse<IEnumerable<string>>
+                {
+                    Success = false,
+                    Message = "Invalid query parameters.",
+                    Errors = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage)
+                });
             }
 
             var pagedProducts = await _productService.GetAllProductsAsync(queryParameters);
-            return Ok(pagedProducts);
+            return Ok(new ApiResponse<PagedResult<ReadProductDto>>
+            {
+                Success = true,
+                Data = pagedProducts,
+                Message = "Products retrieved successfully."
+            });
         }
 
         /// <summary>
@@ -55,10 +65,19 @@ namespace Stemkit.Controllers
             if (product == null)
             {
                 _logger.LogWarning("Product with ID {ProductId} not found.", id);
-                return NotFound(new { Message = $"Product with ID {id} not found." });
+                return NotFound(new ApiResponse<string>
+                {
+                    Success = false,
+                    Message = $"Product with ID {id} not found."
+                });
             }
 
-            return Ok(product);
+            return Ok(new ApiResponse<ReadProductDto>
+            {
+                Success = true,
+                Data = product,
+                Message = "Product retrieved successfully."
+            });
         }
 
         /// <summary>
@@ -71,23 +90,41 @@ namespace Stemkit.Controllers
             if (!ModelState.IsValid)
             {
                 _logger.LogWarning("Invalid product creation attempt.");
-                return BadRequest(ModelState);
+                return BadRequest(new ApiResponse<IEnumerable<string>>
+                {
+                    Success = false,
+                    Message = "Invalid product data.",
+                    Errors = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage)
+                });
             }
 
             try
             {
                 var createdProduct = await _productService.CreateProductAsync(createDto);
-                return CreatedAtAction(nameof(GetProductById), new { id = createdProduct.ProductID }, createdProduct);
+                return CreatedAtAction(nameof(GetProductById), new { id = createdProduct.ProductID }, new ApiResponse<ReadProductDto>
+                {
+                    Success = true,
+                    Data = createdProduct,
+                    Message = "Product created successfully."
+                });
             }
             catch (ArgumentException ex)
             {
                 _logger.LogWarning(ex, "Product creation failed due to invalid data.");
-                return BadRequest(new { Message = ex.Message });
+                return BadRequest(new ApiResponse<string>
+                {
+                    Success = false,
+                    Message = ex.Message
+                });
             }
             catch (Exception ex)
             {
                 _logger.LogError(ex, "An error occurred while creating a product.");
-                return StatusCode(500, new { Message = "An error occurred while creating the product." });
+                return StatusCode(500, new ApiResponse<string>
+                {
+                    Success = false,
+                    Message = "An error occurred while creating the product."
+                });
             }
         }
 
@@ -101,7 +138,12 @@ namespace Stemkit.Controllers
             if (!ModelState.IsValid)
             {
                 _logger.LogWarning("Invalid product update attempt for ID {ProductId}.", id);
-                return BadRequest(ModelState);
+                return BadRequest(new ApiResponse<IEnumerable<string>>
+                {
+                    Success = false,
+                    Message = "Invalid update data.",
+                    Errors = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage)
+                });
             }
 
             try
@@ -109,20 +151,36 @@ namespace Stemkit.Controllers
                 var result = await _productService.UpdateProductAsync(id, updateDto);
                 if (!result)
                 {
-                    return NotFound(new { Message = $"Product with ID {id} not found." });
+                    return NotFound(new ApiResponse<string>
+                    {
+                        Success = false,
+                        Message = $"Product with ID {id} not found."
+                    });
                 }
 
-                return NoContent();
+                return Ok(new ApiResponse<string>
+                {
+                    Success = true,
+                    Message = "Product updated successfully."
+                });
             }
             catch (ArgumentException ex)
             {
                 _logger.LogWarning(ex, "Product update failed due to invalid data.");
-                return BadRequest(new { Message = ex.Message });
+                return BadRequest(new ApiResponse<string>
+                {
+                    Success = false,
+                    Message = ex.Message
+                });
             }
             catch (Exception ex)
             {
                 _logger.LogError(ex, "An error occurred while updating the product with ID {ProductId}.", id);
-                return StatusCode(500, new { Message = "An error occurred while updating the product." });
+                return StatusCode(500, new ApiResponse<string>
+                {
+                    Success = false,
+                    Message = "An error occurred while updating the product."
+                });
             }
         }
 
@@ -138,15 +196,27 @@ namespace Stemkit.Controllers
                 var result = await _productService.DeleteProductAsync(id);
                 if (!result)
                 {
-                    return NotFound(new { Message = $"Product with ID {id} not found." });
+                    return NotFound(new ApiResponse<string>
+                    {
+                        Success = false,
+                        Message = $"Product with ID {id} not found."
+                    });
                 }
 
-                return NoContent();
+                return Ok(new ApiResponse<string>
+                {
+                    Success = true,
+                    Message = "Product deleted successfully."
+                });
             }
             catch (Exception ex)
             {
                 _logger.LogError(ex, "An error occurred while deleting the product with ID {ProductId}.", id);
-                return StatusCode(500, new { Message = "An error occurred while deleting the product." });
+                return StatusCode(500, new ApiResponse<string>
+                {
+                    Success = false,
+                    Message = "An error occurred while deleting the product."
+                });
             }
         }
     }
