@@ -6,8 +6,6 @@ using System.Threading.Tasks;
 using Moq;
 using Stemkit.Models;
 using Stemkit.Repositories.Interfaces;
-using Stemkit.Services.Implementation;
-using Stemkit.Services.Interfaces;
 using Stemkit.Utils.Interfaces;
 using Microsoft.Extensions.Logging;
 using Xunit;
@@ -15,6 +13,8 @@ using Microsoft.EntityFrameworkCore.Storage;
 using Stemkit.Data;
 using Stemkit.DTOs;
 using Stemkit.Tests.Helpers;
+using Stemkit.Auth.Services.Implementation;
+using Stemkit.Auth.Services.Interfaces;
 
 namespace Stemkit.Tests
 {
@@ -74,6 +74,7 @@ namespace Stemkit.Tests
                 Username = "testuser",
                 Password = "Test@123",
                 Email = "testuser@example.com",
+                Fullname = "Mai Tien Hoang",
                 Role = "Customer",
                 Phone = "123-456-7890",
                 Address = "123 Test Street",
