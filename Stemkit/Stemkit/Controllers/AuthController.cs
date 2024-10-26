@@ -85,12 +85,19 @@ namespace Stemkit.Controllers
                     Message = result.Message
                 });
             }
-
-            return Ok(new ApiResponse<string>
+            var authResponse = new AuthResponse
             {
                 Success = true,
-                Data = result.Token,
+                Token = result.Token,
+                RefreshToken = result.RefreshToken,
                 Message = "Login successful."
+            };
+
+            return Ok(new ApiResponse<AuthResponse>
+            {
+                Success = true,
+                Data = authResponse,
+                Message = authResponse.Message
             });
         }
 

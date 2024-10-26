@@ -58,7 +58,6 @@ namespace Stemkit.Controllers
         /// </summary>
         [HttpGet("{id}")]
         [AllowAnonymous] // Allows unauthenticated access
-
         public async Task<ActionResult<ReadProductDto>> GetProductById(int id)
         {
             var product = await _productService.GetProductByIdAsync(id);

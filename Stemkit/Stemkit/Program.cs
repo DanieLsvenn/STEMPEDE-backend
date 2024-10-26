@@ -17,8 +17,8 @@ using Stemkit.Auth.Helpers.Implementation;
 using Stemkit.Auth.Helpers.Interfaces;
 using Stemkit.Configurations;
 using Microsoft.OpenApi.Models;
-using Serilog;
 using System.Reflection;
+using Stemkit.Middleware;
 
 namespace Stemkit
 {
@@ -106,10 +106,6 @@ namespace Stemkit
             builder.Services.AddAutoMapper(typeof(AutoMapperProfile));
 
             // Add controllers and other services
-            builder.Services.AddControllers();
-            builder.Services.AddEndpointsApiExplorer();
-            builder.Services.AddSwaggerGen();
-            builder.Services.AddLogging();
             builder.Services.AddControllers().AddJsonOptions(options => options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
 
             // Configure Swagger with JWT support
@@ -198,6 +194,10 @@ namespace Stemkit
 
             // Enable Authentication & Authorization
             app.UseAuthentication();
+
+            // Add Custom Middleware to Validate User Status
+            app.UseValidateUserStatus();
+
             app.UseAuthorization();
 
             // Map Controllers

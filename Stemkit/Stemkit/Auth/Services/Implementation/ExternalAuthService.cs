@@ -75,7 +75,7 @@ namespace Stemkit.Auth.Services.Implementation
                 var roles = await _userService.GetUserRolesAsync(user.UserId);
 
                 // Generate JWT token with roles
-                var token = _jwtTokenService.GenerateJwtToken(user.UserId, roles);
+                var token = _jwtTokenService.GenerateJwtToken(user.UserId, roles, user.Status);
 
                 // Generate Refresh Token with IP address
                 var refreshToken = _refreshTokenService.GenerateRefreshToken(user.UserId, ipAddress);

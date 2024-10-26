@@ -106,7 +106,7 @@ namespace Stemkit.Auth.Services.Implementation
                     await _unitOfWork.CompleteAsync();
 
                     // Generate JWT Access Token
-                    var accessToken = _jwtTokenService.GenerateJwtToken(user.UserId, new List<string> { role.RoleName });
+                    var accessToken = _jwtTokenService.GenerateJwtToken(user.UserId, new List<string> { role.RoleName }, user.Status);
 
                     // Generate Refresh Token
                     var refreshToken = _refreshTokenService.GenerateRefreshToken(user.UserId, ipAddress);
@@ -162,10 +162,10 @@ namespace Stemkit.Auth.Services.Implementation
                     EF.Functions.Collate(u.Email, _dbSettings.Collation) == emailOrUsername ||
                     EF.Functions.Collate(u.Username, _dbSettings.Collation) == emailOrUsername);
 
-                if (user == null)
+                if (user == null || !user.Status)
                 {
-                    _logger.LogWarning("Invalid credentials provided.");
-                    return new AuthResponse { Success = false, Message = "Invalid credentials." };
+                    _logger.LogWarning("Invalid credentials or user is banned.");
+                    return new AuthResponse { Success = false, Message = "Invalid credentials or user is banned." };
                 }
 
                 if (!BCrypt.Net.BCrypt.Verify(loginDto.Password, user.Password))
@@ -181,7 +181,7 @@ namespace Stemkit.Auth.Services.Implementation
                 var roleNames = userRoles.Select(ur => ur.Role.RoleName).ToList();
 
                 // Generate JWT token
-                var accessToken = _jwtTokenService.GenerateJwtToken(user.UserId, roleNames);
+                var accessToken = _jwtTokenService.GenerateJwtToken(user.UserId, roleNames, user.Status);
 
                 // Generate Refresh Token
                 var refreshToken = _refreshTokenService.GenerateRefreshToken(user.UserId, ipAddress);
