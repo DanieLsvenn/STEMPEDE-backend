@@ -21,7 +21,7 @@ namespace Stemkit.Auth.Services.Implementation
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
-        public string GenerateJwtToken(int userId, List<string> roles)
+        public string GenerateJwtToken(int userId, List<string> roles, bool isActive)
         {
             if (roles == null || roles.Count == 0)
             {
@@ -57,7 +57,8 @@ namespace Stemkit.Auth.Services.Implementation
             var claims = new List<Claim>
             {
                 new Claim(JwtRegisteredClaimNames.Sub, userId.ToString()),
-                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
+                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+                new Claim("isActive", isActive.ToString())
             };
 
             // Add roles as claims

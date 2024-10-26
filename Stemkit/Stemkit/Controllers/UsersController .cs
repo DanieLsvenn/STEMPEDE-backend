@@ -19,6 +19,10 @@ namespace Stemkit.Controllers
             _unitOfWork = unitOfWork;
         }
 
+        /// <summary>
+        /// Retrieves current users information.
+        /// </summary>
+        /// <returns>An ApiResponse to view user profile.</returns>
         [HttpGet("profile")]
         public async Task<IActionResult> GetUserProfile()
         {

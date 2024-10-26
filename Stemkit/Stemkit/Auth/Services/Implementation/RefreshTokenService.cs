@@ -152,9 +152,9 @@ namespace Stemkit.Auth.Services.Implementation
             }
 
             var user = await _unitOfWork.GetRepository<User>().GetByIdAsync(existingToken.UserId);
-            if (user == null)
+            if (user == null || !user.Status)
             {
-                _logger.LogWarning("User not found for Refresh Token: {Token}", token);
+                _logger.LogWarning("User not found or banned for Refresh Token: {Token}", token);
                 return new AuthResponse { Success = false, Message = "Invalid refresh token." };
             }
 
@@ -164,7 +164,7 @@ namespace Stemkit.Auth.Services.Implementation
             var roleNames = userRoles.Select(ur => ur.Role.RoleName).ToList();
 
             // Generate new Access Token
-            var newAccessToken = _jwtTokenService.GenerateJwtToken(user.UserId, roleNames);
+            var newAccessToken = _jwtTokenService.GenerateJwtToken(user.UserId, roleNames, user.Status);
 
             // Generate new Refresh Token
             var newRefreshToken = GenerateRefreshToken(user.UserId, ipAddress);
