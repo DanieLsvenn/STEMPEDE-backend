@@ -1,5 +1,4 @@
-﻿using static System.Runtime.InteropServices.JavaScript.JSType;
-using Stemkit.DTOs.Product;
+﻿using Stemkit.DTOs.Product;
 using Stemkit.Models;
 using AutoMapper;
 using Stemkit.DTOs.Auth;
