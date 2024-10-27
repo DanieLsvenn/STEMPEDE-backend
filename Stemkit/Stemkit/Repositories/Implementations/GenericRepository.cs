@@ -17,7 +17,7 @@ namespace Stemkit.Repositories.Implementations
             _dbSet = context.Set<T>();
         }
 
-        public virtual IQueryable<T> Query(string includeProperties = "")
+        public virtual IQueryable<T> GetAllQueryable(string includeProperties = "")
         {
             IQueryable<T> query = _dbSet;
 

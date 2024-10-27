@@ -5,7 +5,6 @@ using Stemkit.Services.Interfaces;
 
 namespace Stemkit.Controllers
 {
-
     [ApiController]
     [Route("api/[controller]")]
     [Authorize(Roles = "Manager")] // Ensure only Managers can access these endpoints
@@ -24,7 +23,7 @@ namespace Stemkit.Controllers
         /// Retrieves a list of all users with non-sensitive information.
         /// </summary>
         /// <returns>An ApiResponse containing the list of users.</returns>
-        [HttpGet]
+        [HttpGet("/get-all-user")]
         public async Task<IActionResult> GetAllUsers()
         {
             var response = await _userService.GetAllUsersAsync();
@@ -63,7 +62,7 @@ namespace Stemkit.Controllers
         /// </summary>
         /// <param name="userId">The unique identifier of the user to unban.</param>
         /// <returns>An ApiResponse indicating the outcome of the operation.</returns>
-        [HttpPost("unban-user/{userId}")]
+        [HttpPost("{userId}/unban-user")]
         public async Task<IActionResult> UnbanUser(int userId)
         {
             _logger.LogInformation("Manager {ManagerId} is attempting to unban UserID: {UserId}", User.Identity.Name, userId);

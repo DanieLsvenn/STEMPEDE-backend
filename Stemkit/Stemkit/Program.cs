@@ -101,6 +101,7 @@ namespace Stemkit
             builder.Services.AddScoped<IExternalAuthService, ExternalAuthService>();
             builder.Services.AddScoped<IUserService, UserService>();
             builder.Services.AddScoped<IProductService, ProductService>();
+            builder.Services.AddScoped<ILabService, LabService>();
 
             // Register AutoMapper
             builder.Services.AddAutoMapper(typeof(AutoMapperProfile));

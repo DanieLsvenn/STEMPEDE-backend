@@ -17,5 +17,6 @@ public partial class Lab
     [MaxLength(255)]
     public string? LabFileUrl { get; set; }
 
+    // Navigation Property
     public virtual ICollection<Product> Products { get; set; } = new List<Product>();
 }
