@@ -3,6 +3,7 @@ using Stemkit.DTOs.Product;
 using Stemkit.Models;
 using AutoMapper;
 using Stemkit.DTOs.Auth;
+using Stemkit.DTOs.Lab;
 
 namespace Stemkit.Configurations
 {
@@ -24,6 +25,14 @@ namespace Stemkit.Configurations
                 .ForMember(dest => dest.Status, opt => opt.MapFrom(src => true)) // Default status
                 .ForMember(dest => dest.IsExternal, opt => opt.MapFrom(src => src.IsExternal))
                 .ForMember(dest => dest.ExternalProvider, opt => opt.MapFrom(src => src.ExternalProvider ?? null));
+
+            // Lab Mappings
+            CreateMap<Lab, ReadLabDto>()
+                .ForMember(dest => dest.Products, opt => opt.MapFrom(src => src.Products));
+
+            CreateMap<CreateLabDto, Lab>();
+            CreateMap<UpdateLabDto, Lab>();
+            CreateMap<Lab, ReadLabSimpleDto>();
         }
     }
 }

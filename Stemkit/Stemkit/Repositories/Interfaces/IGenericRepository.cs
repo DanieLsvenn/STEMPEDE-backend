@@ -7,7 +7,7 @@ namespace Stemkit.Repositories.Interfaces
     public interface IGenericRepository<T> where T : class
     {
         // Synchronous methods
-        IQueryable<T> Query(string includeProperties = "");
+        IQueryable<T> GetAllQueryable(string includeProperties = "");
         T Get(Expression<Func<T, bool>> predicate);
         IEnumerable<T> GetAll();
         T GetById(int id);

@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Stemkit.DTOs.Product
+namespace Stemkit.DTOs.Lab
 {
-    public class ProductQueryParameters
+    public class LabQueryParameters
     {
         private const int MaxPageSize = 100;
         private int _pageSize = 10;

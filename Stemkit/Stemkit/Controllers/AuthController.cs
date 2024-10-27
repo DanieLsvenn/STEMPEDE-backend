@@ -57,7 +57,6 @@ namespace Stemkit.Controllers
             });
         }
 
-
         [HttpPost("login")]
         public async Task<IActionResult> Login(UserLoginDto loginDto)
         {
@@ -108,7 +107,7 @@ namespace Stemkit.Controllers
 
             if (string.IsNullOrEmpty(externalAuth.IdToken))
             {
-                return BadRequest(new AuthResponse { Success = false, Message = "ID token is required." });
+                return BadRequest(new ApiResponse<string> { Success = false, Message = "ID token is required." });
             }
 
             var authResponse = await _externalAuthService.GoogleLoginAsync(externalAuth.IdToken, ipAddress);
@@ -128,17 +127,29 @@ namespace Stemkit.Controllers
 
             if (logoutRequest == null || string.IsNullOrEmpty(logoutRequest.RefreshToken))
             {
-                return BadRequest(new { message = "Invalid refresh token." });
+                return BadRequest(new ApiResponse<string>
+                {
+                    Success = true,
+                    Message = "Invalid refresh token."
+                });
             }
 
             var result = await _authService.LogoutAsync(logoutRequest.RefreshToken, ipAddress);
 
             if (!result.Success)
             {
-                return BadRequest(new { message = result.Message });
+                return BadRequest(new ApiResponse<string>
+                {
+                    Success = true,
+                    Message = result.Message
+                });
             }
 
-            return Ok(new { message = result.Message });
+            return Ok(new ApiResponse<string>
+            {
+                Success = true,
+                Message = result.Message
+            });
         }
 
         [HttpPost("refresh")]
@@ -148,14 +159,22 @@ namespace Stemkit.Controllers
 
             if (refreshRequest == null || string.IsNullOrEmpty(refreshRequest.RefreshToken))
             {
-                return BadRequest(new { message = "Invalid refresh token." });
+                return BadRequest(new ApiResponse<string>
+                {
+                    Success = true,
+                    Message = "Invalid refresh token."
+                });
             }
 
             var result = await _authService.RefreshTokenAsync(refreshRequest.RefreshToken, ipAddress);
 
             if (!result.Success)
             {
-                return BadRequest(new { message = result.Message });
+                return BadRequest(new ApiResponse<string>
+                {
+                    Success = true,
+                    Message = result.Message
+                });
             }
 
             return Ok(new

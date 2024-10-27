@@ -5,8 +5,6 @@ using Stemkit.DTOs.User;
 using Stemkit.DTOs;
 using Stemkit.Models;
 using Stemkit.Services.Interfaces;
-using System.Threading.Tasks;
-
 
 namespace Stemkit.Services.Implementation
 {
@@ -78,7 +76,7 @@ namespace Stemkit.Services.Implementation
 
         public async Task<ApiResponse<IEnumerable<ReadUserDto>>> GetAllUsersAsync()
         {
-            var users = await _unitOfWork.GetRepository<User>().Query(includeProperties: "UserRoles.Role")
+            var users = await _unitOfWork.GetRepository<User>().GetAllQueryable(includeProperties: "UserRoles.Role")
                 .AsNoTracking()
                 .ToListAsync();
 

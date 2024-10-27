@@ -3,8 +3,8 @@ using Stemkit.DTOs.Product;
 using Stemkit.Models;
 using AutoMapper;
 using Stemkit.Services.Interfaces;
-using Microsoft.EntityFrameworkCore;
-using Stemkit.DTOs;
+using AutoMapper.QueryableExtensions;
+using Stemkit.Utils.Implementation;
 
 namespace Stemkit.Services.Implementation
 {
@@ -39,91 +39,20 @@ namespace Stemkit.Services.Implementation
             return _mapper.Map<ReadProductDto>(product);
         }
 
-        public async Task<PagedResult<ReadProductDto>> GetAllProductsAsync(ProductQueryParameters queryParameters)
+        public async Task<PaginatedList<ReadProductDto>> GetAllProductsAsync(ProductQueryParameters queryParameters)
         {
-            IQueryable<Product> query = _unitOfWork.GetRepository<Product>().Query(includeProperties: "Lab,Subcategory");
+            var productsQuery = _unitOfWork.GetRepository<Product>().GetAllQueryable(includeProperties: "Lab,Subcategory");
 
-            //// Filtering
-            //if (queryParameters.MinPrice.HasValue)
-            //{
-            //    query = query.Where(p => p.Price >= queryParameters.MinPrice.Value);
-            //}
+            var mappedQuery = productsQuery.ProjectTo<ReadProductDto>(_mapper.ConfigurationProvider);
 
-            //if (queryParameters.MaxPrice.HasValue)
-            //{
-            //    query = query.Where(p => p.Price <= queryParameters.MaxPrice.Value);
-            //}
+            // Create paginated list
+            var paginatedList = await PaginatedList<ReadProductDto>.CreateAsync(
+                mappedQuery,
+                queryParameters.PageNumber,
+                queryParameters.PageSize
+            );
 
-            //if (!string.IsNullOrWhiteSpace(queryParameters.ProductName))
-            //{
-            //    var productName = queryParameters.ProductName.Trim().ToLower();
-            //    query = query.Where(p => p.ProductName.ToLower().Contains(productName));
-            //}
-
-            //if (!string.IsNullOrWhiteSpace(queryParameters.SubcategoryName))
-            //{
-            //    var subcategoryName = queryParameters.SubcategoryName.Trim().ToLower();
-            //    query = query.Where(p => p.Subcategory.SubcategoryName.ToLower().Contains(subcategoryName));
-            //}
-
-            //if (!string.IsNullOrWhiteSpace(queryParameters.LabName))
-            //{
-            //    var labName = queryParameters.LabName.Trim().ToLower();
-            //    query = query.Where(p => p.Lab.LabName.ToLower().Contains(labName));
-            //}
-
-            //if (!string.IsNullOrWhiteSpace(queryParameters.Ages))
-            //{
-            //    var ages = queryParameters.Ages.Trim().ToLower();
-            //    query = query.Where(p => p.Ages.ToLower().Contains(ages));
-            //}
-
-            //// Sorting
-            //if (!string.IsNullOrWhiteSpace(queryParameters.SortBy))
-            //{
-            //    bool descending = string.Equals(queryParameters.SortDirection, "desc", StringComparison.OrdinalIgnoreCase);
-
-            //    switch (queryParameters.SortBy.ToLower())
-            //    {
-            //        case "price":
-            //            query = descending ? query.OrderByDescending(p => p.Price) : query.OrderBy(p => p.Price);
-            //            break;
-            //        case "name":
-            //            query = descending ? query.OrderByDescending(p => p.ProductName) : query.OrderBy(p => p.ProductName);
-            //            break;
-            //        case "stockquantity":
-            //            query = descending ? query.OrderByDescending(p => p.StockQuantity) : query.OrderBy(p => p.StockQuantity);
-            //            break;
-            //        case "supportinstances":
-            //            query = descending ? query.OrderByDescending(p => p.SupportInstances) : query.OrderBy(p => p.SupportInstances);
-            //            break;
-            //        default:
-            //            query = query.OrderBy(p => p.ProductId); // Default sorting
-            //            break;
-            //    }
-            //}
-            //else
-            //{
-                query = query.OrderBy(p => p.ProductId); // Default sorting
-            //}
-
-            // Pagination
-            var totalCount = await query.CountAsync();
-
-            var products = await query
-                .Skip((queryParameters.PageNumber - 1) * queryParameters.PageSize)
-                .Take(queryParameters.PageSize)
-                .ToListAsync();
-
-            var productDtos = _mapper.Map<IEnumerable<ReadProductDto>>(products);
-
-            return new PagedResult<ReadProductDto>
-            {
-                Items = productDtos,
-                TotalCount = totalCount,
-                PageNumber = queryParameters.PageNumber,
-                PageSize = queryParameters.PageSize
-            };
+            return paginatedList;
         }
 
         public async Task<ReadProductDto> CreateProductAsync(CreateProductDto createDto)
@@ -212,6 +141,5 @@ namespace Stemkit.Services.Implementation
 
             return true;
         }
-
     }
 }
