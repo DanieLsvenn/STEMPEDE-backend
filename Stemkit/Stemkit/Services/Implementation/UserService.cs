@@ -5,6 +5,9 @@ using Stemkit.DTOs.User;
 using Stemkit.DTOs;
 using Stemkit.Models;
 using Stemkit.Services.Interfaces;
+using AutoMapper.QueryableExtensions;
+using Stemkit.Utils.Implementation;
+using System.Linq;
 
 namespace Stemkit.Services.Implementation
 {
@@ -74,97 +77,132 @@ namespace Stemkit.Services.Implementation
             return roles.Select(r => r.RoleName).ToList();
         }
 
-        public async Task<ApiResponse<IEnumerable<ReadUserDto>>> GetAllUsersAsync()
+        /// <summary>
+        /// Retrieves all users without pagination.
+        /// </summary>
+        /// <returns>An ApiResponse containing the list of users.</returns>
+        public async Task<IEnumerable<ReadUserDto>> GetAllUsersAsync()
         {
-            var users = await _unitOfWork.GetRepository<User>().GetAllQueryable(includeProperties: "UserRoles.Role")
-                .AsNoTracking()
-                .ToListAsync();
+            var users = await _unitOfWork.GetRepository<User>()
+                                         .GetAllQueryable(includeProperties: "UserRoles.Role")
+                                         .AsNoTracking()
+                                         .ToListAsync();
 
-            var userDtos = users.Select(u => new ReadUserDto
-            {
-                UserID = u.UserId,
-                FullName = u.FullName,
-                Username = u.Username,
-                Status = u.Status ? "Active" : "Banned",
-                IsExternal = u.IsExternal,
-                ExternalProvider = u.ExternalProvider,
-                Roles = u.UserRoles.Select(ur => ur.Role.RoleName).ToList()
-            });
+            var userDtos = _mapper.Map<IEnumerable<ReadUserDto>>(users);
 
-            return new ApiResponse<IEnumerable<ReadUserDto>>
-            {
-                Success = true,
-                Data = userDtos,
-                Message = "Users retrieved successfully."
-            };
+            return userDtos;
         }
 
+        /// <summary>
+        /// Retrieves users with pagination.
+        /// </summary>
+        /// <param name="queryParameters">Parameters for pagination.</param>
+        /// <returns>An ApiResponse containing a paginated list of users.</returns>
+        public async Task<PaginatedList<ReadUserDto>> GetAllUsersPaginatedAsync(UserQueryParameters queryParameters)
+        {
+            var userRepository = _unitOfWork.GetRepository<User>();
+            var usersQuery = userRepository.GetAllQueryable(includeProperties: "UserRoles.Role");
+
+            // Project to ReadUserDto
+            var projectedQuery = usersQuery.ProjectTo<ReadUserDto>(_mapper.ConfigurationProvider);
+
+            // Create the paginated list
+            var paginatedList = await PaginatedList<ReadUserDto>.CreateAsync(
+                projectedQuery,
+                queryParameters.PageNumber,
+                queryParameters.PageSize
+            );
+
+            return paginatedList;
+        }
+
+        /// <summary>
+        /// Retrieves a user by their unique ID.
+        /// </summary>
+        /// <param name="userId">The unique identifier of the user.</param>
+        /// <returns>The user object if found; otherwise, null.</returns>
         public async Task<User?> GetUserByIdAsync(int userId)
         {
             return await _unitOfWork.GetRepository<User>().GetByIdAsync(userId);
         }
 
-        public async Task<ApiResponse<string>> BanUserAsync(int userId)
+        /// <summary>
+        /// Bans a user by setting their status to false.
+        /// </summary>
+        /// <param name="userId">The unique identifier of the user to ban.</param>
+        /// <returns>A success message indicating the user has been banned.</returns>
+        /// <exception cref="ArgumentException">Thrown when the user is not found or already banned.</exception>
+        public async Task<string> BanUserAsync(int userId)
         {
             _logger.LogInformation("Attempting to ban UserID: {UserId}", userId);
 
-            var user = await _unitOfWork.GetRepository<User>().GetByIdAsync(userId);
+            var userRepository = _unitOfWork.GetRepository<User>();
+            var user = await userRepository.GetByIdAsync(userId);
+
             if (user == null)
             {
                 _logger.LogWarning("User with ID {UserId} not found.", userId);
-                return ApiResponse<string>.FailureResponse("User not found.");
+                throw new ArgumentException("User not found.");
             }
 
             if (!user.Status)
             {
                 _logger.LogWarning("User with ID {UserId} is already banned.", userId);
-                return ApiResponse<string>.FailureResponse("User is already banned.");
+                throw new ArgumentException("User is already banned.");
             }
 
             user.Status = false; // Set status to false to ban the user
-            _unitOfWork.GetRepository<User>().Update(user);
+            userRepository.Update(user);
             await _unitOfWork.CompleteAsync();
 
             // Revoke all refresh tokens for this user
-            var refreshTokens = await _unitOfWork.GetRepository<RefreshToken>()
-                .FindAsync(rt => rt.UserId == userId && rt.Revoked == null);
+            var refreshTokenRepository = _unitOfWork.GetRepository<RefreshToken>();
+            var refreshTokens = await refreshTokenRepository.FindAsync(rt => rt.UserId == userId && rt.Revoked == null);
 
             foreach (var token in refreshTokens)
             {
                 token.Revoked = DateTime.UtcNow;
                 token.RevokedByIp = "System"; // Or your system's IP
-                _unitOfWork.GetRepository<RefreshToken>().Update(token);
+                refreshTokenRepository.Update(token);
             }
 
             await _unitOfWork.CompleteAsync();
 
             _logger.LogInformation("User with ID {UserId} has been banned and all refresh tokens revoked.", userId);
-            return ApiResponse<string>.SuccessResponse("User has been banned successfully and all tokens revoked.");
+            return "User has been banned successfully and all tokens revoked.";
         }
 
-        public async Task<ApiResponse<string>> UnbanUserAsync(int userId)
+        /// <summary>
+        /// Unbans a user by setting their status to true.
+        /// </summary>
+        /// <param name="userId">The unique identifier of the user to unban.</param>
+        /// <returns>A success message indicating the user has been unbanned.</returns>
+        /// <exception cref="ArgumentException">Thrown when the user is not found or not banned.</exception>
+        public async Task<string> UnbanUserAsync(int userId)
         {
             _logger.LogInformation("Attempting to unban UserID: {UserId}", userId);
 
-            var user = await _unitOfWork.GetRepository<User>().GetByIdAsync(userId);
+            var userRepository = _unitOfWork.GetRepository<User>();
+            var user = await userRepository.GetByIdAsync(userId);
+
             if (user == null)
             {
                 _logger.LogWarning("User with ID {UserId} not found.", userId);
-                return ApiResponse<string>.FailureResponse("User not found.");
+                throw new ArgumentException("User not found.");
             }
 
             if (user.Status)
             {
                 _logger.LogWarning("User with ID {UserId} is not banned.", userId);
-                return ApiResponse<string>.FailureResponse("User is not banned.");
+                throw new ArgumentException("User is not banned.");
             }
 
             user.Status = true; // Set status to true to unban the user
-            _unitOfWork.GetRepository<User>().Update(user);
+            userRepository.Update(user);
             await _unitOfWork.CompleteAsync();
 
             _logger.LogInformation("User with ID {UserId} has been unbanned successfully.", userId);
-            return ApiResponse<string>.SuccessResponse("User has been unbanned successfully.");
+            return "User has been unbanned successfully.";
         }
     }
 }

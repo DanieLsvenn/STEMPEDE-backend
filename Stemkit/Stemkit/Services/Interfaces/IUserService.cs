@@ -2,6 +2,7 @@
 using Stemkit.DTOs;
 using Stemkit.Models;
 using System.Threading.Tasks;
+using Stemkit.Utils.Implementation;
 
 namespace Stemkit.Services.Interfaces
 {
@@ -11,27 +12,21 @@ namespace Stemkit.Services.Interfaces
         Task<User> CreateUserAsync(User user);
         Task AssignRoleAsync(int userId, string roleName);
         Task<List<string>> GetUserRolesAsync(int userId);
-
-        /// <summary>
-        /// Retrieves a user by their unique ID.
-        /// </summary>
-        /// <param name="userId">The unique identifier of the user.</param>
-        /// <returns>The user object if found; otherwise, null.</returns>
         Task<User?> GetUserByIdAsync(int userId);
-
-        Task<ApiResponse<IEnumerable<ReadUserDto>>> GetAllUsersAsync();
+        Task<IEnumerable<ReadUserDto>> GetAllUsersAsync();
+        Task<PaginatedList<ReadUserDto>> GetAllUsersPaginatedAsync(UserQueryParameters queryParameters);
         /// <summary>
         /// Bans a user by setting their status to false.
         /// </summary>
         /// <param name="userId">The unique identifier of the user to ban.</param>
-        /// <returns>An ApiResponse indicating success or failure.</returns>
-        Task<ApiResponse<string>> BanUserAsync(int userId);
+        /// <returns>A success message indicating the user has been banned.</returns>
+        Task<string> BanUserAsync(int userId);
 
         /// <summary>
         /// Unbans a user by setting their status to true.
         /// </summary>
         /// <param name="userId">The unique identifier of the user to unban.</param>
-        /// <returns>An ApiResponse indicating success or failure.</returns>
-        Task<ApiResponse<string>> UnbanUserAsync(int userId);
+        /// <returns>A success message indicating the user has been unbanned.</returns>
+        Task<string> UnbanUserAsync(int userId);
     }
 }
