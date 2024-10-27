@@ -40,7 +40,7 @@ namespace Stemkit.Services.Implementation
             if (activeCart == null)
             {
                 _logger.LogInformation("No active cart found for user: {UserName}", userName);
-                return null; // Controller will handle this case
+                return null; // Controller will handle creating an empty car
             }
 
             // Load cart items with products

@@ -5,6 +5,8 @@ using Stemkit.DTOs.Cart;
 using Stemkit.DTOs;
 using Stemkit.Services.Interfaces;
 using Stemkit.Services.Implementation;
+using Stemkit.Data;
+using Stemkit.Models;
 
 namespace Stemkit.Controllers
 {
@@ -15,19 +17,20 @@ namespace Stemkit.Controllers
     {
         private readonly ICartService _cartService;
         private readonly ILogger<CartController> _logger;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public CartController(ICartService cartService, ILogger<CartController> logger)
+        public CartController(ICartService cartService, IUnitOfWork unitOfWork, ILogger<CartController> logger)
         {
             _cartService = cartService;
+            _unitOfWork = unitOfWork;
             _logger = logger;
         }
 
         /// <summary>
-        /// Retrieves the current user's active cart.
+        /// Retrieves the current user's active cart. If no active cart exists, returns an empty cart.
         /// </summary>
         /// <returns>An ApiResponse containing the cart details.</returns>
         /// <response code="200">Cart retrieved successfully.</response>
-        /// <response code="404">Cart not found.</response>
         /// <response code="500">Internal server error.</response>
         [HttpGet("get-current-user")]
         public async Task<ActionResult<ApiResponse<CartDto>>> GetCart()
@@ -39,7 +42,20 @@ namespace Stemkit.Controllers
                 var cart = await _cartService.GetCartAsync(userName);
                 if (cart == null)
                 {
-                    return NotFound(ApiResponse<string>.FailureResponse("Cart not found.", new List<string> { "No active cart found." }));
+                    var user = await _unitOfWork.GetRepository<User>().FindAsync(u => u.Username == userName);
+                    var userEntity = user.FirstOrDefault();
+
+                    var emptyCart = new CartDto
+                    {
+                        CartId = 0,
+                        UserId = userEntity?.UserId ?? 0,
+                        CreatedDate = DateOnly.FromDateTime(DateTime.UtcNow),
+                        Status = "Empty",
+                        Items = new List<CartItemDto>(),
+                        TotalAmount = 0m
+                    };
+
+                    return Ok(ApiResponse<CartDto>.SuccessResponse(emptyCart, "No active cart found. An empty cart has been created."));
                 }
 
                 return Ok(ApiResponse<CartDto>.SuccessResponse(cart, "Cart retrieved successfully."));
