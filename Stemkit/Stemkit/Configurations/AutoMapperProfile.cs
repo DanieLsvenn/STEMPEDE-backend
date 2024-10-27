@@ -5,6 +5,7 @@ using Stemkit.DTOs.Auth;
 using Stemkit.DTOs.Lab;
 using Stemkit.DTOs.User;
 using Stemkit.DTOs.Subcategory;
+using Stemkit.DTOs.Cart;
 
 namespace Stemkit.Configurations
 {
@@ -42,6 +43,15 @@ namespace Stemkit.Configurations
 
             // Subcategory mappings
             CreateMap<Subcategory, ReadSubcategoryDto>();
+
+            // Cart mappings
+            CreateMap<CartItem, CartItemDto>()
+                .ForMember(dest => dest.ProductName, opt => opt.MapFrom(src => src.Product.ProductName))
+                .ForMember(dest => dest.TotalPrice, opt => opt.MapFrom(src => src.Price * src.Quantity));
+
+            CreateMap<Cart, CartDto>()
+                .ForMember(dest => dest.Items, opt => opt.MapFrom(src => src.CartItems))
+                .ForMember(dest => dest.TotalAmount, opt => opt.MapFrom(src => src.CartItems.Sum(ci => ci.Price * ci.Quantity)));
         }
     }
 }
