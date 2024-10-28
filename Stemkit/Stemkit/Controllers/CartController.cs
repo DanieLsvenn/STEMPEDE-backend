@@ -7,6 +7,7 @@ using Stemkit.Services.Interfaces;
 using Stemkit.Services.Implementation;
 using Stemkit.Data;
 using Stemkit.Models;
+using Stemkit.Constants;
 
 namespace Stemkit.Controllers
 {
@@ -94,6 +95,12 @@ namespace Stemkit.Controllers
 
             try
             {
+                var cart = await _cartService.GetCartAsync(userName);
+                if (cart.Status == CartStatusConstants.CheckedOut)
+                {
+                    return BadRequest(ApiResponse<string>.FailureResponse("Cannot modify a checked-out cart.", new List<string> { "The cart has already been checked out." }));
+                }
+
                 var resultMessage = await _cartService.AddItemToCartAsync(userName, addItemDto.ProductId, addItemDto.Quantity);
                 return CreatedAtAction(nameof(GetCart), new { }, ApiResponse<string>.SuccessResponse(resultMessage, "Item added to cart successfully."));
             }

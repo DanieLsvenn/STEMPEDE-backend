@@ -60,7 +60,7 @@ namespace Stemkit.Auth.Services.Implementation
             }
 
             // Validate role
-            var allowedRoles = new List<string> { "Customer", "Staff" };
+            var allowedRoles = new List<string> { "Customer", "Staff", "Manager" };
             if (string.IsNullOrWhiteSpace(registrationDto.Role) ||
                 !allowedRoles.Contains(registrationDto.Role, StringComparer.OrdinalIgnoreCase))
             {

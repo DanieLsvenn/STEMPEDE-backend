@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Stemkit.Constants;
 using Stemkit.Data;
 using Stemkit.DTOs.Cart;
 using Stemkit.Models;
@@ -34,7 +35,7 @@ namespace Stemkit.Services.Implementation
             }
 
             var cartRepository = _unitOfWork.GetRepository<Cart>();
-            var cart = await cartRepository.FindAsync(c => c.UserId == userEntity.UserId && c.Status == "Active");
+            var cart = await cartRepository.FindAsync(c => c.UserId == userEntity.UserId && c.Status == CartStatusConstants.Active);
             var activeCart = cart.FirstOrDefault();
 
             if (activeCart == null)
@@ -102,7 +103,7 @@ namespace Stemkit.Services.Implementation
 
             // Retrieve or create active cart
             var cartRepository = _unitOfWork.GetRepository<Cart>();
-            var cart = await cartRepository.FindAsync(c => c.UserId == userEntity.UserId && c.Status == "Active");
+            var cart = await cartRepository.FindAsync(c => c.UserId == userEntity.UserId && c.Status == CartStatusConstants.Active);
             var activeCart = cart.FirstOrDefault();
 
             if (activeCart == null)
@@ -111,7 +112,7 @@ namespace Stemkit.Services.Implementation
                 {
                     UserId = userEntity.UserId,
                     CreatedDate = DateOnly.FromDateTime(DateTime.UtcNow),
-                    Status = "Active"
+                    Status = CartStatusConstants.Active
                 };
                 await cartRepository.AddAsync(activeCart);
                 await _unitOfWork.CompleteAsync();
@@ -170,7 +171,7 @@ namespace Stemkit.Services.Implementation
             var cartItemRepository = _unitOfWork.GetRepository<CartItem>();
             var cartItem = await cartItemRepository.GetByIdAsync(cartItemId);
 
-            if (cartItem == null || cartItem.Cart.UserId != userEntity.UserId || cartItem.Cart.Status != "Active")
+            if (cartItem == null || cartItem.Cart.UserId != userEntity.UserId || cartItem.Cart.Status != CartStatusConstants.Active)
             {
                 _logger.LogWarning("CartItemID: {CartItemId} not found or does not belong to user: {UserName}.", cartItemId, userName);
                 throw new ArgumentException("Cart item not found.");
@@ -229,7 +230,7 @@ namespace Stemkit.Services.Implementation
             var cartItemRepository = _unitOfWork.GetRepository<CartItem>();
             var cartItem = await cartItemRepository.GetByIdAsync(cartItemId);
 
-            if (cartItem == null || cartItem.Cart.UserId != userEntity.UserId || cartItem.Cart.Status != "Active")
+            if (cartItem == null || cartItem.Cart.UserId != userEntity.UserId || cartItem.Cart.Status != CartStatusConstants.Active)
             {
                 _logger.LogWarning("CartItemID: {CartItemId} not found or does not belong to user: {UserName}.", cartItemId, userName);
                 throw new ArgumentException("Cart item not found.");
@@ -272,7 +273,7 @@ namespace Stemkit.Services.Implementation
             }
 
             var cartRepository = _unitOfWork.GetRepository<Cart>();
-            var cart = await cartRepository.FindAsync(c => c.UserId == userEntity.UserId && c.Status == "Active");
+            var cart = await cartRepository.FindAsync(c => c.UserId == userEntity.UserId && c.Status == CartStatusConstants.Active);
             var activeCart = cart.FirstOrDefault();
 
             if (activeCart == null)
@@ -304,107 +305,107 @@ namespace Stemkit.Services.Implementation
             return "Cart cleared successfully.";
         }
 
-        //public async Task<string> CheckoutAsync(string userName, CheckoutDto checkoutDto)
-        //{
-        //    _logger.LogInformation("Checkout initiated for User: {UserName}", userName);
+        public async Task<string> CheckoutAsync(string userName, CheckoutDto checkoutDto)
+        {
+            _logger.LogInformation("Checkout initiated for User: {UserName}", userName);
 
-        //    using var transaction = await _unitOfWork.BeginTransactionAsync();
+            using var transaction = await _unitOfWork.BeginTransactionAsync();
 
-        //    try
-        //    {
-        //        var userRepository = _unitOfWork.GetRepository<User>();
-        //        var user = await userRepository.FindAsync(u => u.Username == userName);
-        //        var userEntity = user.FirstOrDefault();
+            try
+            {
+                var userRepository = _unitOfWork.GetRepository<User>();
+                var user = await userRepository.FindAsync(u => u.Username == userName);
+                var userEntity = user.FirstOrDefault();
 
-        //        if (userEntity == null)
-        //        {
-        //            _logger.LogWarning("User {UserName} not found.", userName);
-        //            throw new ArgumentException("User not found.");
-        //        }
+                if (userEntity == null)
+                {
+                    _logger.LogWarning("User {UserName} not found.", userName);
+                    throw new ArgumentException("User not found.");
+                }
 
-        //        var cartRepository = _unitOfWork.GetRepository<Cart>();
-        //        var cart = await cartRepository.FindAsync(c => c.UserId == userEntity.UserId && c.Status == "Active");
-        //        var activeCart = cart.FirstOrDefault();
+                var cartRepository = _unitOfWork.GetRepository<Cart>();
+                var cart = await cartRepository.FindAsync(c => c.UserId == userEntity.UserId && c.Status == "Active");
+                var activeCart = cart.FirstOrDefault();
 
-        //        if (activeCart == null)
-        //        {
-        //            _logger.LogWarning("No active cart found for User: {UserName}", userName);
-        //            throw new ArgumentException("No active cart found.");
-        //        }
+                if (activeCart == null)
+                {
+                    _logger.LogWarning("No active cart found for User: {UserName}", userName);
+                    throw new ArgumentException("No active cart found.");
+                }
 
-        //        var cartItemRepository = _unitOfWork.GetRepository<CartItem>();
-        //        var cartItems = await cartItemRepository.FindAsync(ci => ci.CartId == activeCart.CartID, includeProperties: "Product");
+                var cartItemRepository = _unitOfWork.GetRepository<CartItem>();
+                var cartItems = await cartItemRepository.FindAsync(ci => ci.CartId == activeCart.CartId, includeProperties: "Product");
 
-        //        if (!cartItems.Any())
-        //        {
-        //            _logger.LogWarning("Active cart for User: {UserName} is empty.", userName);
-        //            throw new ArgumentException("Cart is empty.");
-        //        }
+                if (!cartItems.Any())
+                {
+                    _logger.LogWarning("Active cart for User: {UserName} is empty.", userName);
+                    throw new ArgumentException("Cart is empty.");
+                }
 
-        //        // Calculate total amount
-        //        decimal totalAmount = 0;
-        //        foreach (var cartItem in cartItems)
-        //        {
-        //            if (cartItem.Product.StockQuantity < cartItem.Quantity)
-        //            {
-        //                _logger.LogWarning("Insufficient stock for ProductID: {ProductId}.", cartItem.ProductID);
-        //                throw new ArgumentException($"Insufficient stock for product: {cartItem.Product.ProductName}");
-        //            }
-        //            totalAmount += cartItem.Price * cartItem.Quantity;
-        //        }
+                // Calculate total amount
+                decimal totalAmount = 0;
+                foreach (var cartItem in cartItems)
+                {
+                    if (cartItem.Product.StockQuantity < cartItem.Quantity)
+                    {
+                        _logger.LogWarning("Insufficient stock for ProductID: {ProductId}.", cartItem.ProductId);
+                        throw new ArgumentException($"Insufficient stock for product: {cartItem.Product.ProductName}");
+                    }
+                    totalAmount += cartItem.Price * cartItem.Quantity;
+                }
 
-        //        // Create Order
-        //        var orderRepository = _unitOfWork.GetRepository<Order>();
-        //        var order = new Order
-        //        {
-        //            UserId = userEntity.UserId,
-        //            OrderDate = DateTime.UtcNow,
-        //            TotalAmount = totalAmount
-        //        };
-        //        await orderRepository.AddAsync(order);
-        //        await _unitOfWork.CompleteAsync();
-        //        _logger.LogInformation("OrderID: {OrderId} created for UserID: {UserId}", order.OrderId, userEntity.UserId);
+                // Create Order
+                var orderRepository = _unitOfWork.GetRepository<Order>();
+                var order = new Order
+                {
+                    UserId = userEntity.UserId,
+                    OrderDate = DateOnly.FromDateTime(DateTime.UtcNow),
+                    TotalAmount = totalAmount
+                };
+                await orderRepository.AddAsync(order);
+                await _unitOfWork.CompleteAsync();
+                _logger.LogInformation("OrderID: {OrderId} created for UserID: {UserId}", order.OrderId, userEntity.UserId);
 
-        //        // Create OrderDetails
-        //        var orderDetailRepository = _unitOfWork.GetRepository<OrderDetail>();
-        //        foreach (var cartItem in cartItems)
-        //        {
-        //            var orderDetail = new OrderDetail
-        //            {
-        //                OrderId = order.OrderId,
-        //                ProductId = cartItem.ProductID,
-        //                ProductDescription = cartItem.Product.Description,
-        //                Quantity = cartItem.Quantity,
-        //                Price = cartItem.Price
-        //            };
-        //            await orderDetailRepository.AddAsync(orderDetail);
+                // Create OrderDetails
+                var orderDetailRepository = _unitOfWork.GetRepository<OrderDetail>();
+                foreach (var cartItem in cartItems)
+                {
+                    var orderDetail = new OrderDetail
+                    {
+                        OrderId = order.OrderId,
+                        ProductId = cartItem.ProductId,
+                        ProductDescription = cartItem.Product.Description,
+                        Quantity = cartItem.Quantity,
+                        Price = cartItem.Price
+                    };
+                    await orderDetailRepository.AddAsync(orderDetail);
 
-        //            // Deduct stock
-        //            cartItem.Product.StockQuantity -= cartItem.Quantity;
-        //            _unitOfWork.GetRepository<Product>().Update(cartItem.Product);
+                    // Deduct stock
+                    cartItem.Product.StockQuantity -= cartItem.Quantity;
+                    _unitOfWork.GetRepository<Product>().Update(cartItem.Product);
 
-        //            // Remove cart item
-        //            cartItemRepository.Delete(cartItem);
-        //        }
+                    // Remove cart item
+                    cartItemRepository.Delete(cartItem);
+                }
 
-        //        await _unitOfWork.CompleteAsync();
+                await _unitOfWork.CompleteAsync();
 
-        //        // Update cart status
-        //        activeCart.Status = "CheckedOut";
-        //        cartRepository.Update(activeCart);
-        //        await _unitOfWork.CompleteAsync();
+                // Update cart status
+                activeCart.Status = CartStatusConstants.CheckedOut;
+                cartRepository.Update(activeCart);
+                await _unitOfWork.CompleteAsync();
 
-        //        await transaction.CommitAsync();
+                await transaction.CommitAsync();
 
-        //        _logger.LogInformation("Checkout completed successfully for User: {UserName}, OrderID: {OrderId}", userName, order.OrderId);
-        //        return $"Checkout successful. Order ID: {order.OrderId}";
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        await transaction.RollbackAsync();
-        //        _logger.LogError(ex, "Checkout failed for User: {UserName}", userName);
-        //        throw;
-        //    }
-        //}
+                _logger.LogInformation("Checkout completed successfully for User: {UserName}, OrderID: {OrderId}", userName, order.OrderId);
+                return $"Checkout successful. Order ID: {order.OrderId}";
+            }
+            catch (Exception ex)
+            {
+                await transaction.RollbackAsync();
+                _logger.LogError(ex, "Checkout failed for User: {UserName}", userName);
+                throw;
+            }
+        }
     }
 }

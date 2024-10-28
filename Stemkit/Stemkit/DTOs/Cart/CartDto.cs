@@ -1,4 +1,5 @@
-﻿namespace Stemkit.DTOs.Cart
+﻿
+namespace Stemkit.DTOs.Cart
 {
     public class CartDto
     {
