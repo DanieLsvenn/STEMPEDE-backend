@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Stemkit.Constants;
 
 namespace Stemkit.Models;
 
@@ -11,7 +10,7 @@ public partial class Cart
 
     public DateOnly CreatedDate { get; set; }
 
-    public string Status { get; set; } = null!;
+    public string Status { get; set; } = CartStatusConstants.Active;
 
     public virtual ICollection<CartItem> CartItems { get; set; } = new List<CartItem>();
 
