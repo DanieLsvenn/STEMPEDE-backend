@@ -7,6 +7,7 @@ using Stemkit.DTOs.Auth;
 using AutoMapper;
 using Stemkit.Configurations;
 using Microsoft.Extensions.Options;
+using Stemkit.Auth.Helpers.Interfaces;
 
 namespace Stemkit.Auth.Services.Implementation
 {
@@ -18,6 +19,7 @@ namespace Stemkit.Auth.Services.Implementation
         private readonly IJwtTokenService _jwtTokenService;
         private readonly ILogger<AuthService> _logger;
         private readonly IMapper _mapper;
+        private readonly IAssignMissingPermissions _assignMissingPermissions;
 
         public AuthService(
             IUnitOfWork unitOfWork,
@@ -25,7 +27,8 @@ namespace Stemkit.Auth.Services.Implementation
             IJwtTokenService jwtTokenService,
             ILogger<AuthService> logger,
             IMapper mapper,
-            IOptions<DatabaseSettings> dbSettings)
+            IOptions<DatabaseSettings> dbSettings,
+            IAssignMissingPermissions assignMissingPermissions)
         {
             _unitOfWork = unitOfWork;
             _refreshTokenService = refreshTokenService;
@@ -33,6 +36,7 @@ namespace Stemkit.Auth.Services.Implementation
             _logger = logger;
             _mapper = mapper;
             _dbSettings = dbSettings.Value;
+            _assignMissingPermissions = assignMissingPermissions;
         }
 
         public async Task<AuthResponse> RegisterAsync(UserRegistrationDto registrationDto, string ipAddress)
@@ -104,6 +108,36 @@ namespace Stemkit.Auth.Services.Implementation
 
                     // Save role assignment
                     await _unitOfWork.CompleteAsync();
+
+                    // Retrieve the corresponding permission
+                    var permission = await _unitOfWork.GetRepository<Permission>()
+                        .GetAsync(p => p.PermissionName.Equals(registrationDto.Role, StringComparison.OrdinalIgnoreCase));
+
+                    if (permission == null)
+                    {
+                        _logger.LogError("Permission matching the role '{RoleName}' not found.", registrationDto.Role);
+                        throw new InvalidOperationException("Corresponding permission not found.");
+                    }
+
+                    var existingUserPermission = await _unitOfWork.GetRepository<UserPermission>().FindAsync(up => up.UserId == user.UserId && up.PermissionId == permission.PermissionId);
+
+                    if (existingUserPermission.Any())
+                    {
+                        _logger.LogWarning("User already has the '{PermissionName}' permission.", permission.PermissionName);
+                    }
+                    else
+                    {
+                        // Proceed to assign the permission
+                        var userPermission = new UserPermission
+                        {
+                            UserId = user.UserId,
+                            PermissionId = permission.PermissionId,
+                            AssignedBy = user.UserId 
+                        };
+
+                        await _unitOfWork.GetRepository<UserPermission>().AddAsync(userPermission);
+                        await _unitOfWork.CompleteAsync();
+                    }
 
                     // Generate JWT Access Token
                     var accessToken = _jwtTokenService.GenerateJwtToken(user.UserId, new List<string> { role.RoleName }, user.Status);
@@ -179,6 +213,9 @@ namespace Stemkit.Auth.Services.Implementation
                     .FindAsync(ur => ur.UserId == user.UserId, includeProperties: "Role");
 
                 var roleNames = userRoles.Select(ur => ur.Role.RoleName).ToList();
+
+                // Assign missing permissions based on roles using helper
+                await _assignMissingPermissions.AssignMissingPermissionsAsync(user.UserId, roleNames);
 
                 // Generate JWT token
                 var accessToken = _jwtTokenService.GenerateJwtToken(user.UserId, roleNames, user.Status);

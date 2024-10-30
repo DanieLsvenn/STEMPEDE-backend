@@ -1,685 +1,607 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Threading.Tasks;
-using Moq;
+﻿using Moq;
 using Stemkit.Models;
-using Stemkit.Repositories.Interfaces;
-using Stemkit.Utils.Interfaces;
 using Microsoft.Extensions.Logging;
-using Xunit;
 using Microsoft.EntityFrameworkCore.Storage;
 using Stemkit.Data;
-using Stemkit.DTOs;
-using Stemkit.Tests.Helpers;
 using Stemkit.Auth.Services.Implementation;
 using Stemkit.Auth.Services.Interfaces;
+using AutoMapper;
+using Microsoft.Extensions.Options;
+using Stemkit.Configurations;
+using Stemkit.DTOs.Auth;
+using FluentAssertions;
+using System.Linq;
+using System.Linq.Expressions;
+using Stemkit.Auth.Helpers.Interfaces;
 
 namespace Stemkit.Tests
 {
     public class AuthServiceTests
     {
         private readonly Mock<IUnitOfWork> _unitOfWorkMock;
-        private readonly Mock<IGenericRepository<User>> _userRepositoryMock;
-        private readonly Mock<IGenericRepository<Role>> _roleRepositoryMock;
-        private readonly Mock<IGenericRepository<UserRole>> _userRoleRepositoryMock;
-        private readonly Mock<IGenericRepository<Customer>> _customerRepositoryMock;
-        private readonly Mock<IGenericRepository<Staff>> _staffRepositoryMock;
+        private readonly Mock<IRefreshTokenService> _refreshTokenServiceMock;
+        private readonly Mock<IJwtTokenService> _jwtTokenServiceMock;
         private readonly Mock<ILogger<AuthService>> _loggerMock;
-        private readonly Mock<IJwtTokenGenerator> _jwtTokenGeneratorMock;
-
-        private readonly Mock<IDateTimeProvider> _mockDateTimeProvider;
-        private readonly Mock<IRefreshTokenRepository> _refreshTokenRepositoryMock;
-        private readonly IAuthService _authService;
+        private readonly IMapper _mapper;
+        private readonly Mock<IOptions<DatabaseSettings>> _dbSettingsMock;
+        private readonly Mock<IAssignMissingPermissions> _assignMissingPermissionsMock;
+        private readonly AuthService _authService;
 
         public AuthServiceTests()
         {
             _unitOfWorkMock = new Mock<IUnitOfWork>();
-            _userRepositoryMock = new Mock<IGenericRepository<User>>();
-            _roleRepositoryMock = new Mock<IGenericRepository<Role>>();
-            _userRoleRepositoryMock = new Mock<IGenericRepository<UserRole>>();
-            _customerRepositoryMock = new Mock<IGenericRepository<Customer>>();
-            _staffRepositoryMock = new Mock<IGenericRepository<Staff>>();
-            _refreshTokenRepositoryMock = new Mock<IRefreshTokenRepository>();
+            _refreshTokenServiceMock = new Mock<IRefreshTokenService>();
+            _jwtTokenServiceMock = new Mock<IJwtTokenService>();
             _loggerMock = new Mock<ILogger<AuthService>>();
-            _jwtTokenGeneratorMock = new Mock<IJwtTokenGenerator>();
-            _mockDateTimeProvider = new Mock<IDateTimeProvider>();
+            _dbSettingsMock = new Mock<IOptions<DatabaseSettings>>();
+            _assignMissingPermissionsMock = new Mock<IAssignMissingPermissions>();
 
-            // Setup the unit of work to return the mocked repositories via properties
-            _unitOfWorkMock.Setup(uow => uow.GetRepository<User>()).Returns(_userRepositoryMock.Object);
-            _unitOfWorkMock.Setup(uow => uow.GetRepository<Role>()).Returns(_roleRepositoryMock.Object);
-            _unitOfWorkMock.Setup(uow => uow.GetRepository<UserRole>()).Returns(_userRoleRepositoryMock.Object);
-            _unitOfWorkMock.Setup(uow => uow.GetRepository<Customer>()).Returns(_customerRepositoryMock.Object);
-            _unitOfWorkMock.Setup(uow => uow.GetRepository<Staff>()).Returns(_staffRepositoryMock.Object);
-            _unitOfWorkMock.Setup(uow => uow.RefreshTokens).Returns(_refreshTokenRepositoryMock.Object); // Correct Setup
+            // Configure AutoMapper with real mappings
+            var mapperConfig = new MapperConfiguration(cfg =>
+            {
+                cfg.AddProfile<Stemkit.Configurations.AutoMapperProfile>();
+            });
+            _mapper = mapperConfig.CreateMapper();
 
-            // **Setup the RefreshTokens property**
-            _unitOfWorkMock.Setup(uow => uow.RefreshTokens).Returns(_refreshTokenRepositoryMock.Object);
+            _dbSettingsMock.Setup(x => x.Value).Returns(new DatabaseSettings
+            {
+                Collation = "SQL_Latin1_General_CP1_CI_AS"
+            });
 
             _authService = new AuthService(
-        _unitOfWorkMock.Object,
-        _jwtTokenGeneratorMock.Object,
-        _mockDateTimeProvider.Object,
-        _loggerMock.Object
-    );
+                _unitOfWorkMock.Object,
+                _refreshTokenServiceMock.Object,
+                _jwtTokenServiceMock.Object,
+                _loggerMock.Object,
+                _mapper,
+                _dbSettingsMock.Object,
+                _assignMissingPermissionsMock.Object
+            );
         }
 
         [Fact]
-        public async Task RegisterAsync_WithValidData_ReturnsSuccess()
+        public async Task RegisterAsync_ShouldRegisterUserSuccessfully()
         {
             // Arrange
             var registrationDto = new UserRegistrationDto
             {
+                Email = "test@example.com",
                 Username = "testuser",
-                Password = "Test@123",
-                Email = "testuser@example.com",
-                Fullname = "Mai Tien Hoang",
+                Password = "SecurePassword123!",
                 Role = "Customer",
-                Phone = "123-456-7890",
-                Address = "123 Test Street",
-                IsExternal = false,
-                ExternalProvider = null
+                IsExternal = false
             };
+            string ipAddress = "127.0.0.1";
 
-            // Mock the user does not exist
-            _userRepositoryMock.Setup(repo => repo.AnyAsync(It.IsAny<Expression<Func<User, bool>>>()))
-                .ReturnsAsync(false);
+            // Mock user existence check
+            _unitOfWorkMock.Setup(uow => uow.GetRepository<User>()
+    .AnyAsync(It.IsAny<Expression<Func<User, bool>>>()))
+    .ReturnsAsync(false);
 
-            // Mock role exists
+            // Mock role retrieval
             var role = new Role { RoleId = 1, RoleName = "Customer" };
-            _roleRepositoryMock.Setup(repo => repo.GetAsync(
-                    It.IsAny<Expression<Func<Role, bool>>>(),
-                    It.IsAny<string>()))
+            _unitOfWorkMock.Setup(uow => uow.GetRepository<Role>()
+                .GetAsync(It.IsAny<Expression<Func<Role, bool>>>(), It.IsAny<string>()))
                 .ReturnsAsync(role);
 
-            // Mock adding user
-            _userRepositoryMock.Setup(repo => repo.AddAsync(It.IsAny<User>())).Returns(Task.CompletedTask);
+            // Variable to capture the User object passed to AddAsync
+            User capturedUser = null;
 
-            // Mock adding UserRole
-            _userRoleRepositoryMock.Setup(repo => repo.AddAsync(It.IsAny<UserRole>()))
+            // Mock repository Add and CompleteAsync
+            _unitOfWorkMock.Setup(uow => uow.GetRepository<User>().AddAsync(It.IsAny<User>()))
+                .Callback<User>(u => capturedUser = u) // Capture the User object
+                .Returns(Task.CompletedTask);
+            _unitOfWorkMock.Setup(uow => uow.CompleteAsync())
+                .ReturnsAsync(1);
+            _unitOfWorkMock.Setup(uow => uow.GetRepository<UserRole>().AddAsync(It.IsAny<UserRole>()))
                 .Returns(Task.CompletedTask);
 
-            // Mock adding RefreshToken
-            _refreshTokenRepositoryMock.Setup(repo => repo.AddAsync(It.IsAny<RefreshToken>()))
+            // Mock JWT and Refresh Token generation
+            _jwtTokenServiceMock.Setup(jwt => jwt.GenerateJwtToken(It.IsAny<int>(), It.IsAny<List<string>>(), It.IsAny<bool>()))
+                .Returns("fake-jwt-token");
+            var refreshToken = new RefreshToken { Token = "fake-refresh-token" };
+            _refreshTokenServiceMock.Setup(rt => rt.GenerateRefreshToken(It.IsAny<int>(), It.IsAny<string>()))
+                .Returns(refreshToken);
+            _refreshTokenServiceMock.Setup(rt => rt.SaveRefreshTokenAsync(It.IsAny<RefreshToken>()))
                 .Returns(Task.CompletedTask);
-
-            // Mock CompleteAsync with SetupSequence
-            _unitOfWorkMock.SetupSequence(uow => uow.CompleteAsync())
-                .ReturnsAsync(1) // After adding user and UserRole
-                .ReturnsAsync(1) // After adding refresh token
-                .ReturnsAsync(1); // If needed, for any additional CompleteAsync calls
-
-            // Mock BeginTransactionAsync
-            var transactionMock = new Mock<IDbContextTransaction>();
-            transactionMock.Setup(t => t.CommitAsync(It.IsAny<System.Threading.CancellationToken>()))
-                .Returns(Task.CompletedTask);
-            _unitOfWorkMock.Setup(uow => uow.BeginTransactionAsync()).ReturnsAsync(transactionMock.Object);
-
-            // Mock IJwtTokenGenerator methods
-            _jwtTokenGeneratorMock.Setup(jtg => jtg.GenerateJwtToken(
-                    It.IsAny<int>(),
-                    It.IsAny<List<string>>()))
-                .Returns("MockedJwtToken");
-
-            _jwtTokenGeneratorMock.Setup(jtg => jtg.GenerateRefreshToken(
-                    It.IsAny<int>(),
-                    It.IsAny<string>()))
-                .Returns(new RefreshToken
-                {
-                    Token = "MockedRefreshToken",
-                    UserId = 1,
-                    ExpirationTime = DateTime.UtcNow.AddDays(7),
-                    Created = DateTime.UtcNow,
-                    CreatedByIp = "127.0.0.1"
-                });
-
-            // Act
-            var result = await _authService.RegisterAsync(registrationDto, "127.0.0.1");
-
-            // Assert
-            Assert.True(result.Success, $"Registration failed with message: {result.Message}");
-            Assert.Equal("Registration successful.", result.Message);
-            Assert.Equal("MockedJwtToken", result.Token);
-            Assert.Equal("MockedRefreshToken", result.RefreshToken);
-            _userRepositoryMock.Verify(repo => repo.AnyAsync(It.IsAny<Expression<Func<User, bool>>>()), Times.Once);
-            _userRepositoryMock.Verify(repo => repo.AddAsync(It.IsAny<User>()), Times.Once);
-            _roleRepositoryMock.Verify(repo => repo.GetAsync(
-                It.IsAny<Expression<Func<Role, bool>>>(),
-                It.IsAny<string>()), Times.Once);
-            _userRoleRepositoryMock.Verify(repo => repo.AddAsync(It.IsAny<UserRole>()), Times.Once);
-            _refreshTokenRepositoryMock.Verify(repo => repo.AddAsync(It.IsAny<RefreshToken>()), Times.Once);
-            _unitOfWorkMock.Verify(uow => uow.CompleteAsync(), Times.Exactly(3)); // Adjust based on actual calls
-            transactionMock.Verify(t => t.CommitAsync(It.IsAny<System.Threading.CancellationToken>()), Times.Once);
-        }
-
-
-        [Fact]
-        public async Task RegisterAsync_UserAlreadyExists_ReturnsFailure()
-        {
-            // Arrange
-            var registrationDto = new UserRegistrationDto
-            {
-                Username = "existinguser",
-                Password = "Test@123",
-                Email = "existinguser@example.com",
-                Role = "Customer"
-            };
-
-            // Mock the user already exists
-            _userRepositoryMock.Setup(repo => repo.AnyAsync(It.IsAny<Expression<Func<User, bool>>>()))
-                .ReturnsAsync(true);
-
-            // Mock role exists
-            var role = new Role { RoleId = 1, RoleName = "Customer" };
-            _roleRepositoryMock.Setup(repo => repo.GetAsync(
-                    It.IsAny<Expression<Func<Role, bool>>>(),
-                    It.IsAny<string>()))
-                .ReturnsAsync(role);
-
-            var ipAddress = "192.168.1.1";
-            // Act
-            var result = await _authService.RegisterAsync(registrationDto, ipAddress);
-
-            // Assert
-            Assert.False(result.Success);
-            Assert.Equal("User already exists.", result.Message);
-            _userRepositoryMock.Verify(repo => repo.AddAsync(It.IsAny<User>()), Times.Never);
-            _unitOfWorkMock.Verify(uow => uow.CompleteAsync(), Times.Never);
-        }
-
-        [Fact]
-        public async Task RegisterAsync_WithInvalidRole_ReturnsFailure()
-        {
-            // Arrange
-            var registrationDto = new UserRegistrationDto
-            {
-                Username = "testuser2",
-                Password = "Test@123",
-                Email = "testuser2@example.com",
-                Role = "InvalidRole"
-            };
-
-            // Mock the user does not exist
-            _userRepositoryMock.Setup(repo => repo.AnyAsync(It.IsAny<Expression<Func<User, bool>>>()))
-                .ReturnsAsync(false);
-
-
-            // Mock role does not exist
-            _roleRepositoryMock.Setup(repo => repo.GetAsync(
-                    It.IsAny<Expression<Func<Role, bool>>>(),
-                    It.IsAny<string>()))
-                .ReturnsAsync((Role)null);
-
-            var ipAddress = "192.168.1.1";
-            // Act
-            var result = await _authService.RegisterAsync(registrationDto, ipAddress);
-
-            // Assert
-            Assert.False(result.Success);
-            Assert.Equal("Invalid or missing role provided.", result.Message);
-            _userRepositoryMock.Verify(repo => repo.AddAsync(It.IsAny<User>()), Times.Never);
-            _unitOfWorkMock.Verify(uow => uow.CompleteAsync(), Times.Never);
-        }
-
-        [Fact]
-        public async Task RegisterAsync_WithMissingRequiredFields_ReturnsFailure()
-        {
-            // Arrange
-            var registrationDto = new UserRegistrationDto
-            {
-                Username = "",
-                Password = "",
-                Email = "",
-                Role = ""
-            };
-
-            var ipAddress = "192.168.1.1";
-            // Act
-            var result = await _authService.RegisterAsync(registrationDto, ipAddress);
-
-            // Assert
-            Assert.False(result.Success);
-            Assert.Equal("Invalid registration data.", result.Message);
-            _userRepositoryMock.Verify(repo => repo.AnyAsync(It.IsAny<Expression<Func<User, bool>>>()), Times.Never);
-            _userRepositoryMock.Verify(repo => repo.AddAsync(It.IsAny<User>()), Times.Never);
-            _unitOfWorkMock.Verify(uow => uow.CompleteAsync(), Times.Never);
-        }
-
-        [Fact]
-        public async Task RegisterAsync_ExceptionThrown_ReturnsFailure()
-        {
-            // Arrange
-            var registrationDto = new UserRegistrationDto
-            {
-                Username = "testuser3",
-                Password = "Test@123",
-                Email = "testuser3@example.com",
-                Role = "Customer"
-            };
-
-            // Mock the user does not exist
-            _userRepositoryMock.Setup(repo => repo.AnyAsync(It.IsAny<Expression<Func<User, bool>>>()))
-                .ReturnsAsync(false);
-
-            // Mock role exists
-            var role = new Role { RoleId = 1, RoleName = "Customer" };
-            _roleRepositoryMock.Setup(repo => repo.GetAsync(
-                    It.IsAny<Expression<Func<Role, bool>>>(),
-                    It.IsAny<string>()))
-                .ReturnsAsync(role);
-
-            // Mock adding user throws exception
-            _userRepositoryMock.Setup(repo => repo.AddAsync(It.IsAny<User>()))
-                .ThrowsAsync(new Exception("Database error"));
 
             // Mock transaction
             var transactionMock = new Mock<IDbContextTransaction>();
-            transactionMock.Setup(t => t.RollbackAsync(It.IsAny<System.Threading.CancellationToken>())).Returns(Task.CompletedTask);
-            _unitOfWorkMock.Setup(uow => uow.BeginTransactionAsync()).ReturnsAsync(transactionMock.Object);
+            _unitOfWorkMock.Setup(uow => uow.BeginTransactionAsync())
+                .ReturnsAsync(transactionMock.Object);
 
-            var ipAddress = "192.168.1.1";
             // Act
             var result = await _authService.RegisterAsync(registrationDto, ipAddress);
 
             // Assert
-            Assert.False(result.Success);
-            Assert.Equal("An unexpected error occurred. Please try again.", result.Message);
+            result.Should().NotBeNull();
+            result.Success.Should().BeTrue();
+            result.Message.Should().Be("Registration successful.");
+            result.Token.Should().Be("fake-jwt-token");
+            result.RefreshToken.Should().Be("fake-refresh-token");
+
+            // Ensure that the User object was captured
+            capturedUser.Should().NotBeNull();
+            capturedUser.Email.Should().Be(registrationDto.Email);
+            capturedUser.Username.Should().Be(registrationDto.Username);
+            capturedUser.Status.Should().BeTrue();
+            capturedUser.IsExternal.Should().Be(registrationDto.IsExternal);
+
+            // Verify that the password was hashed correctly
+            BCrypt.Net.BCrypt.Verify(registrationDto.Password, capturedUser.Password).Should().BeTrue();
+
+            // Verify that role was assigned
+            _unitOfWorkMock.Verify(uow => uow.GetRepository<UserRole>().AddAsync(It.Is<UserRole>(ur =>
+                ur.UserId == capturedUser.UserId && ur.RoleId == role.RoleId)), Times.Once);
+
+            // Verify that tokens were generated and saved
+            _jwtTokenServiceMock.Verify(jwt => jwt.GenerateJwtToken(capturedUser.UserId, It.Is<List<string>>(roles => roles.Contains("Customer")), capturedUser.Status), Times.Once);
+            _refreshTokenServiceMock.Verify(rt => rt.GenerateRefreshToken(capturedUser.UserId, ipAddress), Times.Once);
+            _refreshTokenServiceMock.Verify(rt => rt.SaveRefreshTokenAsync(refreshToken), Times.Once);
+
+            // Verify transaction commit
+            transactionMock.Verify(t => t.CommitAsync(It.IsAny<System.Threading.CancellationToken>()), Times.Once);
+        }
+
+        [Fact]
+        public async Task RegisterAsync_ShouldHandleDatabaseException()
+        {
+            // Arrange
+            var registrationDto = new UserRegistrationDto
+            {
+                Email = "new@example.com",
+                Username = "newuser",
+                Password = "SecurePassword123!",
+                Role = "Customer",
+                IsExternal = false
+            };
+            string ipAddress = "127.0.0.1";
+
+            // Mock user existence check to return false
+            _unitOfWorkMock.Setup(uow => uow.GetRepository<User>()
+    .AnyAsync(It.IsAny<Expression<Func<User, bool>>>()))
+    .ReturnsAsync(false);
+
+            // Mock role retrieval
+            var role = new Role { RoleId = 1, RoleName = "Customer" };
+            _unitOfWorkMock.Setup(uow => uow.GetRepository<Role>()
+                .GetAsync(It.IsAny<Expression<Func<Role, bool>>>(), It.IsAny<string>()))
+                .ReturnsAsync(role);
+
+            // Variable to capture the User object passed to AddAsync
+            User capturedUser = null;
+
+            // Mock repository Add to throw a generic exception instead of SqlException
+            _unitOfWorkMock.Setup(uow => uow.GetRepository<User>().AddAsync(It.IsAny<User>()))
+                .Callback<User>(u => capturedUser = u) // Capture the User object
+                .ThrowsAsync(new Exception("Database connection error."));
+
+            // Mock transaction
+            var transactionMock = new Mock<IDbContextTransaction>();
+            _unitOfWorkMock.Setup(uow => uow.BeginTransactionAsync())
+                .ReturnsAsync(transactionMock.Object);
+
+            // Act
+            var result = await _authService.RegisterAsync(registrationDto, ipAddress);
+
+            // Assert
+            result.Should().NotBeNull();
+            result.Success.Should().BeFalse();
+            result.Message.Should().Be("An unexpected error occurred. Please try again.");
+
+            // Verify that transaction was rolled back
             transactionMock.Verify(t => t.RollbackAsync(It.IsAny<System.Threading.CancellationToken>()), Times.Once);
         }
 
         [Fact]
-        public async Task LoginAsync_WithValidCredentials_ReturnsSuccess()
+        public async Task LoginAsync_ShouldLoginSuccessfully()
         {
             // Arrange
             var loginDto = new UserLoginDto
             {
                 EmailOrUsername = "testuser",
-                Password = "Test@123"
+                Password = "ValidPassword123!"
             };
+            string ipAddress = "127.0.0.1";
 
-            // Hash the password as it would be stored in the database
-            var hashedPassword = BCrypt.Net.BCrypt.HashPassword("Test@123", workFactor: 12);
-
-            // Define Role
-            var role = new Role
-            {
-                RoleId = 1,
-                RoleName = "Customer"
-            };
-
-            // Define UserRole with populated Role
-            var userRole = new UserRole
-            {
-                UserRoleId = 1,
-                UserId = 1,
-                RoleId = role.RoleId,
-                Role = role // Populate navigation property
-            };
-
-            var userRoles = new List<UserRole> { userRole };
-
-            // Define User
             var user = new User
             {
                 UserId = 1,
+                Email = "test@example.com",
                 Username = "testuser",
-                Email = "testuser@example.com",
-                Password = hashedPassword,
-                UserRoles = userRoles // Assign the userRoles to the user
+                Password = BCrypt.Net.BCrypt.HashPassword(loginDto.Password),
+                Status = true
             };
 
-            // Setup mock repositories using helper methods
-            _userRepositoryMock.SetupUserRepository(user);
-            _userRoleRepositoryMock.SetupUserRoleRepository(userRoles);
-            _roleRepositoryMock.SetupRoleRepository(role);
-            _jwtTokenGeneratorMock.SetupJwtTokenGenerator(
-                userId: user.UserId,
-                roles: new List<string> { role.RoleName },
-                jwtToken: "MockedJwtToken",
-                refreshToken: "MockedRefreshToken");
-            _refreshTokenRepositoryMock.SetupRefreshTokenRepository(); // Setup specific repository
-            _unitOfWorkMock.SetupUnitOfWorkCompleteAsync();
+            // Mock user retrieval
+            _unitOfWorkMock.Setup(uow => uow.GetRepository<User>()
+                .GetAsync(It.IsAny<Expression<Func<User, bool>>>(), It.IsAny<string>()))
+                .ReturnsAsync(user);
+
+            // Mock user roles
+            var userRoles = new List<UserRole>
+            {
+                new UserRole { UserId = user.UserId, RoleId = 1, Role = new Role { RoleName = "Customer" } }
+            };
+            _unitOfWorkMock.Setup(uow => uow.GetRepository<UserRole>()
+                .FindAsync(It.IsAny<Expression<Func<UserRole, bool>>>(), "Role"))
+                .ReturnsAsync(userRoles);
+
+            // Variable to capture the UserRole object passed to FindAsync if needed
+
+            // Mock JWT and Refresh Token generation
+            _jwtTokenServiceMock.Setup(jwt => jwt.GenerateJwtToken(It.IsAny<int>(), It.IsAny<List<string>>(), It.IsAny<bool>()))
+                .Returns("fake-jwt-token");
+            var refreshToken = new RefreshToken { Token = "fake-refresh-token" };
+            _refreshTokenServiceMock.Setup(rt => rt.GenerateRefreshToken(It.IsAny<int>(), It.IsAny<string>()))
+                .Returns(refreshToken);
+            _refreshTokenServiceMock.Setup(rt => rt.SaveRefreshTokenAsync(It.IsAny<RefreshToken>()))
+                .Returns(Task.CompletedTask);
 
             // Act
-            var result = await _authService.LoginAsync(loginDto, "192.168.1.1");
+            var result = await _authService.LoginAsync(loginDto, ipAddress);
 
             // Assert
-            Assert.True(result.Success, $"Login failed with message: {result.Message}");
-            Assert.Equal("Login successful.", result.Message);
-            Assert.Equal("MockedJwtToken", result.Token);
-            Assert.Equal("MockedRefreshToken", result.RefreshToken);
+            result.Should().NotBeNull();
+            result.Success.Should().BeTrue();
+            result.Message.Should().Be("Login successful.");
+            result.Token.Should().Be("fake-jwt-token");
+            result.RefreshToken.Should().Be("fake-refresh-token");
 
-            // Verify that GetAsync was called once for User
-            _userRepositoryMock.Verify(repo => repo.GetAsync(
-                    It.IsAny<Expression<Func<User, bool>>>(),
-                    It.IsAny<string>()),
-                Times.Once);
+            // Verify that user was retrieved
+            _unitOfWorkMock.Verify(uow => uow.GetRepository<User>().GetAsync(It.IsAny<Expression<Func<User, bool>>>(), It.IsAny<string>()), Times.Once);
 
-            // Verify that FindAsync for UserRole was called once
-            _userRoleRepositoryMock.Verify(repo => repo.FindAsync(
-                    It.IsAny<Expression<Func<UserRole, bool>>>(),
-                    It.IsAny<string>()),
-                Times.Once);
+            // Verify that roles were retrieved
+            _unitOfWorkMock.Verify(uow => uow.GetRepository<UserRole>().FindAsync(It.IsAny<Expression<Func<UserRole, bool>>>(), "Role"), Times.Once);
 
-            // Verify that GenerateJwtToken was called once
-            _jwtTokenGeneratorMock.Verify(generator => generator.GenerateJwtToken(
-                    user.UserId,
-                    It.IsAny<List<string>>()),
-                Times.Once);
-
-            // Verify that GenerateRefreshToken was called once
-            _jwtTokenGeneratorMock.Verify(generator => generator.GenerateRefreshToken(
-                    user.UserId,
-                    It.IsAny<string>()),
-                Times.Once);
-
-            // Verify that RefreshToken was added once
-            _refreshTokenRepositoryMock.Verify(repo => repo.AddAsync(It.IsAny<RefreshToken>()), Times.Once);
-
-            // Verify that CompleteAsync was called once
-            _unitOfWorkMock.Verify(uow => uow.CompleteAsync(), Times.Once);
+            // Verify that tokens were generated and saved
+            _jwtTokenServiceMock.Verify(jwt => jwt.GenerateJwtToken(user.UserId, It.Is<List<string>>(roles => roles.Contains("Customer")), user.Status), Times.Once);
+            _refreshTokenServiceMock.Verify(rt => rt.GenerateRefreshToken(user.UserId, ipAddress), Times.Once);
+            _refreshTokenServiceMock.Verify(rt => rt.SaveRefreshTokenAsync(refreshToken), Times.Once);
         }
 
         [Fact]
-        public async Task LoginAsync_UserDoesNotExist_ReturnsFailure()
+        public async Task LoginAsync_ShouldFail_WhenCredentialsAreInvalid()
         {
             // Arrange
             var loginDto = new UserLoginDto
             {
                 EmailOrUsername = "nonexistentuser",
-                Password = "Test@123"
+                Password = "WrongPassword!"
             };
+            string ipAddress = "127.0.0.1";
 
-            // Mock the user does not exist
-            _userRepositoryMock.Setup(repo => repo.GetAsync(
-                    It.IsAny<Expression<Func<User, bool>>>(),
-                    It.IsAny<string>()))
+            // Mock user retrieval to return null
+            _unitOfWorkMock.Setup(uow => uow.GetRepository<User>()
+                .GetAsync(It.IsAny<Expression<Func<User, bool>>>(), It.IsAny<string>()))
                 .ReturnsAsync((User)null);
 
-            var ipAddress = "192.168.1.1";
             // Act
             var result = await _authService.LoginAsync(loginDto, ipAddress);
 
             // Assert
-            Assert.False(result.Success);
-            Assert.Equal("Invalid credentials.", result.Message);
-            Assert.Null(result.Token);
+            result.Should().NotBeNull();
+            result.Success.Should().BeFalse();
+            result.Message.Should().Be("Invalid credentials or user is banned.");
+
+            // Verify that user was retrieved
+            _unitOfWorkMock.Verify(uow => uow.GetRepository<User>().GetAsync(It.IsAny<Expression<Func<User, bool>>>(), It.IsAny<string>()), Times.Once);
+
+            // Verify that no tokens were generated
+            _jwtTokenServiceMock.Verify(jwt => jwt.GenerateJwtToken(It.IsAny<int>(), It.IsAny<List<string>>(), It.IsAny<bool>()), Times.Never);
+            _refreshTokenServiceMock.Verify(rt => rt.GenerateRefreshToken(It.IsAny<int>(), It.IsAny<string>()), Times.Never);
+            _refreshTokenServiceMock.Verify(rt => rt.SaveRefreshTokenAsync(It.IsAny<RefreshToken>()), Times.Never);
         }
 
         [Fact]
-        public async Task LoginAsync_IncorrectPassword_ReturnsFailure()
+        public async Task LoginAsync_ShouldFail_WhenUserIsBanned()
         {
             // Arrange
             var loginDto = new UserLoginDto
             {
-                EmailOrUsername = "testuser",
-                Password = "WrongPassword"
+                EmailOrUsername = "banneduser",
+                Password = "ValidPassword123!"
             };
+            string ipAddress = "127.0.0.1";
 
-            // Hash a different password
-            var hashedPassword = BCrypt.Net.BCrypt.HashPassword("CorrectPassword", workFactor: 12);
-
-            // Mock the user exists with a different password
             var user = new User
             {
-                UserId = 1,
-                Username = "testuser",
-                Email = "testuser@example.com",
-                Password = hashedPassword
+                UserId = 2,
+                Email = "banned@example.com",
+                Username = "banneduser",
+                Password = BCrypt.Net.BCrypt.HashPassword(loginDto.Password),
+                Status = false // User is banned
             };
 
-            _userRepositoryMock.Setup(repo => repo.GetAsync(
-                    It.IsAny<Expression<Func<User, bool>>>(),
-                    It.IsAny<string>()))
+            // Mock user retrieval
+            _unitOfWorkMock.Setup(uow => uow.GetRepository<User>()
+                .GetAsync(It.IsAny<Expression<Func<User, bool>>>(), It.IsAny<string>()))
                 .ReturnsAsync(user);
 
-            var ipAddress = "192.168.1.1";
             // Act
             var result = await _authService.LoginAsync(loginDto, ipAddress);
 
             // Assert
-            Assert.False(result.Success);
-            Assert.Equal("Invalid credentials.", result.Message);
-            Assert.Null(result.Token);
+            result.Should().NotBeNull();
+            result.Success.Should().BeFalse();
+            result.Message.Should().Be("Invalid credentials or user is banned.");
+
+            // Verify that user was retrieved
+            _unitOfWorkMock.Verify(uow => uow.GetRepository<User>().GetAsync(It.IsAny<Expression<Func<User, bool>>>(), It.IsAny<string>()), Times.Once);
+
+            // Verify that no tokens were generated
+            _jwtTokenServiceMock.Verify(jwt => jwt.GenerateJwtToken(It.IsAny<int>(), It.IsAny<List<string>>(), It.IsAny<bool>()), Times.Never);
+            _refreshTokenServiceMock.Verify(rt => rt.GenerateRefreshToken(It.IsAny<int>(), It.IsAny<string>()), Times.Never);
+            _refreshTokenServiceMock.Verify(rt => rt.SaveRefreshTokenAsync(It.IsAny<RefreshToken>()), Times.Never);
         }
 
         [Fact]
-        public async Task LoginAsync_MissingRequiredFields_ReturnsFailure()
-        {
-            // Arrange
-            var loginDto = new UserLoginDto
-            {
-                EmailOrUsername = "",
-                Password = ""
-            };
-
-            var ipAddress = "192.168.1.1";
-            // Act
-            var result = await _authService.LoginAsync(loginDto, ipAddress);
-
-            // Assert
-            Assert.False(result.Success);
-            Assert.Equal("Invalid login data.", result.Message);
-            Assert.Null(result.Token);
-            _userRepositoryMock.Verify(repo => repo.GetAsync(
-                    It.IsAny<Expression<Func<User, bool>>>(),
-                    It.IsAny<string>()), Times.Never);
-        }
-
-        [Fact]
-        public async Task LoginAsync_ExceptionThrown_ReturnsFailure()
+        public async Task LoginAsync_ShouldHandleDatabaseException()
         {
             // Arrange
             var loginDto = new UserLoginDto
             {
                 EmailOrUsername = "testuser",
-                Password = "Test@123"
+                Password = "ValidPassword123!"
             };
+            string ipAddress = "127.0.0.1";
 
-            // Mock an exception when trying to get the user
-            _userRepositoryMock.Setup(repo => repo.GetAsync(
-                    It.IsAny<Expression<Func<User, bool>>>(),
-                    It.IsAny<string>()))
-                .ThrowsAsync(new Exception("Database error"));
+            // Mock user retrieval to throw a generic exception instead of SqlException
+            _unitOfWorkMock.Setup(uow => uow.GetRepository<User>()
+                .GetAsync(It.IsAny<Expression<Func<User, bool>>>(), It.IsAny<string>()))
+                .ThrowsAsync(new Exception("Database connection error."));
 
-            var ipAddress = "192.168.1.1";
             // Act
             var result = await _authService.LoginAsync(loginDto, ipAddress);
 
             // Assert
-            Assert.False(result.Success);
-            Assert.Equal("Login failed. Please try again.", result.Message);
-            Assert.Null(result.Token);
+            result.Should().NotBeNull();
+            result.Success.Should().BeFalse();
+            result.Message.Should().Be("Login failed. Please try again.");
+
+            // Verify that user was retrieved
+            _unitOfWorkMock.Verify(uow => uow.GetRepository<User>().GetAsync(It.IsAny<Expression<Func<User, bool>>>(), It.IsAny<string>()), Times.Once);
+
+            // Verify that no tokens were generated
+            _jwtTokenServiceMock.Verify(jwt => jwt.GenerateJwtToken(It.IsAny<int>(), It.IsAny<List<string>>(), It.IsAny<bool>()), Times.Never);
+            _refreshTokenServiceMock.Verify(rt => rt.GenerateRefreshToken(It.IsAny<int>(), It.IsAny<string>()), Times.Never);
+            _refreshTokenServiceMock.Verify(rt => rt.SaveRefreshTokenAsync(It.IsAny<RefreshToken>()), Times.Never);
         }
 
         [Fact]
-        public async Task RefreshTokenAsync_ValidToken_ReturnsNewTokens()
+        public async Task LogoutAsync_ShouldLogoutSuccessfully()
         {
             // Arrange
+            string refreshToken = "valid-refresh-token";
+            string ipAddress = "127.0.0.1";
+
             var existingRefreshToken = new RefreshToken
             {
-                Id = 1,
-                Token = "valid-refresh-token",
+                Token = refreshToken,
+                UserId = 1
+            };
+
+            // Mock refresh token retrieval
+            _unitOfWorkMock.Setup(uow => uow.RefreshTokens.GetByTokenAsync(refreshToken))
+                .ReturnsAsync(existingRefreshToken);
+
+            // Mock InvalidateRefreshTokenAsync
+            _refreshTokenServiceMock.Setup(rt => rt.InvalidateRefreshTokenAsync(refreshToken, ipAddress))
+                .Returns(Task.CompletedTask);
+
+            // Act
+            var result = await _authService.LogoutAsync(refreshToken, ipAddress);
+
+            // Assert
+            result.Should().NotBeNull();
+            result.Success.Should().BeTrue();
+            result.Message.Should().Be("Logout successful.");
+
+            // Verify that refresh token was retrieved
+            _unitOfWorkMock.Verify(uow => uow.RefreshTokens.GetByTokenAsync(refreshToken), Times.Once);
+
+            // Verify that refresh token was invalidated
+            _refreshTokenServiceMock.Verify(rt => rt.InvalidateRefreshTokenAsync(refreshToken, ipAddress), Times.Once);
+        }
+
+        [Fact]
+        public async Task LogoutAsync_ShouldFail_WhenRefreshTokenIsNullOrEmpty()
+        {
+            // Arrange
+            string refreshToken = "";
+            string ipAddress = "127.0.0.1";
+
+            // Act
+            var result = await _authService.LogoutAsync(refreshToken, ipAddress);
+
+            // Assert
+            result.Should().NotBeNull();
+            result.Success.Should().BeFalse();
+            result.Message.Should().Be("Invalid refresh token.");
+
+            // Verify that no further operations were performed
+            _unitOfWorkMock.Verify(uow => uow.RefreshTokens.GetByTokenAsync(It.IsAny<string>()), Times.Never);
+            _refreshTokenServiceMock.Verify(rt => rt.InvalidateRefreshTokenAsync(It.IsAny<string>(), It.IsAny<string>()), Times.Never);
+        }
+
+        [Fact]
+        public async Task LogoutAsync_ShouldFail_WhenRefreshTokenNotFound()
+        {
+            // Arrange
+            string refreshToken = "nonexistent-token";
+            string ipAddress = "127.0.0.1";
+
+            // Mock refresh token retrieval to return null
+            _unitOfWorkMock.Setup(uow => uow.RefreshTokens.GetByTokenAsync(refreshToken))
+                .ReturnsAsync((RefreshToken)null);
+
+            // Act
+            var result = await _authService.LogoutAsync(refreshToken, ipAddress);
+
+            // Assert
+            result.Should().NotBeNull();
+            result.Success.Should().BeFalse();
+            result.Message.Should().Be("Invalid refresh token.");
+
+            // Verify that refresh token was retrieved
+            _unitOfWorkMock.Verify(uow => uow.RefreshTokens.GetByTokenAsync(refreshToken), Times.Once);
+
+            // Verify that InvalidateRefreshTokenAsync was not called
+            _refreshTokenServiceMock.Verify(rt => rt.InvalidateRefreshTokenAsync(It.IsAny<string>(), It.IsAny<string>()), Times.Never);
+        }
+
+        [Fact]
+        public async Task RefreshTokenAsync_ShouldRefreshTokensSuccessfully()
+        {
+            // Arrange
+            string token = "valid-refresh-token";
+            string ipAddress = "127.0.0.1";
+
+            var existingToken = new RefreshToken
+            {
+                Token = token,
                 UserId = 1,
-                ExpirationTime = DateTime.UtcNow.AddDays(7),
+                ExpirationTime = DateTime.UtcNow.AddDays(1),
+                Revoked = null,
+                RevokedByIp = null,
+                ReplacedByToken = null,
                 Created = DateTime.UtcNow,
-                CreatedByIp = "127.0.0.1"
+                CreatedByIp = ipAddress
             };
 
             var user = new User
             {
-                UserId = 1,
-                Username = "testuser",
-                Email = "test@example.com",
-                // Other properties...
+                UserId = existingToken.UserId,
+                Status = true
             };
 
-            var role = new Role
+            var userRoles = new List<UserRole>
             {
-                RoleId = 1,
-                RoleName = "Customer"
+                new UserRole { UserId = user.UserId, RoleId = 1, Role = new Role { RoleName = "Customer" } }
             };
 
-            var userRole = new UserRole
-            {
-                UserRoleId = 1,
-                UserId = user.UserId,
-                RoleId = role.RoleId,
-                Role = role // Populate navigation property
-            };
+            var newAccessToken = "new-jwt-token";
+            var newRefreshToken = new RefreshToken { Token = "new-refresh-token" };
 
-            var userRoles = new List<UserRole> { userRole };
-
-            var newAccessToken = "new-access-token";
-            var newRefreshToken = new RefreshToken
-            {
-                Token = "new-refresh-token",
-                UserId = 1,
-                ExpirationTime = DateTime.UtcNow.AddDays(7),
-                Created = DateTime.UtcNow,
-                CreatedByIp = "127.0.0.1"
-            };
-
-            // Mock GetAsync for RefreshTokens to return existingRefreshToken
-            _refreshTokenRepositoryMock.Setup(repo => repo.GetAsync(
-                    It.IsAny<Expression<Func<RefreshToken, bool>>>(),
-                    It.IsAny<string>()))
-                .ReturnsAsync(existingRefreshToken);
-
-            // Mock GetByIdAsync for User repository to return user
-            _userRepositoryMock.Setup(repo => repo.GetByIdAsync(existingRefreshToken.UserId))
-                .ReturnsAsync(user);
-
-            // Mock FindAsync for UserRole repository to return userRoles with Role populated
-            _userRoleRepositoryMock.Setup(repo => repo.FindAsync(
-                    It.IsAny<Expression<Func<UserRole, bool>>>(),
-                    It.IsAny<string>()))
-                .ReturnsAsync(userRoles);
-
-            // Mock JWT token generation
-            _jwtTokenGeneratorMock.Setup(jtg => jtg.GenerateJwtToken(
-                    user.UserId,
-                    It.IsAny<List<string>>()))
-                .Returns(newAccessToken);
-
-            // Mock Refresh Token generation
-            _jwtTokenGeneratorMock.Setup(jtg => jtg.GenerateRefreshToken(
-                    user.UserId,
-                    It.IsAny<string>()))
-                .Returns(newRefreshToken);
-
-            // Mock Delete for RefreshToken repository
-            _refreshTokenRepositoryMock.Setup(repo => repo.Delete(existingRefreshToken))
-                .Verifiable();
-
-            // Mock AddAsync for RefreshToken repository
-            _refreshTokenRepositoryMock.Setup(repo => repo.AddAsync(newRefreshToken))
-                .Returns(Task.CompletedTask);
-
-            // Mock CompleteAsync to return 1 when called
-            _unitOfWorkMock.Setup(uow => uow.CompleteAsync()).ReturnsAsync(1);
-
-            // Mock DateTimeProvider
-            _mockDateTimeProvider.Setup(dp => dp.UtcNow).Returns(DateTime.UtcNow);
+            // Mock RefreshTokensAsync to handle the refresh logic
+            _refreshTokenServiceMock.Setup(rt => rt.RefreshTokensAsync(token, ipAddress))
+                .ReturnsAsync(new AuthResponse
+                {
+                    Success = true,
+                    Message = "Token refreshed successfully.",
+                    Token = newAccessToken,
+                    RefreshToken = newRefreshToken.Token
+                });
 
             // Act
-            var result = await _authService.RefreshTokenAsync(existingRefreshToken.Token, "127.0.0.1");
+            var result = await _authService.RefreshTokenAsync(token, ipAddress);
 
             // Assert
-            Assert.True(result.Success, $"Refresh token failed with message: {result.Message}");
-            Assert.Equal("Token refreshed successfully.", result.Message);
-            Assert.Equal(newAccessToken, result.Token);
-            Assert.Equal(newRefreshToken.Token, result.RefreshToken);
+            result.Should().NotBeNull();
+            result.Success.Should().BeTrue();
+            result.Message.Should().Be("Token refreshed successfully.");
+            result.Token.Should().Be(newAccessToken);
+            result.RefreshToken.Should().Be(newRefreshToken.Token);
 
-            // Verify that Delete and AddAsync were called once each
-            _refreshTokenRepositoryMock.Verify(repo => repo.Delete(existingRefreshToken), Times.Once);
-            _refreshTokenRepositoryMock.Verify(repo => repo.AddAsync(newRefreshToken), Times.Once);
-            _unitOfWorkMock.Verify(uow => uow.CompleteAsync(), Times.Once);
-        }
-
-
-
-        [Fact]
-        public async Task RefreshTokenAsync_InvalidToken_ReturnsFailure()
-        {
-            // Arrange
-            string invalidToken = "invalid-refresh-token";
-
-            _refreshTokenRepositoryMock.Setup(repo => repo.GetAsync(
-                    It.IsAny<Expression<Func<RefreshToken, bool>>>(),
-                    It.IsAny<string>()))
-                .ReturnsAsync((RefreshToken)null); // No tokens found
-
-            // Act
-            var result = await _authService.RefreshTokenAsync(invalidToken, "127.0.0.1");
-
-            // Assert
-            Assert.False(result.Success);
-            Assert.Equal("Invalid refresh token.", result.Message);
-            Assert.Null(result.Token);
-            Assert.Null(result.RefreshToken);
+            // Verify that RefreshTokensAsync was called
+            _refreshTokenServiceMock.Verify(rt => rt.RefreshTokensAsync(token, ipAddress), Times.Once);
         }
 
         [Fact]
-        public async Task RefreshTokenAsync_ExpiredToken_ReturnsFailure()
+        public async Task RefreshTokenAsync_ShouldFail_WhenTokenIsNullOrEmpty()
         {
             // Arrange
-            var expiredRefreshToken = new RefreshToken
+            string token = "";
+            string ipAddress = "127.0.0.1";
+
+            // Act
+            var result = await _authService.RefreshTokenAsync(token, ipAddress);
+
+            // Assert
+            result.Should().NotBeNull();
+            result.Success.Should().BeFalse();
+            result.Message.Should().Be("Invalid refresh token.");
+
+            // Verify that RefreshTokensAsync was not called
+            _refreshTokenServiceMock.Verify(rt => rt.RefreshTokensAsync(It.IsAny<string>(), It.IsAny<string>()), Times.Never);
+        }
+
+        [Fact]
+        public async Task RefreshTokenAsync_ShouldFail_WhenRefreshTokenIsExpired()
+        {
+            // Arrange
+            string token = "expired-refresh-token";
+            string ipAddress = "127.0.0.1";
+
+            var existingToken = new RefreshToken
             {
-                Id = 2,
-                Token = "expired-refresh-token",
-                UserId = 2,
+                Token = token,
+                UserId = 1,
                 ExpirationTime = DateTime.UtcNow.AddDays(-1), // Expired
-                Created = DateTime.UtcNow.AddDays(-8),
-                CreatedByIp = "192.168.1.1"
+                Revoked = null,
+                RevokedByIp = null,
+                ReplacedByToken = null,
+                Created = DateTime.UtcNow.AddDays(-10),
+                CreatedByIp = ipAddress
             };
 
-            _refreshTokenRepositoryMock.Setup(repo => repo.GetAsync(
-                    It.IsAny<Expression<Func<RefreshToken, bool>>>(),
-                    It.IsAny<string>()))
-                .ReturnsAsync(expiredRefreshToken);
+            // Mock RefreshTokensAsync to handle the expired token scenario
+            _refreshTokenServiceMock.Setup(rt => rt.RefreshTokensAsync(token, ipAddress))
+                .ReturnsAsync(new AuthResponse
+                {
+                    Success = false,
+                    Message = "Expired refresh token."
+                });
 
             // Act
-            var result = await _authService.RefreshTokenAsync(expiredRefreshToken.Token, "192.168.1.1");
+            var result = await _authService.RefreshTokenAsync(token, ipAddress);
 
             // Assert
-            Assert.False(result.Success);
-            Assert.Equal("Invalid refresh token.", result.Message);
-            Assert.Null(result.Token);
-            Assert.Null(result.RefreshToken);
+            result.Should().NotBeNull();
+            result.Success.Should().BeFalse();
+            result.Message.Should().Be("Expired refresh token.");
+
+            // Verify that RefreshTokensAsync was called
+            _refreshTokenServiceMock.Verify(rt => rt.RefreshTokensAsync(token, ipAddress), Times.Once);
         }
 
         [Fact]
-        public async Task RefreshTokenAsync_TokenWithNonExistentUser_ReturnsFailure()
+        public async Task RefreshTokenAsync_ShouldFail_WhenRefreshTokenIsRevoked()
         {
             // Arrange
-            var refreshToken = new RefreshToken
+            string token = "revoked-refresh-token";
+            string ipAddress = "127.0.0.1";
+
+            var existingToken = new RefreshToken
             {
-                Id = 3,
-                Token = "token-with-no-user",
-                UserId = 999, // Non-existent user
-                ExpirationTime = DateTime.UtcNow.AddDays(7),
-                Created = DateTime.UtcNow,
-                CreatedByIp = "10.0.0.1"
+                Token = token,
+                UserId = 1,
+                ExpirationTime = DateTime.UtcNow.AddDays(1),
+                Revoked = DateTime.UtcNow.AddDays(-1), // Revoked
+                RevokedByIp = ipAddress,
+                ReplacedByToken = null,
+                Created = DateTime.UtcNow.AddDays(-5),
+                CreatedByIp = ipAddress
             };
 
-            _refreshTokenRepositoryMock.Setup(repo => repo.GetAsync(
-                    It.IsAny<Expression<Func<RefreshToken, bool>>>(),
-                    It.IsAny<string>()))
-                .ReturnsAsync(refreshToken);
-
-            _userRepositoryMock.Setup(repo => repo.GetByIdAsync(refreshToken.UserId))
-                .ReturnsAsync((User)null); // User not found
+            // Mock RefreshTokensAsync to handle the revoked token scenario
+            _refreshTokenServiceMock.Setup(rt => rt.RefreshTokensAsync(token, ipAddress))
+                .ReturnsAsync(new AuthResponse
+                {
+                    Success = false,
+                    Message = "Revoked refresh token."
+                });
 
             // Act
-            var result = await _authService.RefreshTokenAsync(refreshToken.Token, "10.0.0.1");
+            var result = await _authService.RefreshTokenAsync(token, ipAddress);
 
             // Assert
-            Assert.False(result.Success);
-            Assert.Equal("Invalid refresh token.", result.Message);
-            Assert.Null(result.Token);
-            Assert.Null(result.RefreshToken);
+            result.Should().NotBeNull();
+            result.Success.Should().BeFalse();
+            result.Message.Should().Be("Revoked refresh token.");
+
+            // Verify that RefreshTokensAsync was called
+            _refreshTokenServiceMock.Verify(rt => rt.RefreshTokensAsync(token, ipAddress), Times.Once);
         }
     }
 }

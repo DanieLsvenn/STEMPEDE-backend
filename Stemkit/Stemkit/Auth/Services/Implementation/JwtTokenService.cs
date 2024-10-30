@@ -82,7 +82,5 @@ namespace Stemkit.Auth.Services.Implementation
 
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
-
-
     }
 }

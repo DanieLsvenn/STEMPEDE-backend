@@ -1,16 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Stemkit.Models;
 
 public partial class UserPermission
 {
+    [Key]
     public int UserPermissionId { get; set; }
 
+    [ForeignKey("User")]
     public int UserId { get; set; }
 
+    [ForeignKey("Permission")]
     public int PermissionId { get; set; }
 
+    [ForeignKey("AssignedByUser")]
     public int AssignedBy { get; set; }
 
     public virtual User AssignedByNavigation { get; set; } = null!;
