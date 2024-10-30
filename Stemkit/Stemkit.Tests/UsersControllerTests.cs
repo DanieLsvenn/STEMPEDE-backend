@@ -186,7 +186,7 @@ namespace Stemkit.Tests
             var apiResponse = Assert.IsType<ApiResponse<string>>(objectResult.Value);
 
             Assert.False(apiResponse.Success);
-            Assert.Equal("An error occurred while retrieving the user profile.", apiResponse.Message);
+            Assert.Equal("An error occurred while retrieving the profile.", apiResponse.Message);
             Assert.Null(apiResponse.Data);
             Assert.Equal(500, objectResult.StatusCode);
         }

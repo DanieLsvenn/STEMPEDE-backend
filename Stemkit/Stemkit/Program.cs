@@ -104,6 +104,8 @@ namespace Stemkit
             builder.Services.AddScoped<ILabService, LabService>();
             builder.Services.AddScoped<ISubcategoryService, SubcategoryService>();
             builder.Services.AddScoped<ICartService, CartService>();
+            builder.Services.AddScoped<IUserPermissionService, UserPermissionService>();
+            builder.Services.AddScoped<IAssignMissingPermissions, AssignMissingPermissions>();
 
             // Register AutoMapper
             builder.Services.AddAutoMapper(typeof(AutoMapperProfile));

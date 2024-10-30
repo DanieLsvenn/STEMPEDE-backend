@@ -1,28 +1,42 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Stemkit.Models;
 
 public partial class User
 {
+    [Key]
     public int UserId { get; set; }
 
+    [Required]
+    [MaxLength(255)]
     public string? FullName { get; set; }
 
+    [Required]
+    [MaxLength(50)]
     public string Username { get; set; } = null!;
 
+    [MaxLength(255)]
     public string? Password { get; set; }
 
+    [Required]
+    [MaxLength(255)]
     public string Email { get; set; } = null!;
 
+    [MaxLength(255)]
     public string? Phone { get; set; }
 
+    [MaxLength(255)]
     public string? Address { get; set; }
 
+    [Required]
     public bool Status { get; set; }
 
+    [Required]
     public bool IsExternal { get; set; }
 
+    [MaxLength(50)]
     public string? ExternalProvider { get; set; }
 
     public virtual ICollection<Cart> Carts { get; set; } = new List<Cart>();

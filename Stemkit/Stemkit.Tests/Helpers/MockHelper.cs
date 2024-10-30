@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using Google.Apis.Auth;
 using Stemkit.Services.Interfaces;
 using Stemkit.Auth.Helpers.Interfaces;
+using Stemkit.Auth.Services.Interfaces;
 
 namespace Stemkit.Tests.Helpers
 {
@@ -64,32 +65,6 @@ namespace Stemkit.Tests.Helpers
         {
             refreshTokenRepoMock.Setup(repo => repo.AddAsync(It.IsAny<RefreshToken>()))
                 .Returns(Task.CompletedTask);
-        }
-
-        // Extension Method for IJwtTokenGenerator
-        public static void SetupJwtTokenGenerator(
-            this Mock<IJwtTokenGenerator> jwtMock,
-            int userId,
-            List<string> roles,
-            string jwtToken,
-            string refreshToken)
-        {
-            jwtMock.Setup(gen => gen.GenerateJwtToken(
-                    userId,
-                    It.IsAny<List<string>>()))
-                .Returns(jwtToken);
-
-            jwtMock.Setup(gen => gen.GenerateRefreshToken(
-                    userId,
-                    It.IsAny<string>()))
-                .Returns(new RefreshToken
-                {
-                    Token = refreshToken,
-                    UserId = userId,
-                    ExpirationTime = DateTime.UtcNow.AddDays(7),
-                    Created = DateTime.UtcNow,
-                    CreatedByIp = "127.0.0.1"
-                });
         }
 
         // Extension Method for IUnitOfWork's CompleteAsync
