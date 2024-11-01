@@ -164,7 +164,7 @@ namespace Stemkit.Auth.Services.Implementation
             var roleNames = userRoles.Select(ur => ur.Role.RoleName).ToList();
 
             // Generate new Access Token
-            var newAccessToken = _jwtTokenService.GenerateJwtToken(user.UserId, roleNames, user.Status);
+            var newAccessToken = _jwtTokenService.GenerateJwtToken(user.UserId, user.Username, roleNames, user.Status);
 
             // Generate new Refresh Token
             var newRefreshToken = GenerateRefreshToken(user.UserId, ipAddress);

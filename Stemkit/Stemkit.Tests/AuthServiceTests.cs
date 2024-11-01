@@ -97,7 +97,7 @@ namespace Stemkit.Tests
                 .Returns(Task.CompletedTask);
 
             // Mock JWT and Refresh Token generation
-            _jwtTokenServiceMock.Setup(jwt => jwt.GenerateJwtToken(It.IsAny<int>(), It.IsAny<List<string>>(), It.IsAny<bool>()))
+            _jwtTokenServiceMock.Setup(jwt => jwt.GenerateJwtToken(It.IsAny<int>(), It.IsAny<string>(), It.IsAny<List<string>>(), It.IsAny<bool>()))
                 .Returns("fake-jwt-token");
             var refreshToken = new RefreshToken { Token = "fake-refresh-token" };
             _refreshTokenServiceMock.Setup(rt => rt.GenerateRefreshToken(It.IsAny<int>(), It.IsAny<string>()))
@@ -135,7 +135,7 @@ namespace Stemkit.Tests
                 ur.UserId == capturedUser.UserId && ur.RoleId == role.RoleId)), Times.Once);
 
             // Verify that tokens were generated and saved
-            _jwtTokenServiceMock.Verify(jwt => jwt.GenerateJwtToken(capturedUser.UserId, It.Is<List<string>>(roles => roles.Contains("Customer")), capturedUser.Status), Times.Once);
+            _jwtTokenServiceMock.Verify(jwt => jwt.GenerateJwtToken(capturedUser.UserId, capturedUser.Username, It.Is<List<string>>(roles => roles.Contains("Customer")), capturedUser.Status), Times.Once);
             _refreshTokenServiceMock.Verify(rt => rt.GenerateRefreshToken(capturedUser.UserId, ipAddress), Times.Once);
             _refreshTokenServiceMock.Verify(rt => rt.SaveRefreshTokenAsync(refreshToken), Times.Once);
 
@@ -230,7 +230,7 @@ namespace Stemkit.Tests
             // Variable to capture the UserRole object passed to FindAsync if needed
 
             // Mock JWT and Refresh Token generation
-            _jwtTokenServiceMock.Setup(jwt => jwt.GenerateJwtToken(It.IsAny<int>(), It.IsAny<List<string>>(), It.IsAny<bool>()))
+            _jwtTokenServiceMock.Setup(jwt => jwt.GenerateJwtToken(It.IsAny<int>(), It.IsAny<string>(), It.IsAny<List<string>>(), It.IsAny<bool>()))
                 .Returns("fake-jwt-token");
             var refreshToken = new RefreshToken { Token = "fake-refresh-token" };
             _refreshTokenServiceMock.Setup(rt => rt.GenerateRefreshToken(It.IsAny<int>(), It.IsAny<string>()))
@@ -255,7 +255,7 @@ namespace Stemkit.Tests
             _unitOfWorkMock.Verify(uow => uow.GetRepository<UserRole>().FindAsync(It.IsAny<Expression<Func<UserRole, bool>>>(), "Role"), Times.Once);
 
             // Verify that tokens were generated and saved
-            _jwtTokenServiceMock.Verify(jwt => jwt.GenerateJwtToken(user.UserId, It.Is<List<string>>(roles => roles.Contains("Customer")), user.Status), Times.Once);
+            _jwtTokenServiceMock.Verify(jwt => jwt.GenerateJwtToken(user.UserId, user.Username, It.Is<List<string>>(roles => roles.Contains("Customer")), user.Status), Times.Once);
             _refreshTokenServiceMock.Verify(rt => rt.GenerateRefreshToken(user.UserId, ipAddress), Times.Once);
             _refreshTokenServiceMock.Verify(rt => rt.SaveRefreshTokenAsync(refreshToken), Times.Once);
         }
@@ -288,7 +288,7 @@ namespace Stemkit.Tests
             _unitOfWorkMock.Verify(uow => uow.GetRepository<User>().GetAsync(It.IsAny<Expression<Func<User, bool>>>(), It.IsAny<string>()), Times.Once);
 
             // Verify that no tokens were generated
-            _jwtTokenServiceMock.Verify(jwt => jwt.GenerateJwtToken(It.IsAny<int>(), It.IsAny<List<string>>(), It.IsAny<bool>()), Times.Never);
+            _jwtTokenServiceMock.Verify(jwt => jwt.GenerateJwtToken(It.IsAny<int>(), It.IsAny<string>(), It.IsAny<List<string>>(), It.IsAny<bool>()), Times.Never);
             _refreshTokenServiceMock.Verify(rt => rt.GenerateRefreshToken(It.IsAny<int>(), It.IsAny<string>()), Times.Never);
             _refreshTokenServiceMock.Verify(rt => rt.SaveRefreshTokenAsync(It.IsAny<RefreshToken>()), Times.Never);
         }
@@ -330,7 +330,7 @@ namespace Stemkit.Tests
             _unitOfWorkMock.Verify(uow => uow.GetRepository<User>().GetAsync(It.IsAny<Expression<Func<User, bool>>>(), It.IsAny<string>()), Times.Once);
 
             // Verify that no tokens were generated
-            _jwtTokenServiceMock.Verify(jwt => jwt.GenerateJwtToken(It.IsAny<int>(), It.IsAny<List<string>>(), It.IsAny<bool>()), Times.Never);
+            _jwtTokenServiceMock.Verify(jwt => jwt.GenerateJwtToken(It.IsAny<int>(), It.IsAny<string>(), It.IsAny<List<string>>(), It.IsAny<bool>()), Times.Never);
             _refreshTokenServiceMock.Verify(rt => rt.GenerateRefreshToken(It.IsAny<int>(), It.IsAny<string>()), Times.Never);
             _refreshTokenServiceMock.Verify(rt => rt.SaveRefreshTokenAsync(It.IsAny<RefreshToken>()), Times.Never);
         }
@@ -363,7 +363,7 @@ namespace Stemkit.Tests
             _unitOfWorkMock.Verify(uow => uow.GetRepository<User>().GetAsync(It.IsAny<Expression<Func<User, bool>>>(), It.IsAny<string>()), Times.Once);
 
             // Verify that no tokens were generated
-            _jwtTokenServiceMock.Verify(jwt => jwt.GenerateJwtToken(It.IsAny<int>(), It.IsAny<List<string>>(), It.IsAny<bool>()), Times.Never);
+            _jwtTokenServiceMock.Verify(jwt => jwt.GenerateJwtToken(It.IsAny<int>(), It.IsAny<string>(), It.IsAny<List<string>>(), It.IsAny<bool>()), Times.Never);
             _refreshTokenServiceMock.Verify(rt => rt.GenerateRefreshToken(It.IsAny<int>(), It.IsAny<string>()), Times.Never);
             _refreshTokenServiceMock.Verify(rt => rt.SaveRefreshTokenAsync(It.IsAny<RefreshToken>()), Times.Never);
         }

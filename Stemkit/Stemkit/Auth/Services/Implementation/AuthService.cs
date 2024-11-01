@@ -139,7 +139,7 @@ namespace Stemkit.Auth.Services.Implementation
                     }
 
                     // Generate JWT Access Token
-                    var accessToken = _jwtTokenService.GenerateJwtToken(user.UserId, new List<string> { role.RoleName }, user.Status);
+                    var accessToken = _jwtTokenService.GenerateJwtToken(user.UserId, user.Username, new List<string> { role.RoleName }, user.Status);
 
                     // Generate Refresh Token
                     var refreshToken = _refreshTokenService.GenerateRefreshToken(user.UserId, ipAddress);
@@ -217,7 +217,7 @@ namespace Stemkit.Auth.Services.Implementation
                 await _assignMissingPermissions.AssignMissingPermissionsAsync(user.UserId, roleNames);
 
                 // Generate JWT token
-                var accessToken = _jwtTokenService.GenerateJwtToken(user.UserId, roleNames, user.Status);
+                var accessToken = _jwtTokenService.GenerateJwtToken(user.UserId, user.Username, roleNames, user.Status);
 
                 // Generate Refresh Token
                 var refreshToken = _refreshTokenService.GenerateRefreshToken(user.UserId, ipAddress);

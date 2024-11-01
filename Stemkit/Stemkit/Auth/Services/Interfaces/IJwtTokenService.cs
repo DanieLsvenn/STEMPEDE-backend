@@ -4,6 +4,6 @@ namespace Stemkit.Auth.Services.Interfaces
 {
     public interface IJwtTokenService
     {
-        string GenerateJwtToken(int userId, List<string> roles, bool isActive);
+        string GenerateJwtToken(int userId, string userName, List<string> roles, bool isActive);
     }
 }
