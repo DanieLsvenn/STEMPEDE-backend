@@ -31,11 +31,11 @@ namespace Stemkit.Services.Implementation
                 throw new ArgumentException("User not found.");
             }
 
-            // Retrieve user permissions including Permission and AssignedByUser
+            // Retrieve user permissions including Permission
             var userPermissionRepository = _unitOfWork.GetRepository<UserPermission>();
             var userPermissions = await userPermissionRepository.FindAsync(
                 up => up.UserId == user.UserId,
-                includeProperties: "Permission,AssignedByUser");
+                includeProperties: "Permission");
 
             // Map to DTO
             var permissionDtos = userPermissions.Select(up => new UserPermissionDto
