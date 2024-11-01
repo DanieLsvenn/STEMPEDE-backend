@@ -354,6 +354,8 @@ namespace Stemkit.Services.Implementation
                     totalAmount += cartItem.Price * cartItem.Quantity;
                 }
 
+
+
                 // Create Order
                 var orderRepository = _unitOfWork.GetRepository<Order>();
                 var order = new Order

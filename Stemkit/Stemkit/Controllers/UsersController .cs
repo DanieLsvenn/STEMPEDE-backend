@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Stemkit.Data;
 using Stemkit.DTOs;
+using Stemkit.DTOs.User;
 using Stemkit.Models;
 using System.Security.Claims;
 

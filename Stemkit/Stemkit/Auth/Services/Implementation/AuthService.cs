@@ -110,8 +110,7 @@ namespace Stemkit.Auth.Services.Implementation
                     await _unitOfWork.CompleteAsync();
 
                     // Retrieve the corresponding permission
-                    var permission = await _unitOfWork.GetRepository<Permission>()
-                        .GetAsync(p => p.PermissionName.Equals(registrationDto.Role, StringComparison.OrdinalIgnoreCase));
+                    var permission = await _unitOfWork.GetRepository<Permission>().GetAsync(p => EF.Functions.Collate(p.PermissionName, _dbSettings.Collation) == registrationDto.Role);
 
                     if (permission == null)
                     {
@@ -132,7 +131,7 @@ namespace Stemkit.Auth.Services.Implementation
                         {
                             UserId = user.UserId,
                             PermissionId = permission.PermissionId,
-                            AssignedBy = user.UserId 
+                            AssignedBy = user.UserId
                         };
 
                         await _unitOfWork.GetRepository<UserPermission>().AddAsync(userPermission);

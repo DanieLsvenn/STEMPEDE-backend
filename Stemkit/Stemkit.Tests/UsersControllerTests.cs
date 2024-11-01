@@ -4,6 +4,7 @@ using Moq;
 using Stemkit.Controllers;
 using Stemkit.Data;
 using Stemkit.DTOs;
+using Stemkit.DTOs.User;
 using Stemkit.Models;
 using Stemkit.Repositories.Interfaces;
 using Stemkit.Tests.Helpers;
