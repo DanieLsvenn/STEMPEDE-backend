@@ -44,12 +44,12 @@ namespace Stemkit.Services.Interfaces
         /// <returns>A success message indicating the cart was cleared.</returns>
         Task<string> ClearCartAsync(string userName);
 
-        ///// <summary>
-        ///// Converts the current cart into an order.
-        ///// </summary>
-        ///// <param name="userName">The username of the authenticated user.</param>
-        ///// <param name="checkoutDto">The checkout details including payment and shipping information.</param>
-        ///// <returns>A success message indicating the order was created.</returns>
-        //Task<string> CheckoutAsync(string userName, CheckoutDto checkoutDto);
+        /// <summary>
+        /// Converts the current cart into an order.
+        /// </summary>
+        /// <param name="userName">The username of the authenticated user.</param>
+        /// <param name="checkoutDto">The checkout details including payment and shipping information.</param>
+        /// <returns>A success message indicating the order was created.</returns>
+        Task<string> CheckoutAsync(string userName, CheckoutDto checkoutDto);
     }
 }

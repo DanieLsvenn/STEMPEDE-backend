@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Stemkit.Auth.Helpers.Interfaces;
@@ -14,11 +15,16 @@ namespace Stemkit.Auth.Helpers.Implementation
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly ILogger<AssignMissingPermissions> _logger;
+        private readonly DatabaseSettings _dbSettings;
 
-        public AssignMissingPermissions(IUnitOfWork unitOfWork, ILogger<AssignMissingPermissions> logger)
+        public AssignMissingPermissions(
+            IUnitOfWork unitOfWork,
+            ILogger<AssignMissingPermissions> logger,
+            IOptions<DatabaseSettings> dbSettings)
         {
             _unitOfWork = unitOfWork;
             _logger = logger;
+            _dbSettings = dbSettings.Value;
         }
 
         public async Task AssignMissingPermissionsAsync(int userId, List<string> roleNames)
@@ -38,7 +44,7 @@ namespace Stemkit.Auth.Helpers.Implementation
                 {
                     // Fetch the permission that matches the role name
                     var permission = await _unitOfWork.GetRepository<Permission>()
-                        .GetAsync(p => p.PermissionName.Equals(roleName, StringComparison.OrdinalIgnoreCase));
+                        .GetAsync(p => EF.Functions.Collate(p.PermissionName, _dbSettings.Collation) == roleName);
 
                     if (permission != null)
                     {

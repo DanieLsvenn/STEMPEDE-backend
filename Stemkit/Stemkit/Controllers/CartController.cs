@@ -215,64 +215,64 @@ namespace Stemkit.Controllers
             }
         }
 
-        ///// <summary>
-        ///// Converts the current cart into an order.
-        ///// </summary>
-        ///// <param name="checkoutDto">The checkout details including payment and shipping information.</param>
-        ///// <returns>An ApiResponse indicating success or failure.</returns>
-        ///// <response code="200">Checkout successful and order created.</response>
-        ///// <response code="400">Invalid input or insufficient stock.</response>
-        ///// <response code="500">Internal server error.</response>
-        //[HttpPost("checkout")]
-        //public async Task<ActionResult<ApiResponse<string>>> Checkout([FromBody] CheckoutDto checkoutDto)
-        //{
-        //    if (!ModelState.IsValid)
-        //    {
-        //        _logger.LogWarning("Invalid CheckoutDto received.");
-        //        return BadRequest(new ApiResponse<string>
-        //        {
-        //            Success = false,
-        //            Message = "Invalid input.",
-        //            Errors = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage).ToList(),
-        //            Data = null
-        //        });
-        //    }
+        /// <summary>
+        /// Converts the current cart into an order.
+        /// </summary>
+        /// <param name="checkoutDto">The checkout details including payment and shipping information.</param>
+        /// <returns>An ApiResponse indicating success or failure.</returns>
+        /// <response code="200">Checkout successful and order created.</response>
+        /// <response code="400">Invalid input or insufficient stock.</response>
+        /// <response code="500">Internal server error.</response>
+        [HttpPost("checkout")]
+        public async Task<ActionResult<ApiResponse<string>>> Checkout([FromBody] CheckoutDto checkoutDto)
+        {
+            if (!ModelState.IsValid)
+            {
+                _logger.LogWarning("Invalid CheckoutDto received.");
+                return BadRequest(new ApiResponse<string>
+                {
+                    Success = false,
+                    Message = "Invalid input.",
+                    Errors = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage).ToList(),
+                    Data = null
+                });
+            }
 
-        //    var userName = User.Identity.Name;
+            var userName = User.Identity.Name;
 
-        //    try
-        //    {
-        //        var resultMessage = await _cartService.CheckoutAsync(userName, checkoutDto);
-        //        return Ok(new ApiResponse<string>
-        //        {
-        //            Success = true,
-        //            Data = resultMessage,
-        //            Message = "Checkout successful.",
-        //            Errors = null
-        //        });
-        //    }
-        //    catch (ArgumentException ex)
-        //    {
-        //        _logger.LogWarning("CheckoutAsync failed for user: {UserName}. Reason: {Reason}", userName, ex.Message);
-        //        return BadRequest(new ApiResponse<string>
-        //        {
-        //            Success = false,
-        //            Data = null,
-        //            Message = ex.Message,
-        //            Errors = new List<string> { ex.Message }
-        //        });
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        _logger.LogError(ex, "Error during checkout for user: {UserName}", userName);
-        //        return StatusCode(500, new ApiResponse<string>
-        //        {
-        //            Success = false,
-        //            Data = null,
-        //            Message = "An error occurred during checkout.",
-        //            Errors = new List<string> { "Internal server error." }
-        //        });
-        //    }
-        //}
+            try
+            {
+                var resultMessage = await _cartService.CheckoutAsync(userName, checkoutDto);
+                return Ok(new ApiResponse<string>
+                {
+                    Success = true,
+                    Data = resultMessage,
+                    Message = "Checkout successful.",
+                    Errors = null
+                });
+            }
+            catch (ArgumentException ex)
+            {
+                _logger.LogWarning("CheckoutAsync failed for user: {UserName}. Reason: {Reason}", userName, ex.Message);
+                return BadRequest(new ApiResponse<string>
+                {
+                    Success = false,
+                    Data = null,
+                    Message = ex.Message,
+                    Errors = new List<string> { ex.Message }
+                });
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error during checkout for user: {UserName}", userName);
+                return StatusCode(500, new ApiResponse<string>
+                {
+                    Success = false,
+                    Data = null,
+                    Message = "An error occurred during checkout.",
+                    Errors = new List<string> { "Internal server error." }
+                });
+            }
+        }
     }
 }
