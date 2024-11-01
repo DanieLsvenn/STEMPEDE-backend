@@ -1,6 +1,5 @@
 ﻿using Microsoft.IdentityModel.Tokens;
 using Stemkit.Auth.Services.Interfaces;
-using Stemkit.Utils.Implementation;
 using Stemkit.Utils.Interfaces;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
@@ -21,7 +20,7 @@ namespace Stemkit.Auth.Services.Implementation
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
-        public string GenerateJwtToken(int userId, List<string> roles, bool isActive)
+        public string GenerateJwtToken(int userId, string userName, List<string> roles, bool isActive)
         {
             if (roles == null || roles.Count == 0)
             {
@@ -58,6 +57,8 @@ namespace Stemkit.Auth.Services.Implementation
             {
                 new Claim(JwtRegisteredClaimNames.Sub, userId.ToString()),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+                new Claim(ClaimTypes.NameIdentifier, userId.ToString()),
+                new Claim(ClaimTypes.Name, userName),
                 new Claim("isActive", isActive.ToString())
             };
 
