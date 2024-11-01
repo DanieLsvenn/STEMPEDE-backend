@@ -168,6 +168,10 @@ namespace Stemkit.Services.Implementation
                 throw new ArgumentException("User not found.");
             }
 
+            // Retrieve or create cart
+            var cartRepository = _unitOfWork.GetRepository<Cart>();
+            var cart = await cartRepository.FindAsync(c => c.UserId == userEntity.UserId && c.Status == CartStatusConstants.Active);
+
             var cartItemRepository = _unitOfWork.GetRepository<CartItem>();
             var cartItem = await cartItemRepository.GetByIdAsync(cartItemId);
 
@@ -226,6 +230,10 @@ namespace Stemkit.Services.Implementation
                 _logger.LogWarning("User {UserName} not found.", userName);
                 throw new ArgumentException("User not found.");
             }
+
+            // Retrieve or create cart
+            var cartRepository = _unitOfWork.GetRepository<Cart>();
+            var cart = await cartRepository.FindAsync(c => c.UserId == userEntity.UserId && c.Status == CartStatusConstants.Active);
 
             var cartItemRepository = _unitOfWork.GetRepository<CartItem>();
             var cartItem = await cartItemRepository.GetByIdAsync(cartItemId);
