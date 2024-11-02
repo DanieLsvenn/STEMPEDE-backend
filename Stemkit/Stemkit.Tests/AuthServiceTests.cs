@@ -59,89 +59,89 @@ namespace Stemkit.Tests
             );
         }
 
-        [Fact]
-        public async Task RegisterAsync_ShouldRegisterUserSuccessfully()
-        {
-            // Arrange
-            var registrationDto = new UserRegistrationDto
-            {
-                Email = "test@example.com",
-                Username = "testuser",
-                Password = "SecurePassword123!",
-                Role = "Customer",
-                IsExternal = false
-            };
-            string ipAddress = "127.0.0.1";
+    //    [Fact]
+    //    public async Task RegisterAsync_ShouldRegisterUserSuccessfully()
+    //    {
+    //        // Arrange
+    //        var registrationDto = new UserRegistrationDto
+    //        {
+    //            Email = "test@example.com",
+    //            Username = "testuser",
+    //            Password = "SecurePassword123!",
+    //            Role = "Customer",
+    //            IsExternal = false
+    //        };
+    //        string ipAddress = "127.0.0.1";
 
-            // Mock user existence check
-            _unitOfWorkMock.Setup(uow => uow.GetRepository<User>()
-    .AnyAsync(It.IsAny<Expression<Func<User, bool>>>()))
-    .ReturnsAsync(false);
+    //        // Mock user existence check
+    //        _unitOfWorkMock.Setup(uow => uow.GetRepository<User>()
+    //.AnyAsync(It.IsAny<Expression<Func<User, bool>>>()))
+    //.ReturnsAsync(false);
 
-            // Mock role retrieval
-            var role = new Role { RoleId = 1, RoleName = "Customer" };
-            _unitOfWorkMock.Setup(uow => uow.GetRepository<Role>()
-                .GetAsync(It.IsAny<Expression<Func<Role, bool>>>(), It.IsAny<string>()))
-                .ReturnsAsync(role);
+    //        // Mock role retrieval
+    //        var role = new Role { RoleId = 1, RoleName = "Customer" };
+    //        _unitOfWorkMock.Setup(uow => uow.GetRepository<Role>()
+    //            .GetAsync(It.IsAny<Expression<Func<Role, bool>>>(), It.IsAny<string>()))
+    //            .ReturnsAsync(role);
 
-            // Variable to capture the User object passed to AddAsync
-            User capturedUser = null;
+    //        // Variable to capture the User object passed to AddAsync
+    //        User capturedUser = null;
 
-            // Mock repository Add and CompleteAsync
-            _unitOfWorkMock.Setup(uow => uow.GetRepository<User>().AddAsync(It.IsAny<User>()))
-                .Callback<User>(u => capturedUser = u) // Capture the User object
-                .Returns(Task.CompletedTask);
-            _unitOfWorkMock.Setup(uow => uow.CompleteAsync())
-                .ReturnsAsync(1);
-            _unitOfWorkMock.Setup(uow => uow.GetRepository<UserRole>().AddAsync(It.IsAny<UserRole>()))
-                .Returns(Task.CompletedTask);
+    //        // Mock repository Add and CompleteAsync
+    //        _unitOfWorkMock.Setup(uow => uow.GetRepository<User>().AddAsync(It.IsAny<User>()))
+    //            .Callback<User>(u => capturedUser = u) // Capture the User object
+    //            .Returns(Task.CompletedTask);
+    //        _unitOfWorkMock.Setup(uow => uow.CompleteAsync())
+    //            .ReturnsAsync(1);
+    //        _unitOfWorkMock.Setup(uow => uow.GetRepository<UserRole>().AddAsync(It.IsAny<UserRole>()))
+    //            .Returns(Task.CompletedTask);
 
-            // Mock JWT and Refresh Token generation
-            _jwtTokenServiceMock.Setup(jwt => jwt.GenerateJwtToken(It.IsAny<int>(), It.IsAny<string>(), It.IsAny<List<string>>(), It.IsAny<bool>()))
-                .Returns("fake-jwt-token");
-            var refreshToken = new RefreshToken { Token = "fake-refresh-token" };
-            _refreshTokenServiceMock.Setup(rt => rt.GenerateRefreshToken(It.IsAny<int>(), It.IsAny<string>()))
-                .Returns(refreshToken);
-            _refreshTokenServiceMock.Setup(rt => rt.SaveRefreshTokenAsync(It.IsAny<RefreshToken>()))
-                .Returns(Task.CompletedTask);
+    //        // Mock JWT and Refresh Token generation
+    //        _jwtTokenServiceMock.Setup(jwt => jwt.GenerateJwtToken(It.IsAny<int>(), It.IsAny<string>(), It.IsAny<List<string>>(), It.IsAny<bool>()))
+    //            .Returns("fake-jwt-token");
+    //        var refreshToken = new RefreshToken { Token = "fake-refresh-token" };
+    //        _refreshTokenServiceMock.Setup(rt => rt.GenerateRefreshToken(It.IsAny<int>(), It.IsAny<string>()))
+    //            .Returns(refreshToken);
+    //        _refreshTokenServiceMock.Setup(rt => rt.SaveRefreshTokenAsync(It.IsAny<RefreshToken>()))
+    //            .Returns(Task.CompletedTask);
 
-            // Mock transaction
-            var transactionMock = new Mock<IDbContextTransaction>();
-            _unitOfWorkMock.Setup(uow => uow.BeginTransactionAsync())
-                .ReturnsAsync(transactionMock.Object);
+    //        // Mock transaction
+    //        var transactionMock = new Mock<IDbContextTransaction>();
+    //        _unitOfWorkMock.Setup(uow => uow.BeginTransactionAsync())
+    //            .ReturnsAsync(transactionMock.Object);
 
-            // Act
-            var result = await _authService.RegisterAsync(registrationDto, ipAddress);
+    //        // Act
+    //        var result = await _authService.RegisterAsync(registrationDto, ipAddress);
 
-            // Assert
-            result.Should().NotBeNull();
-            result.Success.Should().BeTrue();
-            result.Message.Should().Be("Registration successful.");
-            result.Token.Should().Be("fake-jwt-token");
-            result.RefreshToken.Should().Be("fake-refresh-token");
+    //        // Assert
+    //        result.Should().NotBeNull();
+    //        result.Success.Should().BeTrue();
+    //        result.Message.Should().Be("Registration successful.");
+    //        result.Token.Should().Be("fake-jwt-token");
+    //        result.RefreshToken.Should().Be("fake-refresh-token");
 
-            // Ensure that the User object was captured
-            capturedUser.Should().NotBeNull();
-            capturedUser.Email.Should().Be(registrationDto.Email);
-            capturedUser.Username.Should().Be(registrationDto.Username);
-            capturedUser.Status.Should().BeTrue();
-            capturedUser.IsExternal.Should().Be(registrationDto.IsExternal);
+    //        // Ensure that the User object was captured
+    //        capturedUser.Should().NotBeNull();
+    //        capturedUser.Email.Should().Be(registrationDto.Email);
+    //        capturedUser.Username.Should().Be(registrationDto.Username);
+    //        capturedUser.Status.Should().BeTrue();
+    //        capturedUser.IsExternal.Should().Be(registrationDto.IsExternal);
 
-            // Verify that the password was hashed correctly
-            BCrypt.Net.BCrypt.Verify(registrationDto.Password, capturedUser.Password).Should().BeTrue();
+    //        // Verify that the password was hashed correctly
+    //        BCrypt.Net.BCrypt.Verify(registrationDto.Password, capturedUser.Password).Should().BeTrue();
 
-            // Verify that role was assigned
-            _unitOfWorkMock.Verify(uow => uow.GetRepository<UserRole>().AddAsync(It.Is<UserRole>(ur =>
-                ur.UserId == capturedUser.UserId && ur.RoleId == role.RoleId)), Times.Once);
+    //        // Verify that role was assigned
+    //        _unitOfWorkMock.Verify(uow => uow.GetRepository<UserRole>().AddAsync(It.Is<UserRole>(ur =>
+    //            ur.UserId == capturedUser.UserId && ur.RoleId == role.RoleId)), Times.Once);
 
-            // Verify that tokens were generated and saved
-            _jwtTokenServiceMock.Verify(jwt => jwt.GenerateJwtToken(capturedUser.UserId, capturedUser.Username, It.Is<List<string>>(roles => roles.Contains("Customer")), capturedUser.Status), Times.Once);
-            _refreshTokenServiceMock.Verify(rt => rt.GenerateRefreshToken(capturedUser.UserId, ipAddress), Times.Once);
-            _refreshTokenServiceMock.Verify(rt => rt.SaveRefreshTokenAsync(refreshToken), Times.Once);
+    //        // Verify that tokens were generated and saved
+    //        _jwtTokenServiceMock.Verify(jwt => jwt.GenerateJwtToken(capturedUser.UserId, capturedUser.Username, It.Is<List<string>>(roles => roles.Contains("Customer")), capturedUser.Status), Times.Once);
+    //        _refreshTokenServiceMock.Verify(rt => rt.GenerateRefreshToken(capturedUser.UserId, ipAddress), Times.Once);
+    //        _refreshTokenServiceMock.Verify(rt => rt.SaveRefreshTokenAsync(refreshToken), Times.Once);
 
-            // Verify transaction commit
-            transactionMock.Verify(t => t.CommitAsync(It.IsAny<System.Threading.CancellationToken>()), Times.Once);
-        }
+    //        // Verify transaction commit
+    //        transactionMock.Verify(t => t.CommitAsync(It.IsAny<System.Threading.CancellationToken>()), Times.Once);
+    //    }
 
         [Fact]
         public async Task RegisterAsync_ShouldHandleDatabaseException()

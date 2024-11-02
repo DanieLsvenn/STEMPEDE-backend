@@ -16,7 +16,6 @@ public partial class UserPermission
     [ForeignKey("Permission")]
     public int PermissionId { get; set; }
 
-    [ForeignKey("AssignedByUser")]
     public int AssignedBy { get; set; }
 
     public virtual User AssignedByNavigation { get; set; } = null!;

@@ -8,6 +8,7 @@ using AutoMapper;
 using Stemkit.Configurations;
 using Microsoft.Extensions.Options;
 using Stemkit.Auth.Helpers.Interfaces;
+using System.Data;
 
 namespace Stemkit.Auth.Services.Implementation
 {
@@ -176,7 +177,7 @@ namespace Stemkit.Auth.Services.Implementation
             }
         }
 
-        public async Task<AuthResponse> LoginAsync(UserLoginDto loginDto, string ipAddress)
+        public async Task<LoginResponse> LoginAsync(UserLoginDto loginDto, string ipAddress)
         {
             _logger.LogInformation("User login attempt from IP: {IpAddress}", ipAddress);
             _logger.LogInformation("Using Database Collation: {Collation}", _dbSettings.Collation);
@@ -184,7 +185,7 @@ namespace Stemkit.Auth.Services.Implementation
             // Validate inputs
             if (string.IsNullOrWhiteSpace(loginDto.EmailOrUsername) || string.IsNullOrWhiteSpace(loginDto.Password))
             {
-                return new AuthResponse { Success = false, Message = "Invalid login data." };
+                return new LoginResponse { Success = false, Message = "Invalid login data." };
             }
 
             var emailOrUsername = loginDto.EmailOrUsername.Trim();
@@ -198,13 +199,13 @@ namespace Stemkit.Auth.Services.Implementation
                 if (user == null || !user.Status)
                 {
                     _logger.LogWarning("Invalid credentials or user is banned.");
-                    return new AuthResponse { Success = false, Message = "Invalid credentials or user is banned." };
+                    return new LoginResponse { Success = false, Message = "Invalid credentials or user is banned." };
                 }
 
                 if (!BCrypt.Net.BCrypt.Verify(loginDto.Password, user.Password))
                 {
                     _logger.LogWarning("Invalid credentials provided.");
-                    return new AuthResponse { Success = false, Message = "Invalid credentials." };
+                    return new LoginResponse { Success = false, Message = "Invalid credentials." };
                 }
 
                 // Retrieve user roles
@@ -227,23 +228,24 @@ namespace Stemkit.Auth.Services.Implementation
 
                 _logger.LogInformation("User login successful for UserID: {UserId}", user.UserId);
 
-                return new AuthResponse
+                return new LoginResponse
                 {
                     Success = true,
                     Token = accessToken,
                     RefreshToken = refreshToken.Token,
-                    Message = "Login successful."
+                    Message = "Login successful.",
+                    Roles = roleNames
                 };
             }
             catch (SqlException sqlEx)
             {
                 _logger.LogError(sqlEx, "Database connection error occurred during login.");
-                return new AuthResponse { Success = false, Message = "Login failed due to a database connection issue." };
+                return new LoginResponse { Success = false, Message = "Login failed due to a database connection issue." };
             }
             catch (Exception ex)
             {
                 _logger.LogError(ex, "An error occurred during login.");
-                return new AuthResponse { Success = false, Message = "Login failed. Please try again." };
+                return new LoginResponse { Success = false, Message = "Login failed. Please try again." };
             }
         }
 
