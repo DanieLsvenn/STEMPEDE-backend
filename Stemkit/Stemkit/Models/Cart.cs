@@ -1,9 +1,12 @@
 ﻿using Stemkit.Constants;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Stemkit.Models;
 
 public partial class Cart
 {
+    [Key]
     public int CartId { get; set; }
 
     public int UserId { get; set; }
@@ -14,5 +17,6 @@ public partial class Cart
 
     public virtual ICollection<CartItem> CartItems { get; set; } = new List<CartItem>();
 
+    [ForeignKey("UserId")]
     public virtual User User { get; set; } = null!;
 }

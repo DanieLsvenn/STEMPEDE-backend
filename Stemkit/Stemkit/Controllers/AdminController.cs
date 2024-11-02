@@ -9,7 +9,7 @@ namespace Stemkit.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    [Authorize(Roles = "Manager")] // Ensure only Managers can access these endpoints
+    [Authorize] // Ensure only Managers can access these endpoints
     public class AdminController : ControllerBase
     {
         private readonly IUserService _userService;

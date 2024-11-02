@@ -158,6 +158,7 @@ namespace Stemkit.Services.Implementation
         {
             _logger.LogInformation("Updating CartItemID: {CartItemId} for User: {UserName} to Quantity: {Quantity}", cartItemId, userName, quantity);
 
+            // Step 1: Retrieve the user
             var userRepository = _unitOfWork.GetRepository<User>();
             var user = await userRepository.FindAsync(u => u.Username == userName);
             var userEntity = user.FirstOrDefault();
@@ -168,19 +169,32 @@ namespace Stemkit.Services.Implementation
                 throw new ArgumentException("User not found.");
             }
 
-            // Retrieve or create cart
-            var cartRepository = _unitOfWork.GetRepository<Cart>();
-            var cart = await cartRepository.FindAsync(c => c.UserId == userEntity.UserId && c.Status == CartStatusConstants.Active);
-
+            // Step 2: Retrieve the CartItem with the related Cart entity
             var cartItemRepository = _unitOfWork.GetRepository<CartItem>();
-            var cartItem = await cartItemRepository.GetByIdAsync(cartItemId);
+            var cartItem = await cartItemRepository.GetAsync(
+                ci => ci.CartItemId == cartItemId,
+                includeProperties: "Cart"
+            );
 
-            if (cartItem == null || cartItem.Cart.UserId != userEntity.UserId || cartItem.Cart.Status != CartStatusConstants.Active)
+            if (cartItem == null)
             {
-                _logger.LogWarning("CartItemID: {CartItemId} not found or does not belong to user: {UserName}.", cartItemId, userName);
+                _logger.LogWarning("CartItemID: {CartItemId} not found or does not belong to an active cart.", cartItemId);
                 throw new ArgumentException("Cart item not found.");
             }
 
+            if (cartItem.Cart.UserId != userEntity.UserId)
+            {
+                _logger.LogWarning("CartItemID: {CartItemId} does not belong to user: {UserName}.", cartItemId, userName);
+                throw new ArgumentException("Cart item does not belong to the current user.");
+            }
+
+            if (cartItem.Cart.Status != CartStatusConstants.Active)
+            {
+                _logger.LogWarning("CartItemID: {CartItemId} is not part of an active cart.", cartItemId);
+                throw new ArgumentException("Cannot update items in a non-active cart.");
+            }
+
+            // Step 3: Retrieve the Product
             var productRepository = _unitOfWork.GetRepository<Product>();
             var product = await productRepository.GetByIdAsync(cartItem.ProductId);
 
@@ -190,6 +204,7 @@ namespace Stemkit.Services.Implementation
                 throw new ArgumentException("Product not found.");
             }
 
+            // Step 4: Update stock based on quantity change
             if (quantity > cartItem.Quantity)
             {
                 int additionalQuantity = quantity - cartItem.Quantity;
@@ -206,11 +221,13 @@ namespace Stemkit.Services.Implementation
                 product.StockQuantity += reducedQuantity;
             }
 
+            // Step 5: Update CartItem details
             cartItem.Quantity = quantity;
             cartItem.Price = product.Price; // Update price if it has changed
             cartItemRepository.Update(cartItem);
             productRepository.Update(product);
 
+            // Step 6: Save changes
             await _unitOfWork.CompleteAsync();
 
             _logger.LogInformation("CartItemID: {CartItemId} updated successfully.", cartItemId);
@@ -221,6 +238,7 @@ namespace Stemkit.Services.Implementation
         {
             _logger.LogInformation("Removing CartItemID: {CartItemId} from cart for User: {UserName}", cartItemId, userName);
 
+            // Step 1: Retrieve the user
             var userRepository = _unitOfWork.GetRepository<User>();
             var user = await userRepository.FindAsync(u => u.Username == userName);
             var userEntity = user.FirstOrDefault();
@@ -231,17 +249,29 @@ namespace Stemkit.Services.Implementation
                 throw new ArgumentException("User not found.");
             }
 
-            // Retrieve or create cart
-            var cartRepository = _unitOfWork.GetRepository<Cart>();
-            var cart = await cartRepository.FindAsync(c => c.UserId == userEntity.UserId && c.Status == CartStatusConstants.Active);
-
+            // Step 2: Retrieve the CartItem with the related Cart entity
             var cartItemRepository = _unitOfWork.GetRepository<CartItem>();
-            var cartItem = await cartItemRepository.GetByIdAsync(cartItemId);
+            var cartItem = await cartItemRepository.GetAsync(
+                ci => ci.CartItemId == cartItemId,
+                includeProperties: "Cart"
+            );
 
-            if (cartItem == null || cartItem.Cart.UserId != userEntity.UserId || cartItem.Cart.Status != CartStatusConstants.Active)
+            if (cartItem == null)
             {
-                _logger.LogWarning("CartItemID: {CartItemId} not found or does not belong to user: {UserName}.", cartItemId, userName);
+                _logger.LogWarning("CartItemID: {CartItemId} not found or does not belong to an active cart.", cartItemId);
                 throw new ArgumentException("Cart item not found.");
+            }
+
+            if (cartItem.Cart.UserId != userEntity.UserId)
+            {
+                _logger.LogWarning("CartItemID: {CartItemId} does not belong to user: {UserName}.", cartItemId, userName);
+                throw new ArgumentException("Cart item does not belong to the current user.");
+            }
+
+            if (cartItem.Cart.Status != CartStatusConstants.Active)
+            {
+                _logger.LogWarning("CartItemID: {CartItemId} is not part of an active cart.", cartItemId);
+                throw new ArgumentException("Cannot update items in a non-active cart.");
             }
 
             var productRepository = _unitOfWork.GetRepository<Product>();
