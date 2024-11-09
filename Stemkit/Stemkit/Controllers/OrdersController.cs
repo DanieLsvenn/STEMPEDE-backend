@@ -25,18 +25,25 @@ namespace Stemkit.Controllers
         /// <summary>
         /// Retrieves all orders with pagination. Accessible by Managers only.
         /// </summary>
-        /// <param name="pageIndex">The page number to retrieve. Defaults to 1.</param>
-        /// <param name="pageSize">The number of items per page. Defaults to 10.</param>
+        /// <param name="queryParameters">Pagination parameters.</param>
         /// <returns>An ApiResponse containing a paginated list of orders.</returns>
         /// <response code="200">Orders retrieved successfully.</response>
+        /// <response code="400">Bad request due to invalid parameters.</response>
         /// <response code="500">Internal server error.</response>
-        [HttpGet("get-all-pagination")]
+        [HttpGet]
         [Authorize(Roles = "Manager")]
-        public async Task<ActionResult<ApiResponse<PaginatedList<OrderDto>>>> GetAllOrders([FromQuery] int pageIndex = 1, [FromQuery] int pageSize = 10)
+        public async Task<ActionResult<ApiResponse<PaginatedList<OrderDto>>>> GetAllOrders([FromQuery] QueryParameters queryParameters)
         {
+            if (!ModelState.IsValid)
+            {
+                _logger.LogWarning("Invalid QueryParameters received.");
+                var errors = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage);
+                return BadRequest(ApiResponse<PaginatedList<OrderDto>>.FailureResponse("Invalid pagination parameters.", errors));
+            }
+
             try
             {
-                var response = await _orderService.GetAllOrdersAsync(pageIndex, pageSize);
+                var response = await _orderService.GetAllOrdersAsync(queryParameters);
                 if (response.Success)
                 {
                     return Ok(response);

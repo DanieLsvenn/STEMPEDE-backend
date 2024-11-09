@@ -23,21 +23,22 @@ namespace Stemkit.Services.Implementation
             _logger = logger;
         }
 
-        public async Task<ApiResponse<PaginatedList<OrderDto>>> GetAllOrdersAsync(int pageIndex, int pageSize)
+        public async Task<ApiResponse<PaginatedList<OrderDto>>> GetAllOrdersAsync(QueryParameters queryParameters)
         {
             try
             {
-                _logger.LogInformation("Fetching all orders for reporting with pagination. PageIndex: {PageIndex}, PageSize: {PageSize}", pageIndex, pageSize);
+                _logger.LogInformation("Fetching all orders for reporting with pagination. PageNumber: {PageNumber}, PageSize: {PageSize}",
+                    queryParameters.PageNumber, queryParameters.PageSize);
 
                 var orderQuery = _unitOfWork.GetRepository<Order>()
                                             .GetAllQueryable(includeProperties: "User,Deliveries,OrderDetails.Product")
                                             .OrderBy(o => o.OrderId); // Ensure consistent ordering
 
-                var paginatedOrders = await PaginatedList<Order>.CreateAsync(orderQuery, pageIndex, pageSize);
+                var paginatedOrders = await PaginatedList<Order>.CreateAsync(orderQuery, queryParameters.PageNumber, queryParameters.PageSize);
 
                 var orderDtos = _mapper.Map<List<OrderDto>>(paginatedOrders.Items);
 
-                var paginatedOrderDtos = new PaginatedList<OrderDto>(orderDtos, paginatedOrders.TotalCount, paginatedOrders.PageIndex, pageSize);
+                var paginatedOrderDtos = new PaginatedList<OrderDto>(orderDtos, paginatedOrders.TotalCount, paginatedOrders.PageIndex, queryParameters.PageSize);
 
                 return ApiResponse<PaginatedList<OrderDto>>.SuccessResponse(paginatedOrderDtos, "Orders retrieved successfully.");
             }
@@ -47,6 +48,7 @@ namespace Stemkit.Services.Implementation
                 return ApiResponse<PaginatedList<OrderDto>>.FailureResponse("Failed to retrieve orders.", new List<string> { ex.Message });
             }
         }
+
 
         public async Task<ApiResponse<OrderDto>> GetOrderByIdAsync(int orderId, string currentUsername, string userRole)
         {

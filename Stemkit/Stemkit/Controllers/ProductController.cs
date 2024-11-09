@@ -32,7 +32,7 @@ namespace Stemkit.Controllers
         /// <response code="400">If the query parameters are invalid.</response>
         [HttpGet("get-all-pagination")]
         [AllowAnonymous] 
-        public async Task<ActionResult<ApiResponse<PaginatedList<ReadProductDto>>>> GetAllProducts([FromQuery] ProductQueryParameters queryParameters)
+        public async Task<ActionResult<ApiResponse<PaginatedList<ReadProductDto>>>> GetAllProducts([FromQuery] QueryParameters queryParameters)
         {
             if (!ModelState.IsValid)
             {

@@ -5,6 +5,7 @@ using AutoMapper;
 using Stemkit.Services.Interfaces;
 using AutoMapper.QueryableExtensions;
 using Stemkit.Utils.Implementation;
+using Stemkit.DTOs;
 
 namespace Stemkit.Services.Implementation
 {
@@ -39,7 +40,7 @@ namespace Stemkit.Services.Implementation
             return _mapper.Map<ReadProductDto>(product);
         }
 
-        public async Task<PaginatedList<ReadProductDto>> GetAllProductsAsync(ProductQueryParameters queryParameters)
+        public async Task<PaginatedList<ReadProductDto>> GetAllProductsAsync(QueryParameters queryParameters)
         {
             var productsQuery = _unitOfWork.GetRepository<Product>().GetAllQueryable(includeProperties: "Lab,Subcategory");
 

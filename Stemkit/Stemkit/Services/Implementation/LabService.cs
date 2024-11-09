@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Stemkit.Data;
+using Stemkit.DTOs;
 using Stemkit.DTOs.Lab;
 using Stemkit.Models;
 using Stemkit.Services.Interfaces;
@@ -28,7 +29,7 @@ namespace Stemkit.Services.Implementation
             return _mapper.Map<IEnumerable<ReadLabSimpleDto>>(labs);
         }
 
-        public async Task<PaginatedList<ReadLabSimpleDto>> GetLabsAsync(LabQueryParameters queryParameters)
+        public async Task<PaginatedList<ReadLabSimpleDto>> GetLabsAsync(QueryParameters queryParameters)
         {
             var labsQuery = _unitOfWork.GetRepository<Lab>()
                 .GetAllQueryable();
