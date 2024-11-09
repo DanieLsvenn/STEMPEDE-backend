@@ -13,6 +13,7 @@ using FluentAssertions;
 using System.Linq;
 using System.Linq.Expressions;
 using Stemkit.Auth.Helpers.Interfaces;
+using Stemkit.Configurations.MappingProfiles;
 
 namespace Stemkit.Tests
 {
@@ -39,7 +40,7 @@ namespace Stemkit.Tests
             // Configure AutoMapper with real mappings
             var mapperConfig = new MapperConfiguration(cfg =>
             {
-                cfg.AddProfile<Stemkit.Configurations.AutoMapperProfile>();
+                cfg.AddProfile<AutoMapperProfile>();
             });
             _mapper = mapperConfig.CreateMapper();
 

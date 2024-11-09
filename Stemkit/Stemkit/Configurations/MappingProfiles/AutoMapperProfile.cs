@@ -6,8 +6,9 @@ using Stemkit.DTOs.Lab;
 using Stemkit.DTOs.User;
 using Stemkit.DTOs.Subcategory;
 using Stemkit.DTOs.Cart;
+using Stemkit.DTOs.Order;
 
-namespace Stemkit.Configurations
+namespace Stemkit.Configurations.MappingProfiles
 {
     public class AutoMapperProfile : Profile
     {
@@ -19,7 +20,7 @@ namespace Stemkit.Configurations
                 .ForMember(dest => dest.Roles, opt => opt.MapFrom(src => src.UserRoles.Select(ur => ur.Role.RoleName).ToList()));
 
             CreateMap<UserPermission, UserPermissionDto>()
-            .ForMember(dest => dest.AssignedBy, opt => opt.MapFrom(src => src.AssignedByNavigation.FullName)); // Assuming 'FullName' is a property in 'User'
+            .ForMember(dest => dest.AssignedBy, opt => opt.MapFrom(src => src.AssignedByNavigation.FullName));
 
             //Product mappings
             CreateMap<Product, ReadProductDto>()
