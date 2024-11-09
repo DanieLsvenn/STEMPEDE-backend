@@ -1,17 +1,18 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Stemkit.Constants;
+using System.ComponentModel.DataAnnotations;
 
-namespace Stemkit.DTOs.Product
+namespace Stemkit.DTOs
 {
-    public class ProductQueryParameters
+    public class QueryParameters
     {
-        private const int MaxPageSize = 100;
-        private int _pageSize = 10;
+        private const int MaxPageSize = PaginationDefaults.MaxPageSize;
+        private int _pageSize = PaginationDefaults.DefaultPageSize;
 
         /// <summary>
         /// The page number to retrieve. Must be greater than 0.
         /// </summary>
         [Range(1, int.MaxValue, ErrorMessage = "PageNumber must be greater than 0.")]
-        public int PageNumber { get; set; } = 1;
+        public int PageNumber { get; set; } = PaginationDefaults.DefaultPageNumber;
 
         /// <summary>
         /// The number of items per page. Maximum allowed is 100.
