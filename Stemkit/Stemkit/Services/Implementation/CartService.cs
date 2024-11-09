@@ -428,6 +428,17 @@ namespace Stemkit.Services.Implementation
                     cartItemRepository.Delete(cartItem);
                 }
 
+                // Create Delivery Record
+                var deliveryRepository = _unitOfWork.GetRepository<Delivery>();
+                var delivery = new Delivery
+                {
+                    OrderId = order.OrderId,
+                    DeliveryStatus = DeliveryStatusConstants.Pending, 
+                    DeliveryDate = null
+                };
+                await deliveryRepository.AddAsync(delivery);
+                _logger.LogInformation("Delivery record created for OrderID: {OrderId}", order.OrderId);
+
                 await _unitOfWork.CompleteAsync();
 
                 // Update cart status

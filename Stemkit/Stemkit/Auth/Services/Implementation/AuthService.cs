@@ -285,7 +285,6 @@ namespace Stemkit.Auth.Services.Implementation
                 return new AuthResponse { Success = false, Message = "Invalid refresh token." };
             }
 
-            // Delegate the entire refresh process to RefreshTokenService
             var refreshResponse = await _refreshTokenService.RefreshTokensAsync(token, ipAddress);
 
             return refreshResponse;

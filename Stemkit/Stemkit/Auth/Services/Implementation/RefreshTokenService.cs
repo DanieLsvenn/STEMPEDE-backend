@@ -42,7 +42,7 @@ namespace Stemkit.Auth.Services.Implementation
             {
                 Token = GenerateSecureToken(),
                 UserId = userId,
-                ExpirationTime = _dateTimeProvider.UtcNow.AddDays(7), // Refresh token valid for 7 days
+                ExpirationTime = _dateTimeProvider.UtcNow.AddDays(30), // Refresh token valid for 30 days
                 Created = _dateTimeProvider.UtcNow,
                 CreatedByIp = ipAddress,
                 // Revoked, RevokedByIp, ReplacedByToken are null by default

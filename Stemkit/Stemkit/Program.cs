@@ -19,6 +19,7 @@ using Stemkit.Configurations;
 using Microsoft.OpenApi.Models;
 using System.Reflection;
 using Stemkit.Middleware;
+using Stemkit.Configurations.MappingProfiles;
 
 namespace Stemkit
 {
@@ -106,9 +107,10 @@ namespace Stemkit
             builder.Services.AddScoped<ICartService, CartService>();
             builder.Services.AddScoped<IUserPermissionService, UserPermissionService>();
             builder.Services.AddScoped<IAssignMissingPermissions, AssignMissingPermissions>();
+            builder.Services.AddScoped<IOrderService, OrderService>();
 
             // Register AutoMapper
-            builder.Services.AddAutoMapper(typeof(AutoMapperProfile));
+            builder.Services.AddAutoMapper(typeof(AutoMapperProfile).Assembly);
 
             // Add controllers and other services
             builder.Services.AddControllers().AddJsonOptions(options => options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
