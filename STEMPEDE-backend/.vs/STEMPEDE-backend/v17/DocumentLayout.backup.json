@@ -1,0 +1,1823 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{4D1F1B50-3CE9-4EAC-8D44-F665ED6B0288}|BusinessLogic\\BusinessLogic.csproj|d:\\se\\ky5\\swp391\\git_team\\stempede-backend\\businesslogic\\auth\\helpers\\implementation\\assignmissingpermissions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D1F1B50-3CE9-4EAC-8D44-F665ED6B0288}|BusinessLogic\\BusinessLogic.csproj|solutionrelative:businesslogic\\auth\\helpers\\implementation\\assignmissingpermissions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2027C129-F8EF-4A65-9ABA-24D01C3ED8E0}|StempedeAPI\\StempedeAPI.csproj|d:\\se\\ky5\\swp391\\git_team\\stempede-backend\\stempedeapi\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2027C129-F8EF-4A65-9ABA-24D01C3ED8E0}|StempedeAPI\\StempedeAPI.csproj|solutionrelative:stempedeapi\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2027C129-F8EF-4A65-9ABA-24D01C3ED8E0}|StempedeAPI\\StempedeAPI.csproj|d:\\se\\ky5\\swp391\\git_team\\stempede-backend\\stempedeapi\\controllers\\orderscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2027C129-F8EF-4A65-9ABA-24D01C3ED8E0}|StempedeAPI\\StempedeAPI.csproj|solutionrelative:stempedeapi\\controllers\\orderscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2027C129-F8EF-4A65-9ABA-24D01C3ED8E0}|StempedeAPI\\StempedeAPI.csproj|d:\\se\\ky5\\swp391\\git_team\\stempede-backend\\stempedeapi\\controllers\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2027C129-F8EF-4A65-9ABA-24D01C3ED8E0}|StempedeAPI\\StempedeAPI.csproj|solutionrelative:stempedeapi\\controllers\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2027C129-F8EF-4A65-9ABA-24D01C3ED8E0}|StempedeAPI\\StempedeAPI.csproj|d:\\se\\ky5\\swp391\\git_team\\stempede-backend\\stempedeapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2027C129-F8EF-4A65-9ABA-24D01C3ED8E0}|StempedeAPI\\StempedeAPI.csproj|solutionrelative:stempedeapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D1F1B50-3CE9-4EAC-8D44-F665ED6B0288}|BusinessLogic\\BusinessLogic.csproj|d:\\se\\ky5\\swp391\\git_team\\stempede-backend\\businesslogic\\dtos\\user\\readuserdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D1F1B50-3CE9-4EAC-8D44-F665ED6B0288}|BusinessLogic\\BusinessLogic.csproj|solutionrelative:businesslogic\\dtos\\user\\readuserdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D1F1B50-3CE9-4EAC-8D44-F665ED6B0288}|BusinessLogic\\BusinessLogic.csproj|d:\\se\\ky5\\swp391\\git_team\\stempede-backend\\businesslogic\\dtos\\user\\userpermissiondto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D1F1B50-3CE9-4EAC-8D44-F665ED6B0288}|BusinessLogic\\BusinessLogic.csproj|solutionrelative:businesslogic\\dtos\\user\\userpermissiondto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D1F1B50-3CE9-4EAC-8D44-F665ED6B0288}|BusinessLogic\\BusinessLogic.csproj|d:\\se\\ky5\\swp391\\git_team\\stempede-backend\\businesslogic\\dtos\\user\\userprofiledto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D1F1B50-3CE9-4EAC-8D44-F665ED6B0288}|BusinessLogic\\BusinessLogic.csproj|solutionrelative:businesslogic\\dtos\\user\\userprofiledto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D1F1B50-3CE9-4EAC-8D44-F665ED6B0288}|BusinessLogic\\BusinessLogic.csproj|d:\\se\\ky5\\swp391\\git_team\\stempede-backend\\businesslogic\\services\\interfaces\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D1F1B50-3CE9-4EAC-8D44-F665ED6B0288}|BusinessLogic\\BusinessLogic.csproj|solutionrelative:businesslogic\\services\\interfaces\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D1F1B50-3CE9-4EAC-8D44-F665ED6B0288}|BusinessLogic\\BusinessLogic.csproj|d:\\se\\ky5\\swp391\\git_team\\stempede-backend\\businesslogic\\services\\implementation\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D1F1B50-3CE9-4EAC-8D44-F665ED6B0288}|BusinessLogic\\BusinessLogic.csproj|solutionrelative:businesslogic\\services\\implementation\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D1F1B50-3CE9-4EAC-8D44-F665ED6B0288}|BusinessLogic\\BusinessLogic.csproj|d:\\se\\ky5\\swp391\\git_team\\stempede-backend\\businesslogic\\dtos\\subcategory\\readsubcategorydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D1F1B50-3CE9-4EAC-8D44-F665ED6B0288}|BusinessLogic\\BusinessLogic.csproj|solutionrelative:businesslogic\\dtos\\subcategory\\readsubcategorydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D1F1B50-3CE9-4EAC-8D44-F665ED6B0288}|BusinessLogic\\BusinessLogic.csproj|d:\\se\\ky5\\swp391\\git_team\\stempede-backend\\businesslogic\\dtos\\reporting\\salesreportdetaildto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D1F1B50-3CE9-4EAC-8D44-F665ED6B0288}|BusinessLogic\\BusinessLogic.csproj|solutionrelative:businesslogic\\dtos\\reporting\\salesreportdetaildto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D1F1B50-3CE9-4EAC-8D44-F665ED6B0288}|BusinessLogic\\BusinessLogic.csproj|d:\\se\\ky5\\swp391\\git_team\\stempede-backend\\businesslogic\\dtos\\product\\updateproductdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D1F1B50-3CE9-4EAC-8D44-F665ED6B0288}|BusinessLogic\\BusinessLogic.csproj|solutionrelative:businesslogic\\dtos\\product\\updateproductdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D1F1B50-3CE9-4EAC-8D44-F665ED6B0288}|BusinessLogic\\BusinessLogic.csproj|d:\\se\\ky5\\swp391\\git_team\\stempede-backend\\businesslogic\\dtos\\product\\readproductdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D1F1B50-3CE9-4EAC-8D44-F665ED6B0288}|BusinessLogic\\BusinessLogic.csproj|solutionrelative:businesslogic\\dtos\\product\\readproductdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D1F1B50-3CE9-4EAC-8D44-F665ED6B0288}|BusinessLogic\\BusinessLogic.csproj|d:\\se\\ky5\\swp391\\git_team\\stempede-backend\\businesslogic\\dtos\\product\\createproductdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D1F1B50-3CE9-4EAC-8D44-F665ED6B0288}|BusinessLogic\\BusinessLogic.csproj|solutionrelative:businesslogic\\dtos\\product\\createproductdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D1F1B50-3CE9-4EAC-8D44-F665ED6B0288}|BusinessLogic\\BusinessLogic.csproj|d:\\se\\ky5\\swp391\\git_team\\stempede-backend\\businesslogic\\dtos\\order\\orderdetaildto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D1F1B50-3CE9-4EAC-8D44-F665ED6B0288}|BusinessLogic\\BusinessLogic.csproj|solutionrelative:businesslogic\\dtos\\order\\orderdetaildto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D1F1B50-3CE9-4EAC-8D44-F665ED6B0288}|BusinessLogic\\BusinessLogic.csproj|d:\\se\\ky5\\swp391\\git_team\\stempede-backend\\businesslogic\\dtos\\order\\deliverydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D1F1B50-3CE9-4EAC-8D44-F665ED6B0288}|BusinessLogic\\BusinessLogic.csproj|solutionrelative:businesslogic\\dtos\\order\\deliverydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D1F1B50-3CE9-4EAC-8D44-F665ED6B0288}|BusinessLogic\\BusinessLogic.csproj|d:\\se\\ky5\\swp391\\git_team\\stempede-backend\\businesslogic\\dtos\\cart\\updatecartitemdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D1F1B50-3CE9-4EAC-8D44-F665ED6B0288}|BusinessLogic\\BusinessLogic.csproj|solutionrelative:businesslogic\\dtos\\cart\\updatecartitemdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D1F1B50-3CE9-4EAC-8D44-F665ED6B0288}|BusinessLogic\\BusinessLogic.csproj|d:\\se\\ky5\\swp391\\git_team\\stempede-backend\\businesslogic\\dtos\\cart\\shippingaddressdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D1F1B50-3CE9-4EAC-8D44-F665ED6B0288}|BusinessLogic\\BusinessLogic.csproj|solutionrelative:businesslogic\\dtos\\cart\\shippingaddressdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D1F1B50-3CE9-4EAC-8D44-F665ED6B0288}|BusinessLogic\\BusinessLogic.csproj|d:\\se\\ky5\\swp391\\git_team\\stempede-backend\\businesslogic\\dtos\\cart\\checkoutdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D1F1B50-3CE9-4EAC-8D44-F665ED6B0288}|BusinessLogic\\BusinessLogic.csproj|solutionrelative:businesslogic\\dtos\\cart\\checkoutdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D1F1B50-3CE9-4EAC-8D44-F665ED6B0288}|BusinessLogic\\BusinessLogic.csproj|d:\\se\\ky5\\swp391\\git_team\\stempede-backend\\businesslogic\\services\\implementation\\cartservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D1F1B50-3CE9-4EAC-8D44-F665ED6B0288}|BusinessLogic\\BusinessLogic.csproj|solutionrelative:businesslogic\\services\\implementation\\cartservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2027C129-F8EF-4A65-9ABA-24D01C3ED8E0}|StempedeAPI\\StempedeAPI.csproj|d:\\se\\ky5\\swp391\\git_team\\stempede-backend\\stempedeapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2027C129-F8EF-4A65-9ABA-24D01C3ED8E0}|StempedeAPI\\StempedeAPI.csproj|solutionrelative:stempedeapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2027C129-F8EF-4A65-9ABA-24D01C3ED8E0}|StempedeAPI\\StempedeAPI.csproj|d:\\se\\ky5\\swp391\\git_team\\stempede-backend\\stempedeapi\\stempedeapi.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
+      "RelativeMoniker": "D:0:0:{2027C129-F8EF-4A65-9ABA-24D01C3ED8E0}|StempedeAPI\\StempedeAPI.csproj|solutionrelative:stempedeapi\\stempedeapi.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2027C129-F8EF-4A65-9ABA-24D01C3ED8E0}|StempedeAPI\\StempedeAPI.csproj|d:\\se\\ky5\\swp391\\git_team\\stempede-backend\\stempedeapi\\controllers\\subcategoriescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2027C129-F8EF-4A65-9ABA-24D01C3ED8E0}|StempedeAPI\\StempedeAPI.csproj|solutionrelative:stempedeapi\\controllers\\subcategoriescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2027C129-F8EF-4A65-9ABA-24D01C3ED8E0}|StempedeAPI\\StempedeAPI.csproj|d:\\se\\ky5\\swp391\\git_team\\stempede-backend\\stempedeapi\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{2027C129-F8EF-4A65-9ABA-24D01C3ED8E0}|StempedeAPI\\StempedeAPI.csproj|solutionrelative:stempedeapi\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2878727A-F7EC-4AC3-AE9E-4B9E9F17D2A1}|StempedeAPI.Tests\\StempedeAPI.Tests.csproj|d:\\se\\ky5\\swp391\\git_team\\stempede-backend\\stempedeapi.tests\\assignmissingpermissionstests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2878727A-F7EC-4AC3-AE9E-4B9E9F17D2A1}|StempedeAPI.Tests\\StempedeAPI.Tests.csproj|solutionrelative:stempedeapi.tests\\assignmissingpermissionstests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2878727A-F7EC-4AC3-AE9E-4B9E9F17D2A1}|StempedeAPI.Tests\\StempedeAPI.Tests.csproj|d:\\se\\ky5\\swp391\\git_team\\stempede-backend\\stempedeapi.tests\\helpers\\mockhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2878727A-F7EC-4AC3-AE9E-4B9E9F17D2A1}|StempedeAPI.Tests\\StempedeAPI.Tests.csproj|solutionrelative:stempedeapi.tests\\helpers\\mockhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2878727A-F7EC-4AC3-AE9E-4B9E9F17D2A1}|StempedeAPI.Tests\\StempedeAPI.Tests.csproj|d:\\se\\ky5\\swp391\\git_team\\stempede-backend\\stempedeapi.tests\\userscontrollertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2878727A-F7EC-4AC3-AE9E-4B9E9F17D2A1}|StempedeAPI.Tests\\StempedeAPI.Tests.csproj|solutionrelative:stempedeapi.tests\\userscontrollertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2878727A-F7EC-4AC3-AE9E-4B9E9F17D2A1}|StempedeAPI.Tests\\StempedeAPI.Tests.csproj|d:\\se\\ky5\\swp391\\git_team\\stempede-backend\\stempedeapi.tests\\authservicetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2878727A-F7EC-4AC3-AE9E-4B9E9F17D2A1}|StempedeAPI.Tests\\StempedeAPI.Tests.csproj|solutionrelative:stempedeapi.tests\\authservicetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2027C129-F8EF-4A65-9ABA-24D01C3ED8E0}|StempedeAPI\\StempedeAPI.csproj|d:\\se\\ky5\\swp391\\git_team\\stempede-backend\\stempedeapi\\controllers\\userpermissionscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2027C129-F8EF-4A65-9ABA-24D01C3ED8E0}|StempedeAPI\\StempedeAPI.csproj|solutionrelative:stempedeapi\\controllers\\userpermissionscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D1F1B50-3CE9-4EAC-8D44-F665ED6B0288}|BusinessLogic\\BusinessLogic.csproj|d:\\se\\ky5\\swp391\\git_team\\stempede-backend\\businesslogic\\services\\implementation\\orderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D1F1B50-3CE9-4EAC-8D44-F665ED6B0288}|BusinessLogic\\BusinessLogic.csproj|solutionrelative:businesslogic\\services\\implementation\\orderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D1F1B50-3CE9-4EAC-8D44-F665ED6B0288}|BusinessLogic\\BusinessLogic.csproj|d:\\se\\ky5\\swp391\\git_team\\stempede-backend\\businesslogic\\services\\implementation\\labservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D1F1B50-3CE9-4EAC-8D44-F665ED6B0288}|BusinessLogic\\BusinessLogic.csproj|solutionrelative:businesslogic\\services\\implementation\\labservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D1F1B50-3CE9-4EAC-8D44-F665ED6B0288}|BusinessLogic\\BusinessLogic.csproj|d:\\se\\ky5\\swp391\\git_team\\stempede-backend\\businesslogic\\auth\\services\\implementation\\externalauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D1F1B50-3CE9-4EAC-8D44-F665ED6B0288}|BusinessLogic\\BusinessLogic.csproj|solutionrelative:businesslogic\\auth\\services\\implementation\\externalauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D1F1B50-3CE9-4EAC-8D44-F665ED6B0288}|BusinessLogic\\BusinessLogic.csproj|d:\\se\\ky5\\swp391\\git_team\\stempede-backend\\businesslogic\\auth\\services\\implementation\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D1F1B50-3CE9-4EAC-8D44-F665ED6B0288}|BusinessLogic\\BusinessLogic.csproj|solutionrelative:businesslogic\\auth\\services\\implementation\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2027C129-F8EF-4A65-9ABA-24D01C3ED8E0}|StempedeAPI\\StempedeAPI.csproj|d:\\se\\ky5\\swp391\\git_team\\stempede-backend\\stempedeapi\\controllers\\userscontroller .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2027C129-F8EF-4A65-9ABA-24D01C3ED8E0}|StempedeAPI\\StempedeAPI.csproj|solutionrelative:stempedeapi\\controllers\\userscontroller .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2027C129-F8EF-4A65-9ABA-24D01C3ED8E0}|StempedeAPI\\StempedeAPI.csproj|d:\\se\\ky5\\swp391\\git_team\\stempede-backend\\stempedeapi\\controllers\\labscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2027C129-F8EF-4A65-9ABA-24D01C3ED8E0}|StempedeAPI\\StempedeAPI.csproj|solutionrelative:stempedeapi\\controllers\\labscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D1F1B50-3CE9-4EAC-8D44-F665ED6B0288}|BusinessLogic\\BusinessLogic.csproj|d:\\se\\ky5\\swp391\\git_team\\stempede-backend\\businesslogic\\auth\\services\\implementation\\refreshtokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D1F1B50-3CE9-4EAC-8D44-F665ED6B0288}|BusinessLogic\\BusinessLogic.csproj|solutionrelative:businesslogic\\auth\\services\\implementation\\refreshtokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D1F1B50-3CE9-4EAC-8D44-F665ED6B0288}|BusinessLogic\\BusinessLogic.csproj|d:\\se\\ky5\\swp391\\git_team\\stempede-backend\\businesslogic\\auth\\services\\implementation\\jwttokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D1F1B50-3CE9-4EAC-8D44-F665ED6B0288}|BusinessLogic\\BusinessLogic.csproj|solutionrelative:businesslogic\\auth\\services\\implementation\\jwttokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D1F1B50-3CE9-4EAC-8D44-F665ED6B0288}|BusinessLogic\\BusinessLogic.csproj|d:\\se\\ky5\\swp391\\git_team\\stempede-backend\\businesslogic\\services\\implementation\\userpermissionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D1F1B50-3CE9-4EAC-8D44-F665ED6B0288}|BusinessLogic\\BusinessLogic.csproj|solutionrelative:businesslogic\\services\\implementation\\userpermissionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D1F1B50-3CE9-4EAC-8D44-F665ED6B0288}|BusinessLogic\\BusinessLogic.csproj|d:\\se\\ky5\\swp391\\git_team\\stempede-backend\\businesslogic\\services\\implementation\\productservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D1F1B50-3CE9-4EAC-8D44-F665ED6B0288}|BusinessLogic\\BusinessLogic.csproj|solutionrelative:businesslogic\\services\\implementation\\productservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5F108EDA-43D1-4F0D-BE78-12757F723F8E}|DataAccess\\DataAccess.csproj|d:\\se\\ky5\\swp391\\git_team\\stempede-backend\\dataaccess\\entities\\cart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5F108EDA-43D1-4F0D-BE78-12757F723F8E}|DataAccess\\DataAccess.csproj|solutionrelative:dataaccess\\entities\\cart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5F108EDA-43D1-4F0D-BE78-12757F723F8E}|DataAccess\\DataAccess.csproj|d:\\se\\ky5\\swp391\\git_team\\stempede-backend\\dataaccess\\constants\\cartstatusconstants.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5F108EDA-43D1-4F0D-BE78-12757F723F8E}|DataAccess\\DataAccess.csproj|solutionrelative:dataaccess\\constants\\cartstatusconstants.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5F108EDA-43D1-4F0D-BE78-12757F723F8E}|DataAccess\\DataAccess.csproj|d:\\se\\ky5\\swp391\\git_team\\stempede-backend\\dataaccess\\repositories\\implementations\\refreshtokenrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5F108EDA-43D1-4F0D-BE78-12757F723F8E}|DataAccess\\DataAccess.csproj|solutionrelative:dataaccess\\repositories\\implementations\\refreshtokenrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5F108EDA-43D1-4F0D-BE78-12757F723F8E}|DataAccess\\DataAccess.csproj|d:\\se\\ky5\\swp391\\git_team\\stempede-backend\\dataaccess\\unitofwork\\iunitofwork .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5F108EDA-43D1-4F0D-BE78-12757F723F8E}|DataAccess\\DataAccess.csproj|solutionrelative:dataaccess\\unitofwork\\iunitofwork .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5F108EDA-43D1-4F0D-BE78-12757F723F8E}|DataAccess\\DataAccess.csproj|d:\\se\\ky5\\swp391\\git_team\\stempede-backend\\dataaccess\\repositories\\interfaces\\irefreshtokenrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5F108EDA-43D1-4F0D-BE78-12757F723F8E}|DataAccess\\DataAccess.csproj|solutionrelative:dataaccess\\repositories\\interfaces\\irefreshtokenrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5F108EDA-43D1-4F0D-BE78-12757F723F8E}|DataAccess\\DataAccess.csproj|d:\\se\\ky5\\swp391\\git_team\\stempede-backend\\dataaccess\\repositories\\interfaces\\igenericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5F108EDA-43D1-4F0D-BE78-12757F723F8E}|DataAccess\\DataAccess.csproj|solutionrelative:dataaccess\\repositories\\interfaces\\igenericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5F108EDA-43D1-4F0D-BE78-12757F723F8E}|DataAccess\\DataAccess.csproj|d:\\se\\ky5\\swp391\\git_team\\stempede-backend\\dataaccess\\repositories\\implementations\\genericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5F108EDA-43D1-4F0D-BE78-12757F723F8E}|DataAccess\\DataAccess.csproj|solutionrelative:dataaccess\\repositories\\implementations\\genericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5F108EDA-43D1-4F0D-BE78-12757F723F8E}|DataAccess\\DataAccess.csproj|d:\\se\\ky5\\swp391\\git_team\\stempede-backend\\dataaccess\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5F108EDA-43D1-4F0D-BE78-12757F723F8E}|DataAccess\\DataAccess.csproj|solutionrelative:dataaccess\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\Services\\Implementation\\SubcategoryService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Stemkit\\Services\\Implementation\\SubcategoryService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\Services\\Implementation\\CartService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Stemkit\\Services\\Implementation\\CartService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\Controllers\\AdminController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Stemkit\\Controllers\\AdminController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\Services\\Implementation\\LabService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Stemkit\\Services\\Implementation\\LabService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\Services\\Implementation\\OrderService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Stemkit\\Services\\Implementation\\OrderService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Stemkit\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\Auth\\Services\\Implementation\\AuthService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Stemkit\\Auth\\Services\\Implementation\\AuthService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\Services\\Implementation\\ProductService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Stemkit\\Services\\Implementation\\ProductService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\Utils\\Implementation\\PaginatedList.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Stemkit\\Utils\\Implementation\\PaginatedList.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\Auth\\Helpers\\Implementation\\AssignMissingPermissions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Stemkit\\Auth\\Helpers\\Implementation\\AssignMissingPermissions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\Controllers\\UserPermissionsController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Stemkit\\Controllers\\UserPermissionsController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\Configurations\\MappingProfiles\\OrderProfile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Stemkit\\Configurations\\MappingProfiles\\OrderProfile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\Configurations\\MappingProfiles\\AutoMapperProfile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Stemkit\\Configurations\\MappingProfiles\\AutoMapperProfile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\Auth\\Services\\Interfaces\\IRefreshTokenService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Stemkit\\Auth\\Services\\Interfaces\\IRefreshTokenService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\Auth\\Services\\Interfaces\\IJwtTokenService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Stemkit\\Auth\\Services\\Interfaces\\IJwtTokenService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\Auth\\Services\\Interfaces\\IExternalAuthService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Stemkit\\Auth\\Services\\Interfaces\\IExternalAuthService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\Configurations\\DatabaseSettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Stemkit\\Configurations\\DatabaseSettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\Auth\\Services\\Interfaces\\IAuthService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Stemkit\\Auth\\Services\\Interfaces\\IAuthService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\Auth\\Services\\Implementation\\ExternalAuthService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Stemkit\\Auth\\Services\\Implementation\\ExternalAuthService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\Controllers\\AuthController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Stemkit\\Controllers\\AuthController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\Controllers\\CartController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Stemkit\\Controllers\\CartController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\Controllers\\UsersController .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Stemkit\\Controllers\\UsersController .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\Auth\\Services\\Implementation\\RefreshTokenService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Stemkit\\Auth\\Services\\Implementation\\RefreshTokenService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\Constants\\CartStatusConstants.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Stemkit\\Constants\\CartStatusConstants.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\Stemkit.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Stemkit\\Stemkit.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\DTOs\\ApiResponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Stemkit\\DTOs\\ApiResponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\Controllers\\ProductController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Stemkit\\Controllers\\ProductController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\DTOs\\Product\\ReadProductDto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Stemkit\\DTOs\\Product\\ReadProductDto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\DTOs\\Product\\CreateProductDto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Stemkit\\DTOs\\Product\\CreateProductDto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\DTOs\\User\\ReadUserDto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Stemkit\\DTOs\\User\\ReadUserDto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\Constants\\PaginationDefaults.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Stemkit\\Constants\\PaginationDefaults.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Stemkit\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\DTOs\\QueryParameters.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Stemkit\\DTOs\\QueryParameters.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\Controllers\\OrdersController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Stemkit\\Controllers\\OrdersController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\Constants\\DeliveryStatusConstants.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Stemkit\\Constants\\DeliveryStatusConstants.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\DTOs\\Order\\UpdateDeliveryStatusDto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Stemkit\\DTOs\\Order\\UpdateDeliveryStatusDto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\DTOs\\Reporting\\SalesReportDetailDto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Stemkit\\DTOs\\Reporting\\SalesReportDetailDto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\DTOs\\Reporting\\SalesReportDto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Stemkit\\DTOs\\Reporting\\SalesReportDto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\DTOs\\Order\\OrderDto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Stemkit\\DTOs\\Order\\OrderDto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\DTOs\\Order\\OrderDetailDto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Stemkit\\DTOs\\Order\\OrderDetailDto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\DTOs\\Order\\DeliveryDto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Stemkit\\DTOs\\Order\\DeliveryDto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 200,
+          "SelectedChildIndex": 69,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{004be353-6879-467c-9d1e-9ac23cdf6d49}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e506b91c-c606-466a-90a9-123d1d1e12b3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:13:0:{2456bd12-ecf7-4988-a4a6-67d49173f565}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{e8b06f52-6d01-11d2-aa7d-00c04f990343}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:132:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:131:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:2:0:{e8b06f52-6d01-11d2-aa7d-00c04f990343}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{873151d0-cf2e-48cc-b4bf-ad0394f6a3c3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{c9c0ae26-aa77-11d2-b3f0-0000f87570ee}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1377497384:0:{83107a3e-496a-485e-b455-16ddb978e55e}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:15:0:{e8b06f52-6d01-11d2-aa7d-00c04f990343}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:16:0:{e8b06f52-6d01-11d2-aa7d-00c04f990343}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:17:0:{e8b06f52-6d01-11d2-aa7d-00c04f990343}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:14:0:{e8b06f52-6d01-11d2-aa7d-00c04f990343}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:13:0:{e8b06f52-6d01-11d2-aa7d-00c04f990343}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:12:0:{e8b06f52-6d01-11d2-aa7d-00c04f990343}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:11:0:{e8b06f52-6d01-11d2-aa7d-00c04f990343}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:10:0:{e8b06f52-6d01-11d2-aa7d-00c04f990343}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:9:0:{e8b06f52-6d01-11d2-aa7d-00c04f990343}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:8:0:{e8b06f52-6d01-11d2-aa7d-00c04f990343}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:7:0:{e8b06f52-6d01-11d2-aa7d-00c04f990343}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:6:0:{e8b06f52-6d01-11d2-aa7d-00c04f990343}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:5:0:{e8b06f52-6d01-11d2-aa7d-00c04f990343}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:4:0:{e8b06f52-6d01-11d2-aa7d-00c04f990343}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:3:0:{e8b06f52-6d01-11d2-aa7d-00c04f990343}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:131:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:132:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:7:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:16:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:17:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:11:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{588470cc-84f8-4a57-9ac4-86bca0625ff4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1928210406:0:{bf84ea66-d821-4dba-b1b1-2777d8574775}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:350743133:0:{bf84ea66-d821-4dba-b1b1-2777d8574775}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:132:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:4:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:6:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:20:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:27:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:23:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:3:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:5:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:29:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:12:0:{2456bd12-ecf7-4988-a4a6-67d49173f565}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:8:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:9:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:10:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:7:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:5:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:3:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:11:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "OrdersController.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\StempedeAPI\\Controllers\\OrdersController.cs",
+              "RelativeDocumentMoniker": "StempedeAPI\\Controllers\\OrdersController.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\StempedeAPI\\Controllers\\OrdersController.cs",
+              "RelativeToolTip": "StempedeAPI\\Controllers\\OrdersController.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAQwCwAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T14:32:59.647Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ProductController.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\StempedeAPI\\Controllers\\ProductController.cs",
+              "RelativeDocumentMoniker": "StempedeAPI\\Controllers\\ProductController.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\StempedeAPI\\Controllers\\ProductController.cs",
+              "RelativeToolTip": "StempedeAPI\\Controllers\\ProductController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T14:33:17.597Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ReadUserDto.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\BusinessLogic\\DTOs\\User\\ReadUserDto.cs",
+              "RelativeDocumentMoniker": "BusinessLogic\\DTOs\\User\\ReadUserDto.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\BusinessLogic\\DTOs\\User\\ReadUserDto.cs",
+              "RelativeToolTip": "BusinessLogic\\DTOs\\User\\ReadUserDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T15:05:07.997Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "UserPermissionDto.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\BusinessLogic\\DTOs\\User\\UserPermissionDto.cs",
+              "RelativeDocumentMoniker": "BusinessLogic\\DTOs\\User\\UserPermissionDto.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\BusinessLogic\\DTOs\\User\\UserPermissionDto.cs",
+              "RelativeToolTip": "BusinessLogic\\DTOs\\User\\UserPermissionDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T15:05:22.247Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "UserProfileDto.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\BusinessLogic\\DTOs\\User\\UserProfileDto.cs",
+              "RelativeDocumentMoniker": "BusinessLogic\\DTOs\\User\\UserProfileDto.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\BusinessLogic\\DTOs\\User\\UserProfileDto.cs",
+              "RelativeToolTip": "BusinessLogic\\DTOs\\User\\UserProfileDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T15:05:31.285Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AssignMissingPermissions.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\BusinessLogic\\Auth\\Helpers\\Implementation\\AssignMissingPermissions.cs",
+              "RelativeDocumentMoniker": "BusinessLogic\\Auth\\Helpers\\Implementation\\AssignMissingPermissions.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\BusinessLogic\\Auth\\Helpers\\Implementation\\AssignMissingPermissions.cs",
+              "RelativeToolTip": "BusinessLogic\\Auth\\Helpers\\Implementation\\AssignMissingPermissions.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T14:54:08.355Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "CartController.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\StempedeAPI\\Controllers\\CartController.cs",
+              "RelativeDocumentMoniker": "StempedeAPI\\Controllers\\CartController.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\StempedeAPI\\Controllers\\CartController.cs",
+              "RelativeToolTip": "StempedeAPI\\Controllers\\CartController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T14:32:35.866Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\StempedeAPI\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "StempedeAPI\\Controllers\\AuthController.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\StempedeAPI\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "StempedeAPI\\Controllers\\AuthController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T14:34:49.827Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "IUserService.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\BusinessLogic\\Services\\Interfaces\\IUserService.cs",
+              "RelativeDocumentMoniker": "BusinessLogic\\Services\\Interfaces\\IUserService.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\BusinessLogic\\Services\\Interfaces\\IUserService.cs",
+              "RelativeToolTip": "BusinessLogic\\Services\\Interfaces\\IUserService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAABSAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T15:06:49.694Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "ReadSubcategoryDto.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\BusinessLogic\\DTOs\\Subcategory\\ReadSubcategoryDto.cs",
+              "RelativeDocumentMoniker": "BusinessLogic\\DTOs\\Subcategory\\ReadSubcategoryDto.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\BusinessLogic\\DTOs\\Subcategory\\ReadSubcategoryDto.cs",
+              "RelativeToolTip": "BusinessLogic\\DTOs\\Subcategory\\ReadSubcategoryDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T15:04:40.187Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "UserService.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\BusinessLogic\\Services\\Implementation\\UserService.cs",
+              "RelativeDocumentMoniker": "BusinessLogic\\Services\\Implementation\\UserService.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\BusinessLogic\\Services\\Implementation\\UserService.cs",
+              "RelativeToolTip": "BusinessLogic\\Services\\Implementation\\UserService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGMAAABTAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T14:29:21.749Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "SalesReportDetailDto.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\BusinessLogic\\DTOs\\Reporting\\SalesReportDetailDto.cs",
+              "RelativeDocumentMoniker": "BusinessLogic\\DTOs\\Reporting\\SalesReportDetailDto.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\BusinessLogic\\DTOs\\Reporting\\SalesReportDetailDto.cs",
+              "RelativeToolTip": "BusinessLogic\\DTOs\\Reporting\\SalesReportDetailDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T15:04:22.916Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "UpdateProductDto.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\BusinessLogic\\DTOs\\Product\\UpdateProductDto.cs",
+              "RelativeDocumentMoniker": "BusinessLogic\\DTOs\\Product\\UpdateProductDto.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\BusinessLogic\\DTOs\\Product\\UpdateProductDto.cs",
+              "RelativeToolTip": "BusinessLogic\\DTOs\\Product\\UpdateProductDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T15:04:03.143Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "ReadProductDto.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\BusinessLogic\\DTOs\\Product\\ReadProductDto.cs",
+              "RelativeDocumentMoniker": "BusinessLogic\\DTOs\\Product\\ReadProductDto.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\BusinessLogic\\DTOs\\Product\\ReadProductDto.cs",
+              "RelativeToolTip": "BusinessLogic\\DTOs\\Product\\ReadProductDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T15:03:39.613Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "CreateProductDto.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\BusinessLogic\\DTOs\\Product\\CreateProductDto.cs",
+              "RelativeDocumentMoniker": "BusinessLogic\\DTOs\\Product\\CreateProductDto.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\BusinessLogic\\DTOs\\Product\\CreateProductDto.cs",
+              "RelativeToolTip": "BusinessLogic\\DTOs\\Product\\CreateProductDto.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAB4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T15:03:10.776Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "OrderDetailDto.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\BusinessLogic\\DTOs\\Order\\OrderDetailDto.cs",
+              "RelativeDocumentMoniker": "BusinessLogic\\DTOs\\Order\\OrderDetailDto.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\BusinessLogic\\DTOs\\Order\\OrderDetailDto.cs",
+              "RelativeToolTip": "BusinessLogic\\DTOs\\Order\\OrderDetailDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T15:02:46.065Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "DeliveryDto.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\BusinessLogic\\DTOs\\Order\\DeliveryDto.cs",
+              "RelativeDocumentMoniker": "BusinessLogic\\DTOs\\Order\\DeliveryDto.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\BusinessLogic\\DTOs\\Order\\DeliveryDto.cs",
+              "RelativeToolTip": "BusinessLogic\\DTOs\\Order\\DeliveryDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T15:02:24.446Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "UpdateCartItemDto.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\BusinessLogic\\DTOs\\Cart\\UpdateCartItemDto.cs",
+              "RelativeDocumentMoniker": "BusinessLogic\\DTOs\\Cart\\UpdateCartItemDto.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\BusinessLogic\\DTOs\\Cart\\UpdateCartItemDto.cs",
+              "RelativeToolTip": "BusinessLogic\\DTOs\\Cart\\UpdateCartItemDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T15:02:12.741Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "ShippingAddressDto.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\BusinessLogic\\DTOs\\Cart\\ShippingAddressDto.cs",
+              "RelativeDocumentMoniker": "BusinessLogic\\DTOs\\Cart\\ShippingAddressDto.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\BusinessLogic\\DTOs\\Cart\\ShippingAddressDto.cs",
+              "RelativeToolTip": "BusinessLogic\\DTOs\\Cart\\ShippingAddressDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T15:02:11.075Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "CheckoutDto.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\BusinessLogic\\DTOs\\Cart\\CheckoutDto.cs",
+              "RelativeDocumentMoniker": "BusinessLogic\\DTOs\\Cart\\CheckoutDto.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\BusinessLogic\\DTOs\\Cart\\CheckoutDto.cs",
+              "RelativeToolTip": "BusinessLogic\\DTOs\\Cart\\CheckoutDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T15:02:07.638Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "SubcategoriesController.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\StempedeAPI\\Controllers\\SubcategoriesController.cs",
+              "RelativeDocumentMoniker": "StempedeAPI\\Controllers\\SubcategoriesController.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\StempedeAPI\\Controllers\\SubcategoriesController.cs",
+              "RelativeToolTip": "StempedeAPI\\Controllers\\SubcategoriesController.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAB4AAABRAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T14:33:28.727Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\StempedeAPI\\Program.cs",
+              "RelativeDocumentMoniker": "StempedeAPI\\Program.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\StempedeAPI\\Program.cs",
+              "RelativeToolTip": "StempedeAPI\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T14:08:39.156Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "CartService.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\BusinessLogic\\Services\\Implementation\\CartService.cs",
+              "RelativeDocumentMoniker": "BusinessLogic\\Services\\Implementation\\CartService.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\BusinessLogic\\Services\\Implementation\\CartService.cs",
+              "RelativeToolTip": "BusinessLogic\\Services\\Implementation\\CartService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T14:31:28.235Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "StempedeAPI.http",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\StempedeAPI\\StempedeAPI.http",
+              "RelativeDocumentMoniker": "StempedeAPI\\StempedeAPI.http",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\StempedeAPI\\StempedeAPI.http",
+              "RelativeToolTip": "StempedeAPI\\StempedeAPI.http",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
+              "WhenOpened": "2024-11-11T14:05:36.673Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\StempedeAPI\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "StempedeAPI\\Properties\\launchSettings.json",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\StempedeAPI\\Properties\\launchSettings.json",
+              "RelativeToolTip": "StempedeAPI\\Properties\\launchSettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-11-11T14:06:59.547Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "AssignMissingPermissionsTests.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\StempedeAPI.Tests\\AssignMissingPermissionsTests.cs",
+              "RelativeDocumentMoniker": "StempedeAPI.Tests\\AssignMissingPermissionsTests.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\StempedeAPI.Tests\\AssignMissingPermissionsTests.cs",
+              "RelativeToolTip": "StempedeAPI.Tests\\AssignMissingPermissionsTests.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAABKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T14:50:49.571Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "MockHelper.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\StempedeAPI.Tests\\Helpers\\MockHelper.cs",
+              "RelativeDocumentMoniker": "StempedeAPI.Tests\\Helpers\\MockHelper.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\StempedeAPI.Tests\\Helpers\\MockHelper.cs",
+              "RelativeToolTip": "StempedeAPI.Tests\\Helpers\\MockHelper.cs",
+              "ViewState": "AgIAAD4AAAAAAAAAAAAowFMAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T14:51:17.601Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "UsersControllerTests.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\StempedeAPI.Tests\\UsersControllerTests.cs",
+              "RelativeDocumentMoniker": "StempedeAPI.Tests\\UsersControllerTests.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\StempedeAPI.Tests\\UsersControllerTests.cs",
+              "RelativeToolTip": "StempedeAPI.Tests\\UsersControllerTests.cs",
+              "ViewState": "AgIAADwAAAAAAAAAAAAkwFMAAABGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T14:51:02.143Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "AuthServiceTests.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\StempedeAPI.Tests\\AuthServiceTests.cs",
+              "RelativeDocumentMoniker": "StempedeAPI.Tests\\AuthServiceTests.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\StempedeAPI.Tests\\AuthServiceTests.cs",
+              "RelativeToolTip": "StempedeAPI.Tests\\AuthServiceTests.cs",
+              "ViewState": "AgIAAIcAAAAAAAAAAAAQwJUAAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T14:50:13.161Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "UserPermissionsController.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\StempedeAPI\\Controllers\\UserPermissionsController.cs",
+              "RelativeDocumentMoniker": "StempedeAPI\\Controllers\\UserPermissionsController.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\StempedeAPI\\Controllers\\UserPermissionsController.cs",
+              "RelativeToolTip": "StempedeAPI\\Controllers\\UserPermissionsController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAABQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T14:37:59.46Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "OrderService.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\BusinessLogic\\Services\\Implementation\\OrderService.cs",
+              "RelativeDocumentMoniker": "BusinessLogic\\Services\\Implementation\\OrderService.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\BusinessLogic\\Services\\Implementation\\OrderService.cs",
+              "RelativeToolTip": "BusinessLogic\\Services\\Implementation\\OrderService.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABEAAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T14:25:11.019Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "LabService.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\BusinessLogic\\Services\\Implementation\\LabService.cs",
+              "RelativeDocumentMoniker": "BusinessLogic\\Services\\Implementation\\LabService.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\BusinessLogic\\Services\\Implementation\\LabService.cs",
+              "RelativeToolTip": "BusinessLogic\\Services\\Implementation\\LabService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T14:28:30.488Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "ExternalAuthService.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\BusinessLogic\\Auth\\Services\\Implementation\\ExternalAuthService.cs",
+              "RelativeDocumentMoniker": "BusinessLogic\\Auth\\Services\\Implementation\\ExternalAuthService.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\BusinessLogic\\Auth\\Services\\Implementation\\ExternalAuthService.cs",
+              "RelativeToolTip": "BusinessLogic\\Auth\\Services\\Implementation\\ExternalAuthService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwBMAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T14:40:36.32Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "AuthService.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\BusinessLogic\\Auth\\Services\\Implementation\\AuthService.cs",
+              "RelativeDocumentMoniker": "BusinessLogic\\Auth\\Services\\Implementation\\AuthService.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\BusinessLogic\\Auth\\Services\\Implementation\\AuthService.cs",
+              "RelativeToolTip": "BusinessLogic\\Auth\\Services\\Implementation\\AuthService.cs",
+              "ViewState": "AgIAAEcAAAAAAAAAAAAIwFAAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T14:40:01.918Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "UsersController .cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\StempedeAPI\\Controllers\\UsersController .cs",
+              "RelativeDocumentMoniker": "StempedeAPI\\Controllers\\UsersController .cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\StempedeAPI\\Controllers\\UsersController .cs",
+              "RelativeToolTip": "StempedeAPI\\Controllers\\UsersController .cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADMAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T14:37:43.369Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "LabsController.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\StempedeAPI\\Controllers\\LabsController.cs",
+              "RelativeDocumentMoniker": "StempedeAPI\\Controllers\\LabsController.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\StempedeAPI\\Controllers\\LabsController.cs",
+              "RelativeToolTip": "StempedeAPI\\Controllers\\LabsController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T14:32:49.934Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "RefreshTokenService.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\BusinessLogic\\Auth\\Services\\Implementation\\RefreshTokenService.cs",
+              "RelativeDocumentMoniker": "BusinessLogic\\Auth\\Services\\Implementation\\RefreshTokenService.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\BusinessLogic\\Auth\\Services\\Implementation\\RefreshTokenService.cs",
+              "RelativeToolTip": "BusinessLogic\\Auth\\Services\\Implementation\\RefreshTokenService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAA+AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T14:42:18.165Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "JwtTokenService.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\BusinessLogic\\Auth\\Services\\Implementation\\JwtTokenService.cs",
+              "RelativeDocumentMoniker": "BusinessLogic\\Auth\\Services\\Implementation\\JwtTokenService.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\BusinessLogic\\Auth\\Services\\Implementation\\JwtTokenService.cs",
+              "RelativeToolTip": "BusinessLogic\\Auth\\Services\\Implementation\\JwtTokenService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T14:40:45.804Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "UserPermissionService.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\BusinessLogic\\Services\\Implementation\\UserPermissionService.cs",
+              "RelativeDocumentMoniker": "BusinessLogic\\Services\\Implementation\\UserPermissionService.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\BusinessLogic\\Services\\Implementation\\UserPermissionService.cs",
+              "RelativeToolTip": "BusinessLogic\\Services\\Implementation\\UserPermissionService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAABAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T14:29:28.653Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "ProductService.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\BusinessLogic\\Services\\Implementation\\ProductService.cs",
+              "RelativeDocumentMoniker": "BusinessLogic\\Services\\Implementation\\ProductService.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\BusinessLogic\\Services\\Implementation\\ProductService.cs",
+              "RelativeToolTip": "BusinessLogic\\Services\\Implementation\\ProductService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T14:29:11.509Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 48,
+              "Title": "SubcategoryService.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\Services\\Implementation\\SubcategoryService.cs",
+              "RelativeDocumentMoniker": "Stemkit\\Services\\Implementation\\SubcategoryService.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\Services\\Implementation\\SubcategoryService.cs",
+              "RelativeToolTip": "Stemkit\\Services\\Implementation\\SubcategoryService.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T13:57:22.32Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 49,
+              "Title": "CartService.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\Services\\Implementation\\CartService.cs",
+              "RelativeDocumentMoniker": "Stemkit\\Services\\Implementation\\CartService.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\Services\\Implementation\\CartService.cs",
+              "RelativeToolTip": "Stemkit\\Services\\Implementation\\CartService.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T13:39:53.59Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 50,
+              "Title": "AdminController.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\Controllers\\AdminController.cs",
+              "RelativeDocumentMoniker": "Stemkit\\Controllers\\AdminController.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\Controllers\\AdminController.cs",
+              "RelativeToolTip": "Stemkit\\Controllers\\AdminController.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T12:42:16.988Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 51,
+              "Title": "LabService.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\Services\\Implementation\\LabService.cs",
+              "RelativeDocumentMoniker": "Stemkit\\Services\\Implementation\\LabService.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\Services\\Implementation\\LabService.cs",
+              "RelativeToolTip": "Stemkit\\Services\\Implementation\\LabService.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-06T08:56:29.367Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 52,
+              "Title": "OrderService.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\Services\\Implementation\\OrderService.cs",
+              "RelativeDocumentMoniker": "Stemkit\\Services\\Implementation\\OrderService.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\Services\\Implementation\\OrderService.cs",
+              "RelativeToolTip": "Stemkit\\Services\\Implementation\\OrderService.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-06T08:56:16.824Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 41,
+              "Title": "CartStatusConstants.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\DataAccess\\Constants\\CartStatusConstants.cs",
+              "RelativeDocumentMoniker": "DataAccess\\Constants\\CartStatusConstants.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\DataAccess\\Constants\\CartStatusConstants.cs",
+              "RelativeToolTip": "DataAccess\\Constants\\CartStatusConstants.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T13:27:21.022Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
+              "Title": "Cart.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\DataAccess\\Entities\\Cart.cs",
+              "RelativeDocumentMoniker": "DataAccess\\Entities\\Cart.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\DataAccess\\Entities\\Cart.cs",
+              "RelativeToolTip": "DataAccess\\Entities\\Cart.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T13:25:56.158Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 53,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\Program.cs",
+              "RelativeDocumentMoniker": "Stemkit\\Program.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\Program.cs",
+              "RelativeToolTip": "Stemkit\\Program.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-06T09:37:56.711Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 54,
+              "Title": "AuthService.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\Auth\\Services\\Implementation\\AuthService.cs",
+              "RelativeDocumentMoniker": "Stemkit\\Auth\\Services\\Implementation\\AuthService.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\Auth\\Services\\Implementation\\AuthService.cs",
+              "RelativeToolTip": "Stemkit\\Auth\\Services\\Implementation\\AuthService.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-07T05:38:36.299Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 55,
+              "Title": "ProductService.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\Services\\Implementation\\ProductService.cs",
+              "RelativeDocumentMoniker": "Stemkit\\Services\\Implementation\\ProductService.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\Services\\Implementation\\ProductService.cs",
+              "RelativeToolTip": "Stemkit\\Services\\Implementation\\ProductService.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-09T07:35:34.45Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 56,
+              "Title": "PaginatedList.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\Utils\\Implementation\\PaginatedList.cs",
+              "RelativeDocumentMoniker": "Stemkit\\Utils\\Implementation\\PaginatedList.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\Utils\\Implementation\\PaginatedList.cs",
+              "RelativeToolTip": "Stemkit\\Utils\\Implementation\\PaginatedList.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-09T07:02:02.14Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 57,
+              "Title": "AssignMissingPermissions.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\Auth\\Helpers\\Implementation\\AssignMissingPermissions.cs",
+              "RelativeDocumentMoniker": "Stemkit\\Auth\\Helpers\\Implementation\\AssignMissingPermissions.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\Auth\\Helpers\\Implementation\\AssignMissingPermissions.cs",
+              "RelativeToolTip": "Stemkit\\Auth\\Helpers\\Implementation\\AssignMissingPermissions.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T13:39:57.521Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 58,
+              "Title": "UserPermissionsController.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\Controllers\\UserPermissionsController.cs",
+              "RelativeDocumentMoniker": "Stemkit\\Controllers\\UserPermissionsController.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\Controllers\\UserPermissionsController.cs",
+              "RelativeToolTip": "Stemkit\\Controllers\\UserPermissionsController.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T13:51:22.845Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 59,
+              "Title": "OrderProfile.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\Configurations\\MappingProfiles\\OrderProfile.cs",
+              "RelativeDocumentMoniker": "Stemkit\\Configurations\\MappingProfiles\\OrderProfile.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\Configurations\\MappingProfiles\\OrderProfile.cs",
+              "RelativeToolTip": "Stemkit\\Configurations\\MappingProfiles\\OrderProfile.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-07T05:33:56.499Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 60,
+              "Title": "AutoMapperProfile.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\Configurations\\MappingProfiles\\AutoMapperProfile.cs",
+              "RelativeDocumentMoniker": "Stemkit\\Configurations\\MappingProfiles\\AutoMapperProfile.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\Configurations\\MappingProfiles\\AutoMapperProfile.cs",
+              "RelativeToolTip": "Stemkit\\Configurations\\MappingProfiles\\AutoMapperProfile.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-07T05:15:16.425Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 61,
+              "Title": "IRefreshTokenService.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\Auth\\Services\\Interfaces\\IRefreshTokenService.cs",
+              "RelativeDocumentMoniker": "Stemkit\\Auth\\Services\\Interfaces\\IRefreshTokenService.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\Auth\\Services\\Interfaces\\IRefreshTokenService.cs",
+              "RelativeToolTip": "Stemkit\\Auth\\Services\\Interfaces\\IRefreshTokenService.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T13:49:18.513Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 62,
+              "Title": "IJwtTokenService.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\Auth\\Services\\Interfaces\\IJwtTokenService.cs",
+              "RelativeDocumentMoniker": "Stemkit\\Auth\\Services\\Interfaces\\IJwtTokenService.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\Auth\\Services\\Interfaces\\IJwtTokenService.cs",
+              "RelativeToolTip": "Stemkit\\Auth\\Services\\Interfaces\\IJwtTokenService.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T13:49:08.007Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 63,
+              "Title": "IExternalAuthService.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\Auth\\Services\\Interfaces\\IExternalAuthService.cs",
+              "RelativeDocumentMoniker": "Stemkit\\Auth\\Services\\Interfaces\\IExternalAuthService.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\Auth\\Services\\Interfaces\\IExternalAuthService.cs",
+              "RelativeToolTip": "Stemkit\\Auth\\Services\\Interfaces\\IExternalAuthService.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T13:49:06.763Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 64,
+              "Title": "DatabaseSettings.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\Configurations\\DatabaseSettings.cs",
+              "RelativeDocumentMoniker": "Stemkit\\Configurations\\DatabaseSettings.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\Configurations\\DatabaseSettings.cs",
+              "RelativeToolTip": "Stemkit\\Configurations\\DatabaseSettings.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-09T07:31:38.657Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 65,
+              "Title": "IAuthService.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\Auth\\Services\\Interfaces\\IAuthService.cs",
+              "RelativeDocumentMoniker": "Stemkit\\Auth\\Services\\Interfaces\\IAuthService.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\Auth\\Services\\Interfaces\\IAuthService.cs",
+              "RelativeToolTip": "Stemkit\\Auth\\Services\\Interfaces\\IAuthService.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T13:49:05.745Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 66,
+              "Title": "ExternalAuthService.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\Auth\\Services\\Implementation\\ExternalAuthService.cs",
+              "RelativeDocumentMoniker": "Stemkit\\Auth\\Services\\Implementation\\ExternalAuthService.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\Auth\\Services\\Implementation\\ExternalAuthService.cs",
+              "RelativeToolTip": "Stemkit\\Auth\\Services\\Implementation\\ExternalAuthService.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T13:48:06.48Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 67,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "Stemkit\\Controllers\\AuthController.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "Stemkit\\Controllers\\AuthController.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-07T05:27:30.28Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 68,
+              "Title": "CartController.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\Controllers\\CartController.cs",
+              "RelativeDocumentMoniker": "Stemkit\\Controllers\\CartController.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\Controllers\\CartController.cs",
+              "RelativeToolTip": "Stemkit\\Controllers\\CartController.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-07T05:20:04.641Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 69,
+              "Title": "UsersController .cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\Controllers\\UsersController .cs",
+              "RelativeDocumentMoniker": "Stemkit\\Controllers\\UsersController .cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\Controllers\\UsersController .cs",
+              "RelativeToolTip": "Stemkit\\Controllers\\UsersController .cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T05:26:24.176Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 70,
+              "Title": "RefreshTokenService.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\Auth\\Services\\Implementation\\RefreshTokenService.cs",
+              "RelativeDocumentMoniker": "Stemkit\\Auth\\Services\\Implementation\\RefreshTokenService.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\Auth\\Services\\Implementation\\RefreshTokenService.cs",
+              "RelativeToolTip": "Stemkit\\Auth\\Services\\Implementation\\RefreshTokenService.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-07T05:37:29.225Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 43,
+              "Title": "IUnitOfWork .cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\DataAccess\\UnitOfWork\\IUnitOfWork .cs",
+              "RelativeDocumentMoniker": "DataAccess\\UnitOfWork\\IUnitOfWork .cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\DataAccess\\UnitOfWork\\IUnitOfWork .cs",
+              "RelativeToolTip": "DataAccess\\UnitOfWork\\IUnitOfWork .cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T13:32:26.433Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 42,
+              "Title": "RefreshTokenRepository.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\DataAccess\\Repositories\\Implementations\\RefreshTokenRepository.cs",
+              "RelativeDocumentMoniker": "DataAccess\\Repositories\\Implementations\\RefreshTokenRepository.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\DataAccess\\Repositories\\Implementations\\RefreshTokenRepository.cs",
+              "RelativeToolTip": "DataAccess\\Repositories\\Implementations\\RefreshTokenRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAkAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T13:28:49.918Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 44,
+              "Title": "IRefreshTokenRepository.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\DataAccess\\Repositories\\Interfaces\\IRefreshTokenRepository.cs",
+              "RelativeDocumentMoniker": "DataAccess\\Repositories\\Interfaces\\IRefreshTokenRepository.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\DataAccess\\Repositories\\Interfaces\\IRefreshTokenRepository.cs",
+              "RelativeToolTip": "DataAccess\\Repositories\\Interfaces\\IRefreshTokenRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T13:30:07.638Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 45,
+              "Title": "IGenericRepository.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\DataAccess\\Repositories\\Interfaces\\IGenericRepository.cs",
+              "RelativeDocumentMoniker": "DataAccess\\Repositories\\Interfaces\\IGenericRepository.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\DataAccess\\Repositories\\Interfaces\\IGenericRepository.cs",
+              "RelativeToolTip": "DataAccess\\Repositories\\Interfaces\\IGenericRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T13:30:02.504Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 46,
+              "Title": "GenericRepository.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\DataAccess\\Repositories\\Implementations\\GenericRepository.cs",
+              "RelativeDocumentMoniker": "DataAccess\\Repositories\\Implementations\\GenericRepository.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\DataAccess\\Repositories\\Implementations\\GenericRepository.cs",
+              "RelativeToolTip": "DataAccess\\Repositories\\Implementations\\GenericRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T13:29:31.927Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 71,
+              "Title": "CartStatusConstants.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\Constants\\CartStatusConstants.cs",
+              "RelativeDocumentMoniker": "Stemkit\\Constants\\CartStatusConstants.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\Constants\\CartStatusConstants.cs",
+              "RelativeToolTip": "Stemkit\\Constants\\CartStatusConstants.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T13:27:13.815Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 47,
+              "Title": "User.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\DataAccess\\Entities\\User.cs",
+              "RelativeDocumentMoniker": "DataAccess\\Entities\\User.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\DataAccess\\Entities\\User.cs",
+              "RelativeToolTip": "DataAccess\\Entities\\User.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T13:19:10.626Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 72,
+              "Title": "Stemkit.http",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\Stemkit.http",
+              "RelativeDocumentMoniker": "Stemkit\\Stemkit.http",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\Stemkit.http",
+              "RelativeToolTip": "Stemkit\\Stemkit.http",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
+              "WhenOpened": "2024-11-11T12:41:45.109Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 73,
+              "Title": "ApiResponse.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\DTOs\\ApiResponse.cs",
+              "RelativeDocumentMoniker": "Stemkit\\DTOs\\ApiResponse.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\DTOs\\ApiResponse.cs",
+              "RelativeToolTip": "Stemkit\\DTOs\\ApiResponse.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-07T05:18:08.128Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 74,
+              "Title": "ProductController.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\Controllers\\ProductController.cs",
+              "RelativeDocumentMoniker": "Stemkit\\Controllers\\ProductController.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\Controllers\\ProductController.cs",
+              "RelativeToolTip": "Stemkit\\Controllers\\ProductController.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-07T05:24:17.866Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 75,
+              "Title": "ReadProductDto.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\DTOs\\Product\\ReadProductDto.cs",
+              "RelativeDocumentMoniker": "Stemkit\\DTOs\\Product\\ReadProductDto.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\DTOs\\Product\\ReadProductDto.cs",
+              "RelativeToolTip": "Stemkit\\DTOs\\Product\\ReadProductDto.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T05:45:52.54Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 76,
+              "Title": "CreateProductDto.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\DTOs\\Product\\CreateProductDto.cs",
+              "RelativeDocumentMoniker": "Stemkit\\DTOs\\Product\\CreateProductDto.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\DTOs\\Product\\CreateProductDto.cs",
+              "RelativeToolTip": "Stemkit\\DTOs\\Product\\CreateProductDto.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T05:45:56.288Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 77,
+              "Title": "ReadUserDto.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\DTOs\\User\\ReadUserDto.cs",
+              "RelativeDocumentMoniker": "Stemkit\\DTOs\\User\\ReadUserDto.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\DTOs\\User\\ReadUserDto.cs",
+              "RelativeToolTip": "Stemkit\\DTOs\\User\\ReadUserDto.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T05:15:25.076Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 78,
+              "Title": "PaginationDefaults.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\Constants\\PaginationDefaults.cs",
+              "RelativeDocumentMoniker": "Stemkit\\Constants\\PaginationDefaults.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\Constants\\PaginationDefaults.cs",
+              "RelativeToolTip": "Stemkit\\Constants\\PaginationDefaults.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-09T09:35:52.326Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 79,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\appsettings.json",
+              "RelativeDocumentMoniker": "Stemkit\\appsettings.json",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\appsettings.json",
+              "RelativeToolTip": "Stemkit\\appsettings.json",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-11-10T03:22:19.372Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 80,
+              "Title": "QueryParameters.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\DTOs\\QueryParameters.cs",
+              "RelativeDocumentMoniker": "Stemkit\\DTOs\\QueryParameters.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\DTOs\\QueryParameters.cs",
+              "RelativeToolTip": "Stemkit\\DTOs\\QueryParameters.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-09T08:57:58.505Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 81,
+              "Title": "OrdersController.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\Controllers\\OrdersController.cs",
+              "RelativeDocumentMoniker": "Stemkit\\Controllers\\OrdersController.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\Controllers\\OrdersController.cs",
+              "RelativeToolTip": "Stemkit\\Controllers\\OrdersController.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-06T10:20:00.433Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 82,
+              "Title": "DeliveryStatusConstants.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\Constants\\DeliveryStatusConstants.cs",
+              "RelativeDocumentMoniker": "Stemkit\\Constants\\DeliveryStatusConstants.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\Constants\\DeliveryStatusConstants.cs",
+              "RelativeToolTip": "Stemkit\\Constants\\DeliveryStatusConstants.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-06T08:50:00.481Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 83,
+              "Title": "UpdateDeliveryStatusDto.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\DTOs\\Order\\UpdateDeliveryStatusDto.cs",
+              "RelativeDocumentMoniker": "Stemkit\\DTOs\\Order\\UpdateDeliveryStatusDto.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\DTOs\\Order\\UpdateDeliveryStatusDto.cs",
+              "RelativeToolTip": "Stemkit\\DTOs\\Order\\UpdateDeliveryStatusDto.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-07T05:12:58.741Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 84,
+              "Title": "SalesReportDetailDto.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\DTOs\\Reporting\\SalesReportDetailDto.cs",
+              "RelativeDocumentMoniker": "Stemkit\\DTOs\\Reporting\\SalesReportDetailDto.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\DTOs\\Reporting\\SalesReportDetailDto.cs",
+              "RelativeToolTip": "Stemkit\\DTOs\\Reporting\\SalesReportDetailDto.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-07T05:09:05.677Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 85,
+              "Title": "SalesReportDto.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\DTOs\\Reporting\\SalesReportDto.cs",
+              "RelativeDocumentMoniker": "Stemkit\\DTOs\\Reporting\\SalesReportDto.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\DTOs\\Reporting\\SalesReportDto.cs",
+              "RelativeToolTip": "Stemkit\\DTOs\\Reporting\\SalesReportDto.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-07T05:09:46.112Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 86,
+              "Title": "OrderDto.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\DTOs\\Order\\OrderDto.cs",
+              "RelativeDocumentMoniker": "Stemkit\\DTOs\\Order\\OrderDto.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\DTOs\\Order\\OrderDto.cs",
+              "RelativeToolTip": "Stemkit\\DTOs\\Order\\OrderDto.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-06T10:07:52.318Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 87,
+              "Title": "OrderDetailDto.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\DTOs\\Order\\OrderDetailDto.cs",
+              "RelativeDocumentMoniker": "Stemkit\\DTOs\\Order\\OrderDetailDto.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\DTOs\\Order\\OrderDetailDto.cs",
+              "RelativeToolTip": "Stemkit\\DTOs\\Order\\OrderDetailDto.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-06T10:10:47.873Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 88,
+              "Title": "DeliveryDto.cs",
+              "DocumentMoniker": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\DTOs\\Order\\DeliveryDto.cs",
+              "RelativeDocumentMoniker": "Stemkit\\DTOs\\Order\\DeliveryDto.cs",
+              "ToolTip": "D:\\SE\\Ky5\\SWP391\\Git_team\\STEMPEDE-backend\\Stemkit\\DTOs\\Order\\DeliveryDto.cs",
+              "RelativeToolTip": "Stemkit\\DTOs\\Order\\DeliveryDto.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-07T05:04:50.167Z"
+            }
+          ]
+        },
+        {
+          "DockedHeight": 200,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:12:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:13:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:10:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:25:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:26:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:31:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:32:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:33:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:35:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:36:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:38:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:39:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:40:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:42:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:15:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:24:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:28:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:22:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:13:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:17:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:15:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            }
+          ]
+        },
+        {
+          "DockedHeight": 200,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:9:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
