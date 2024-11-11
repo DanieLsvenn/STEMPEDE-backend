@@ -1,6 +1,0 @@
-@Stemkit_HostAddress = http://localhost:5229
-
-GET {{Stemkit_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###
