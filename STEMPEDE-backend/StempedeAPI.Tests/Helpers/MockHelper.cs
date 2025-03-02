@@ -1,11 +1,11 @@
 ﻿using Moq;
 using System.Linq.Expressions;
 using Google.Apis.Auth;
-using DataAccess.Entities;
-using DataAccess.Repositories.Interfaces;
-using DataAccess.Data;
-using BusinessLogic.Auth.Helpers.Interfaces;
-using BusinessLogic.Services.Interfaces;
+using Domain;
+using Application.Services.Interfaces;
+using Application.Authentication.Helpers.Interfaces;
+using Domain.IRepositories;
+using Domain.Entities;
 
 namespace StempedeAPI.Tests.Helpers
 {

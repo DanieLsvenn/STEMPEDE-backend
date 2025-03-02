@@ -1,7 +1,7 @@
-﻿using BusinessLogic.Auth.Helpers.Implementation;
-using BusinessLogic.Configurations;
-using DataAccess.Data;
-using DataAccess.Entities;
+﻿using Application.Authentication.Helpers.Implementation;
+using Domain;
+using Domain.Entities;
+using Infrastructure;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Moq;

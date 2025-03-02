@@ -1,14 +1,14 @@
-﻿using BusinessLogic.DTOs.User;
-using BusinessLogic.DTOs;
-using DataAccess.Data;
-using DataAccess.Entities;
-using DataAccess.Repositories.Interfaces;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Moq;
 using StempedeAPI.Controllers;
 using StempedeAPI.Tests.Helpers;
 using System.Security.Claims;
+using Domain;
+using Application.DTOs.User;
+using Application.DTOs;
+using Domain.IRepositories;
+using Domain.Entities;
 
 namespace StempedeAPI.Tests
 {
