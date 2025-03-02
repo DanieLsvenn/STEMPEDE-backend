@@ -5,14 +5,14 @@ using AutoMapper;
 using Microsoft.Extensions.Options;
 using FluentAssertions;
 using System.Linq.Expressions;
-using DataAccess.Data;
-using DataAccess.Entities;
-using BusinessLogic.Auth.Services.Interfaces;
-using BusinessLogic.Auth.Services.Implementation;
-using BusinessLogic.Configurations;
-using BusinessLogic.Auth.Helpers.Interfaces;
-using BusinessLogic.Configurations.MappingProfiles;
-using BusinessLogic.DTOs.Auth;
+using Domain;
+using Application.MappingProfiles;
+using Application.Authentication.Services.Interfaces;
+using Application.Authentication.Helpers.Interfaces;
+using Application.Authentication.Services.Implementation;
+using Domain.Entities;
+using Infrastructure;
+using Application.DTOs.Auth;
 
 namespace StempedeAPI.Tests
 {
@@ -21,18 +21,18 @@ namespace StempedeAPI.Tests
         private readonly Mock<IUnitOfWork> _unitOfWorkMock;
         private readonly Mock<IRefreshTokenService> _refreshTokenServiceMock;
         private readonly Mock<IJwtTokenService> _jwtTokenServiceMock;
-        private readonly Mock<ILogger<AuthService>> _loggerMock;
+        private readonly Mock<ILogger<AuthenticationService>> _loggerMock;
         private readonly IMapper _mapper;
         private readonly Mock<IOptions<DatabaseSettings>> _dbSettingsMock;
         private readonly Mock<IAssignMissingPermissions> _assignMissingPermissionsMock;
-        private readonly AuthService _authService;
+        private readonly AuthenticationService _authService;
 
         public AuthServiceTests()
         {
             _unitOfWorkMock = new Mock<IUnitOfWork>();
             _refreshTokenServiceMock = new Mock<IRefreshTokenService>();
             _jwtTokenServiceMock = new Mock<IJwtTokenService>();
-            _loggerMock = new Mock<ILogger<AuthService>>();
+            _loggerMock = new Mock<ILogger<AuthenticationService>>();
             _dbSettingsMock = new Mock<IOptions<DatabaseSettings>>();
             _assignMissingPermissionsMock = new Mock<IAssignMissingPermissions>();
 
@@ -48,7 +48,7 @@ namespace StempedeAPI.Tests
                 Collation = "SQL_Latin1_General_CP1_CI_AS"
             });
 
-            _authService = new AuthService(
+            _authService = new AuthenticationService(
                 _unitOfWorkMock.Object,
                 _refreshTokenServiceMock.Object,
                 _jwtTokenServiceMock.Object,

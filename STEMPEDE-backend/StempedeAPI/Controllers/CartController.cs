@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using DataAccess.Data;
-using DataAccess.Entities;
-using BusinessLogic.Services.Interfaces;
-using BusinessLogic.DTOs.Cart;
-using BusinessLogic.DTOs;
+using Domain;
+using Application.DTOs.Cart;
+using Application.DTOs;
+using Application.Services.Interfaces;
+using Domain.Entities;
 
 namespace StempedeAPI.Controllers
 {

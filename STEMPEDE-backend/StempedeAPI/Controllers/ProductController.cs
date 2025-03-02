@@ -1,9 +1,9 @@
-﻿using BusinessLogic.DTOs.Product;
-using BusinessLogic.DTOs;
-using BusinessLogic.Services.Interfaces;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using BusinessLogic.Utils.Implementation;
+using Application.DTOs;
+using Application.Services.Interfaces;
+using Application.Utils.Implementation;
+using Application.DTOs.Product;
 
 namespace StempedeAPI.Controllers
 {

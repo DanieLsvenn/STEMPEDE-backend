@@ -1,25 +1,13 @@
 
-using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using System.Text.Json.Serialization;
 using Microsoft.OpenApi.Models;
 using System.Reflection;
-using DataAccess;
-using DataAccess.Repositories.Interfaces;
-using DataAccess.Repositories.Implementations;
-using DataAccess.Data;
-using BusinessLogic.Auth.Helpers.Implementation;
-using BusinessLogic.Auth.Helpers.Interfaces;
-using BusinessLogic.Auth.Services.Implementation;
-using BusinessLogic.Auth.Services.Interfaces;
-using BusinessLogic.Services.Implementation;
-using BusinessLogic.Services.Interfaces;
-using BusinessLogic.Utils.Implementation;
-using BusinessLogic.Utils.Interfaces;
-using BusinessLogic.Configurations;
-using BusinessLogic.Configurations.MappingProfiles;
+using Application;
+using Infrastructure;
+using Infrastructure.PaymentProviders.VnPay;
 
 namespace StempedeAPI
 {
@@ -42,14 +30,13 @@ namespace StempedeAPI
                                     .AllowAnyHeader());
             });
 
-            // Conditional registration of SQL Server based on the environment
-            builder.Services.AddDbContext<AppDbContext>(options =>
-            {
-                options.UseSqlServer(builder.Configuration.GetConnectionString("KitStemHubDb"));
-            });
 
-            // Bind DatabaseSettings
-            builder.Services.Configure<DatabaseSettings>(builder.Configuration.GetSection("DatabaseSettings"));
+            builder.Services.AddHttpContextAccessor();
+
+            builder.Services.Configure<VnPaySettings>(builder.Configuration.GetSection("Vnpay"));
+
+            builder.Services.AddApplicationServices();
+            builder.Services.AddInfrastructureServices(builder.Configuration);
 
             // Add configuration for user secrets
             builder.Configuration.AddUserSecrets<Program>();
@@ -82,35 +69,6 @@ namespace StempedeAPI
                     ClockSkew = TimeSpan.Zero // Eliminate clock skew
                 };
             });
-
-            
-            // Register Generic Repository
-            builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
-
-            // Register Specific Repositories
-            builder.Services.AddScoped<IRefreshTokenRepository, RefreshTokenRepository>();
-
-            // Register Unit of Work
-            builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
-
-            // Register services
-            builder.Services.AddScoped<IAuthService, AuthService>();
-            builder.Services.AddScoped<IJwtTokenService, JwtTokenService>();
-            builder.Services.AddScoped<IRefreshTokenService, RefreshTokenService>();
-            builder.Services.AddScoped<IDateTimeProvider, DateTimeProvider>();
-            builder.Services.AddScoped<IGoogleTokenValidator, GoogleTokenValidator>();
-            builder.Services.AddScoped<IExternalAuthService, ExternalAuthService>();
-            builder.Services.AddScoped<IUserService, UserService>();
-            builder.Services.AddScoped<IProductService, ProductService>();
-            builder.Services.AddScoped<ILabService, LabService>();
-            builder.Services.AddScoped<ISubcategoryService, SubcategoryService>();
-            builder.Services.AddScoped<ICartService, CartService>();
-            builder.Services.AddScoped<IUserPermissionService, UserPermissionService>();
-            builder.Services.AddScoped<IAssignMissingPermissions, AssignMissingPermissions>();
-            builder.Services.AddScoped<IOrderService, OrderService>();
-
-            // Register AutoMapper
-            builder.Services.AddAutoMapper(typeof(AutoMapperProfile).Assembly);
 
             // Add controllers and other services
             builder.Services.AddControllers().AddJsonOptions(options => options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);

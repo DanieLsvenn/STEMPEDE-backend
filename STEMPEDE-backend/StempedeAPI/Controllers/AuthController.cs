@@ -1,6 +1,6 @@
-﻿using BusinessLogic.Auth.Services.Interfaces;
-using BusinessLogic.DTOs;
-using BusinessLogic.DTOs.Auth;
+﻿using Application.Authentication.Services.Interfaces;
+using Application.DTOs;
+using Application.DTOs.Auth;
 using Microsoft.AspNetCore.Mvc;
 
 namespace StempedeAPI.Controllers
@@ -9,11 +9,11 @@ namespace StempedeAPI.Controllers
     [Route("api/[controller]")]
     public class AuthController : ControllerBase
     {
-        private readonly IAuthService _authService;
+        private readonly IAuthenticationService _authService;
         private readonly ILogger<AuthController> _logger;
         private readonly IExternalAuthService _externalAuthService;
 
-        public AuthController(IAuthService authService, ILogger<AuthController> logger, IExternalAuthService externalAuthService)
+        public AuthController(IAuthenticationService authService, ILogger<AuthController> logger, IExternalAuthService externalAuthService)
         {
             _externalAuthService = externalAuthService;
             _authService = authService;

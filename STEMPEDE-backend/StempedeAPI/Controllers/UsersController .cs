@@ -1,7 +1,7 @@
-﻿using BusinessLogic.DTOs;
-using BusinessLogic.DTOs.User;
-using DataAccess.Data;
-using DataAccess.Entities;
+﻿using Application.DTOs;
+using Application.DTOs.User;
+using Domain;
+using Domain.Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;

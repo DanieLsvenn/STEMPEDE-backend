@@ -1,0 +1,13 @@
+﻿using Application.DTOs.Auth;
+
+namespace Application.Authentication.Services.Interfaces
+{
+    public interface IAuthenticationService
+    {
+        Task<AuthResponseDto> RegisterAsync(UserRegistrationDto registrationDto, string ipAddress);
+        Task<LoginResponseDto> LoginAsync(UserLoginDto loginDto, string ipAddress);
+        Task<AuthResponseDto> LogoutAsync(string refreshToken, string ipAddress);
+        Task<AuthResponseDto> RefreshTokenAsync(string token, string ipAddress);
+
+    }
+}
